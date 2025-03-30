@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://fontlibrary.org/face/cooper-hewitt" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>frgrnt</title>
   <style>
+    @font-face {
+      font-family: 'Host Grotesk';
+      src: url('fonts/HostGrotesk-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Host Grotesk';
+      src: url('fonts/HostGrotesk-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+    }
+
     body {
       margin: 0;
       padding: 0;
       background-color: #000000;
-      font-family: 'CooperHewitt-Heavy', sans-serif;
+      font-family: 'Host Grotesk', sans-serif;
       letter-spacing: 2px;
       display: flex;
       justify-content: center;
@@ -20,52 +32,75 @@
       flex-direction: column;
     }
 
-    .signup {
+    .brand-container {
+      max-width: none;
       text-align: center;
-    }
-
-    input[type="email"] {
-      font-size: 16px;
-      padding: 6px 10px;
-      border: none;
-      text-align: left;
-      outline: none;
-      width: 140px;
-      overflow: hidden;
       white-space: nowrap;
-      text-overflow: ellipsis;
-      color: #ffffff;
-      color: #111111;
-    }
-
-    .envelope-button {
-      background: none;
-      border: none;
+      padding-bottom: 12px;
       cursor: pointer;
-      margin-top: 10px;
-      padding: 0;
-      transition: transform 0.2s ease;
     }
 
-    .envelope-button:hover {
-      transform: translateY(-2px);
+    .brand-text {
+      font-size: 72px;
+      color: #333333;
+      font-family: 'Host Grotesk', sans-serif;
+      font-weight: 400;
+      text-transform: lowercase;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      transition: all 0.4s ease-in-out;
     }
 
-    input::placeholder {
-      color: #ffffff;
-      opacity: 1;
+    .phonetic, .definition-label, .definition {
+      color: #4d4d4d;
+    }
+
+    .flicker-a {
+      display: inline-block;
+      animation: flicker 1.2s linear infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% { opacity: 0.2; }
+      10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90% { opacity: 1; }
+    }
+
+    .swoosh {
+      display: inline-block;
+      opacity: 0;
+      transform: translateX(0);
     }
   </style>
 </head>
 <body>
   <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; width: 100vw;">
-    <div style="max-width: 180px; text-align: center; padding-bottom: 12px;">
-      <div style="font-size: 72px; color: #111111; font-family: 'CooperHewitt-Heavy', sans-serif; text-transform: lowercase; line-height: 1.2;">frgrnt</div>
-      <div style="font-size: 18px; color: #111111; text-align: center; margin-top: 8px;">/ˈfreɪɡr(ə)nt/</div>
-      <div style="font-size: 16px; color: #111111; font-style: italic; text-align: center; margin-top: 4px;">adjective</div>
-      <div style="font-size: 16px; color: #111111; text-align: center; margin-top: 2px;">a pleasant scent.</div>
+    <div class="brand-container" onclick="toggleName()" style="display: flex; flex-direction: column; align-items: center;">
+      <div id="brandName" class="brand-text" style="display: inline-block; transition: all 0.5s ease;">frgrnt</div>
+      <div style="font-size: 18px; margin-top: 8px;" class="phonetic">/ˈfreɪɡr(ə)nt/</div>
+      <div style="font-size: 16px; font-style: italic; margin-top: 4px;" class="definition-label">adjective</div>
+      <div style="font-size: 16px; margin-top: 2px;" class="definition">a pleasant scent.</div>
     </div>
   </div>
-  <div style="position: absolute; bottom: 20px; font-size: 14px; color: #111111; font-family: 'CooperHewitt-Heavy', sans-serif;">info@frgrnt.com</div>
+  <div style="position: absolute; bottom: 20px; font-size: 14px; color: #333333; font-family: 'Host Grotesk', sans-serif;">
+    info@frgrnt.com
+  </div>
+
+  <script>
+    const brandEl = document.getElementById('brandName');
+    let toggled = false;
+
+    function toggleName() {
+      if (!toggled) {
+        toggled = true;
+        brandEl.style.transition = 'transform 0.3s ease, opacity 0.3s ease, translateX 0.3s ease';
+        brandEl.innerHTML = `fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt`;
+        setTimeout(() => {
+          brandEl.innerHTML = 'frgrnt';
+          toggled = false;
+        }, 1200);
+      }
+    }
+  </script>
 </body>
 </html>
