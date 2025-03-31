@@ -4,26 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>frgrnt</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    @font-face {
-      font-family: 'Host Grotesk';
-      src: url('fonts/HostGrotesk-Regular.woff2') format('woff2');
-      font-weight: 400;
-      font-style: normal;
-    }
-
-    @font-face {
-      font-family: 'Host Grotesk';
-      src: url('fonts/HostGrotesk-Bold.woff2') format('woff2');
-      font-weight: 700;
-      font-style: normal;
-    }
-
     body {
       margin: 0;
       padding: 0;
-      background-color: #000000;
-      font-family: 'Host Grotesk', sans-serif;
+      background-color: #dcd5c5; /* putty grey */
+      font-family: 'JetBrains Mono', monospace;
       letter-spacing: 2px;
       display: flex;
       justify-content: center;
@@ -42,8 +29,7 @@
 
     .brand-text {
       font-size: 72px;
-      color: #999999;
-      font-family: 'Host Grotesk', sans-serif;
+      color: #000000; /* changed to black */
       font-weight: 400;
       text-transform: lowercase;
       line-height: 1.2;
@@ -51,12 +37,24 @@
       transition: all 0.4s ease-in-out;
     }
 
+    .flicker-a {
+      display: inline-block;
+      animation: flicker 1.2s linear infinite;
+    }
+
     .brand-container a {
-      color: #999999;
+      color: #000000; /* changed to black */
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 0.8s ease forwards;
       animation-delay: 1.4s;
+      display: inline-block;
+      margin-top: 24px; /* moved the envelope down */
+      pointer-events: none; /* disable clicks when hidden */
+    }
+
+    .brand-container a.visible {
+      pointer-events: auto; /* enable clicks once visible */
     }
 
     @keyframes fadeInUp {
@@ -64,11 +62,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-    }
-
-    .flicker-a {
-      display: inline-block;
-      animation: flicker 1.2s linear infinite;
     }
 
     @keyframes flicker {
@@ -80,10 +73,12 @@
 </head>
 <body>
   <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; width: 100vw;">
-    <div class="brand-container" onclick="toggleName()" style="display: flex; flex-direction: column; align-items: center;">
-      <div id="brandName" class="brand-text" style="display: inline-block; transition: all 0.5s ease;">frgrnt</div>
-      <a href="mailto:info@frgrnt.com" style="margin-top: 16px; display: inline-block;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#999999" width="28px" height="28px">
+    <div class="brand-container" onclick="toggleName()">
+      <div id="brandName" class="brand-text">
+        <span id="brandContent"></span>
+      </div>
+      <a id="emailLink" href="mailto:info@frgrnt.com">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000" width="28px" height="28px">
           <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
         </svg>
       </a>
@@ -91,26 +86,35 @@
   </div>
 
   <script>
-    const brandEl = document.getElementById('brandName');
+    const brandContent = document.getElementById('brandContent');
+    const emailLink = document.getElementById('emailLink');
     let toggled = false;
 
+    function setFlickerText() {
+      brandContent.innerHTML = 'fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt';
+    }
+
+    function resetText() {
+      brandContent.textContent = 'frgrnt';
+      toggled = false;
+    }
+
+    function showFlickerThenReset() {
+      setFlickerText();
+      setTimeout(resetText, 1200);
+    }
+
     window.addEventListener("DOMContentLoaded", () => {
-      brandEl.innerHTML = `fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt`;
+      showFlickerThenReset();
       setTimeout(() => {
-        brandEl.innerHTML = 'frgrnt';
-        toggled = false;
-      }, 1200);
+        emailLink.classList.add('visible');
+      }, 2200); // after fadeInUp + some buffer
     });
 
     function toggleName() {
       if (!toggled) {
         toggled = true;
-        brandEl.style.transition = 'transform 0.3s ease, opacity 0.3s ease, translateX 0.3s ease';
-        brandEl.innerHTML = `fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt`;
-        setTimeout(() => {
-          brandEl.innerHTML = 'frgrnt';
-          toggled = false;
-        }, 1200);
+        showFlickerThenReset();
       }
     }
   </script>
