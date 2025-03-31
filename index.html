@@ -42,7 +42,7 @@
 
     .brand-text {
       font-size: 72px;
-      color: #333333;
+      color: #999999;
       font-family: 'Host Grotesk', sans-serif;
       font-weight: 400;
       text-transform: lowercase;
@@ -51,8 +51,19 @@
       transition: all 0.4s ease-in-out;
     }
 
-    .phonetic, .definition-label, .definition {
-      color: #333333;
+    .brand-container a {
+      color: #999999;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards;
+      animation-delay: 1.4s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .flicker-a {
@@ -71,11 +82,8 @@
   <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; width: 100vw;">
     <div class="brand-container" onclick="toggleName()" style="display: flex; flex-direction: column; align-items: center;">
       <div id="brandName" class="brand-text" style="display: inline-block; transition: all 0.5s ease;">frgrnt</div>
-      <div style="font-size: 18px; margin-top: 8px;" class="phonetic">/ˈfreɪɡr(ə)nt/</div>
-      <div style="font-size: 16px; font-style: italic; margin-top: 4px;" class="definition-label">adjective</div>
-      <div style="font-size: 16px; margin-top: 2px;" class="definition">a pleasant scent.</div>
       <a href="mailto:info@frgrnt.com" style="margin-top: 16px; display: inline-block;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#333333" width="28px" height="28px">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#999999" width="28px" height="28px">
           <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
         </svg>
       </a>
@@ -83,6 +91,9 @@
   </div>
 
   <script>
+    const brandEl = document.getElementById('brandName');
+    let toggled = false;
+
     window.addEventListener("DOMContentLoaded", () => {
       brandEl.innerHTML = `fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt`;
       setTimeout(() => {
@@ -90,8 +101,6 @@
         toggled = false;
       }, 1200);
     });
-    const brandEl = document.getElementById('brandName');
-    let toggled = false;
 
     function toggleName() {
       if (!toggled) {
