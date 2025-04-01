@@ -17,6 +17,7 @@
       align-items: center;
       height: 100vh;
       flex-direction: column;
+      position: relative;
     }
 
     .brand-container {
@@ -43,18 +44,23 @@
     }
 
     .brand-container a {
-      color: #000000; /* changed to black */
+      color: #000000;
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 0.8s ease forwards;
       animation-delay: 1.4s;
       display: inline-block;
-      margin-top: 24px; /* moved the envelope down */
-      pointer-events: none; /* disable clicks when hidden */
+      margin-top: 24px;
+      pointer-events: none;
     }
 
     .brand-container a.visible {
-      pointer-events: auto; /* enable clicks once visible */
+      pointer-events: auto;
+    }
+
+    .brand-container a svg {
+      width: 28px;
+      height: 28px;
     }
 
     @keyframes fadeInUp {
@@ -80,6 +86,11 @@
       .brand-container a {
         margin-top: 16px;
       }
+
+      .brand-container a svg {
+        width: 20px;
+        height: 20px;
+      }
     }
   </style>
 </head>
@@ -90,8 +101,9 @@
         <span id="brandContent"></span>
       </div>
       <a id="emailLink" href="mailto:info@frgrnt.com">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000" width="28px" height="28px">
-          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect>
+          <polyline points="3,7 12,13 21,7"></polyline>
         </svg>
       </a>
     </div>
@@ -120,7 +132,7 @@
       showFlickerThenReset();
       setTimeout(() => {
         emailLink.classList.add('visible');
-      }, 2200); // after fadeInUp + some buffer
+      }, 2200);
     });
 
     function toggleName() {
