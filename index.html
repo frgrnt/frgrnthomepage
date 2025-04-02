@@ -76,6 +76,9 @@
       max-width: 600px;
       padding: 0 24px;
       text-align: center;
+      overflow-y: auto;
+      max-height: 80vh;
+      -webkit-overflow-scrolling: touch;
     }
 
     @keyframes flicker {
@@ -121,9 +124,9 @@
   </div>
 
   <!-- About View -->
-  <div id="aboutView" class="view">
+  <div id="aboutView" class="view" style="overflow-y: auto; max-height: 100vh; padding-bottom: 60px;">
     <button class="close-button" onclick="showLanding()" style="position: absolute; top: 20px; right: 20px;">X</button>
-    <div class="about-text" style="text-align: center; padding: 40px 20px; max-width: 600px; margin: 0 auto;">
+    <div class="about-text" style="text-align: center; padding: 40px 20px; max-width: 600px; margin: 0 auto; overflow-y: auto; max-height: 80vh; -webkit-overflow-scrolling: touch;">
       <h1 style="text-transform: lowercase;">about</h1>
       <p style="font-size: 18px; font-style: italic; max-width: 600px; margin: 0 auto; margin-bottom: 20px;">
         scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions—silently and powerfully.
