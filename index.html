@@ -9,7 +9,7 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #dcd5c5; /* putty grey */
+      background-color: #dcd5c5;
       font-family: 'JetBrains Mono', monospace;
       letter-spacing: 2px;
       display: flex;
@@ -20,127 +20,51 @@
       position: relative;
     }
 
-    .brand-container {
-      max-width: none;
-      text-align: center;
-      white-space: nowrap;
-      padding-bottom: 12px;
-      cursor: pointer;
-    }
-
     .brand-text {
       font-size: 72px;
-      color: #000000; /* changed to black */
+      color: #000000;
       font-weight: 400;
       text-transform: lowercase;
       line-height: 1.2;
       letter-spacing: -1px;
       transition: all 0.4s ease-in-out;
+      position: relative;
+      z-index: 1;
     }
 
-    .flicker-a {
-      display: inline-block;
-      animation: flicker 1.2s linear infinite;
-    }
-
-    .brand-container a {
-      color: #000000;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s ease forwards;
-      animation-delay: 1.4s;
-      display: inline-block;
-      margin-top: 24px;
-      pointer-events: none;
-    }
-
-    .brand-container a.visible {
-      pointer-events: auto;
-    }
-
-    .brand-container a svg {
-      width: 28px;
-      height: 28px;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% { opacity: 0.2; }
-      10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90% { opacity: 1; }
-    }
-
-    /* Responsive styles for small screens */
     @media (max-width: 600px) {
       .brand-text {
         font-size: 36px;
         letter-spacing: -0.5px;
       }
+    }
 
-      .brand-container a {
-        margin-top: 16px;
-      }
+    .dark-mode {
+      background-color: #0c0c0c;
+      color: #e0ffe3;
+    }
 
-      .brand-container a svg {
-        width: 20px;
-        height: 20px;
-      }
+    .dark-mode .brand-text {
+      color: #e0ffe3;
+    }
+
+    .dark-mode button[type="submit"] {
+      color: #e0ffe3;
     }
   </style>
 </head>
 <body>
-  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; width: 100vw;">
-    <div class="brand-container" onclick="toggleName()">
-      <div id="brandName" class="brand-text">
-        <span id="brandContent"></span>
-      </div>
-      <a id="emailLink" href="mailto:info@frgrnt.com">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect>
-          <polyline points="3,7 12,13 21,7"></polyline>
-        </svg>
-      </a>
-    </div>
+  <div id="brandName" class="brand-text" style="font-size: 14px; font-weight: bold; position: absolute; top: 215px; left: calc(50% - 150px); font-style: normal;">
+    <span id="brandContent">enquiries</span>
   </div>
 
-  <script>
-    const brandContent = document.getElementById('brandContent');
-    const emailLink = document.getElementById('emailLink');
-    let toggled = false;
-
-    function setFlickerText() {
-      brandContent.innerHTML = 'fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt';
-    }
-
-    function resetText() {
-      brandContent.textContent = 'frgrnt';
-      toggled = false;
-    }
-
-    function showFlickerThenReset() {
-      setFlickerText();
-      setTimeout(resetText, 1200);
-    }
-
-    window.addEventListener("DOMContentLoaded", () => {
-      showFlickerThenReset();
-      setTimeout(() => {
-        emailLink.classList.add('visible');
-      }, 2200);
-    });
-
-    function toggleName() {
-      if (!toggled) {
-        toggled = true;
-        showFlickerThenReset();
-      }
-    }
-  </script>
+  <form style="margin-top: 32px; display: flex; flex-direction: column; gap: 12px; width: 280px; font-size: 12px; align-items: center;">
+    <input type="text" placeholder="name" required style="width: 100%; padding: 8px; border: 1px solid #333; border-radius: 0; background: transparent; color: inherit; text-transform: lowercase; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px; font-size: 12px;">
+    <input type="text" placeholder="company" required style="width: 100%; padding: 8px; border: 1px solid #333; border-radius: 0; background: transparent; color: #000; text-transform: lowercase; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px;">
+    <input type="tel" placeholder="phone" required style="width: 100%; padding: 8px; border: 1px solid #333; border-radius: 0; background: transparent; color: #000; text-transform: lowercase; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px;">
+    <input type="email" placeholder="email" required style="width: 100%; padding: 8px; border: 1px solid #333; border-radius: 0; background: transparent; color: #000; text-transform: lowercase; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px;">
+    <textarea placeholder="message" required rows="4" style="width: 100%; padding: 8px; border: 1px solid #333; border-radius: 0; background: transparent; color: inherit; text-transform: lowercase; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px; font-size: 12px; resize: none;"></textarea>
+    <button type="submit" style="margin-left: -8px; align-self: flex-start; padding: 8px 16px; border: 1px solid #333; border-radius: 0; background: transparent; color: inherit; text-transform: lowercase; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px; font-size: 12px; transition: all 0.3s ease;">send</button>
+  </form>
 </body>
 </html>
