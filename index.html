@@ -69,16 +69,37 @@
     }
 
     .info-button:hover, .close-button:hover {
-      background-color: #e6e4d6; /* darker shade on hover */
+      background-color: #e6e4d6;
     }
 
     .about-text {
       max-width: 600px;
       padding: 0 24px;
-      text-align: center;
+      text-align: left;
       overflow-y: auto;
       max-height: 80vh;
       -webkit-overflow-scrolling: touch;
+    }
+
+    .about-text p {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInParagraph 1s ease forwards;
+    }
+
+    .about-text p:nth-of-type(1) {
+      animation-delay: 0.3s;
+      font-style: italic;
+      font-weight: 400;
+      opacity: 0.75;
+    }
+
+    .about-text p:nth-of-type(2) {
+      animation-delay: 0.6s;
+    }
+
+    .about-text p:nth-of-type(3) {
+      animation-delay: 0.9s;
     }
 
     @keyframes flicker {
@@ -88,6 +109,13 @@
     }
 
     @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInParagraph {
       to {
         opacity: 1;
         transform: translateY(0);
@@ -129,16 +157,14 @@
 
   <!-- About View -->
   <div id="aboutView" class="view" style="overflow-y: auto; max-height: 100vh; padding-bottom: 60px;">
-    <button class="close-button" onclick="showLanding()" style="position: absolute; top: 20px; right: 20px;">X</button>
-    <div class="about-text" style="text-align: center; padding: 40px 20px; max-width: 600px; margin: 0 auto; overflow-y: auto; max-height: 80vh; -webkit-overflow-scrolling: touch;">
+    <button class="close-button" onclick="showLanding()" style="position: absolute; top: 20px; right: 20px;">x</button>
+    <div class="about-text" style="padding: 40px 20px; max-width: 600px; margin: 0 auto; overflow-y: auto; max-height: 80vh; -webkit-overflow-scrolling: touch;">
       <h1 style="text-transform: lowercase;">about</h1>
-      <p style="font-size: 14px; font-style: italic; max-width: 600px; margin: 0 auto; margin-bottom: 20px;">
-        scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions—silently and powerfully.
-      </p>
-      <p style="font-size: 14px; line-height: 1.6; max-width: 600px; margin: 0 auto; margin-bottom: 20px;">
+      <p style="font-size: 14px; line-height: 1.6; color: #000; font-style: italic; font-weight: 400; opacity: 0.75;">“scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions—silently and powerfully.”</p>
+      <p style="font-size: 14px; line-height: 1.6; color: #000;">
         we design scent experiences that connect people to space. from clean, quiet diffusion systems to immersive signature fragrances, we help brands shape how they’re remembered.
       </p>
-      <p style="font-size: 14px; line-height: 1.6; max-width: 600px; margin: 0 auto;">
+      <p style="font-size: 14px; line-height: 1.6; color: #000;">
         consulting, custom fragrance development, and curated scent programs — for retail, hospitality, exhibitions and beyond.
       </p>
     </div>
