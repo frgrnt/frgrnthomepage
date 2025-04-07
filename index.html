@@ -1,13 +1,12 @@
 
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>frgrnt – Scent Branding Agency</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>frgrnt</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
     body {
       margin: 0;
       padding: 0;
@@ -16,8 +15,9 @@
       color: #000;
       letter-spacing: 2px;
       height: 100vh;
-      overflow: auto;
+      overflow: hidden;
     }
+
     .view {
       display: none;
       height: 100%;
@@ -26,9 +26,11 @@
       align-items: center;
       flex-direction: column;
     }
+
     .active {
       display: flex;
     }
+
     .brand-text {
       font-size: 72px;
       font-weight: 400;
@@ -37,19 +39,24 @@
       letter-spacing: -1px;
       transition: all 0.4s ease-in-out;
     }
+
     .flicker-a {
       display: inline-block;
       animation: flicker 1.2s linear infinite;
     }
+
     .button-row {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 16px;
-  opacity: 0;
-  transform: translateY(20px);
-}
-    .info-button {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 16px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards;
+      animation-delay: 2s;
+    }
+
+    .info-button, .close-button {
       background-color: #fffef3;
       color: #000;
       font-size: 14px;
@@ -60,9 +67,11 @@
       transition: background-color 0.3s ease;
       text-transform: lowercase;
     }
-    .info-button:hover {
+
+    .info-button:hover, .close-button:hover {
       background-color: #e6e4d6;
     }
+
     .about-text {
       max-width: 600px;
       padding: 0 24px;
@@ -71,233 +80,133 @@
       max-height: 80vh;
       -webkit-overflow-scrolling: touch;
     }
+
     .about-text p {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #000;
-      opacity: 1;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInParagraph 1s ease forwards;
     }
+
     .about-text p:nth-of-type(1) {
+      animation-delay: 0.3s;
       font-style: italic;
       font-weight: 400;
       opacity: 0.75;
     }
-    .back-f {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-size: 40px;
-      font-weight: 400;
-      font-family: 'JetBrains Mono', monospace;
-      cursor: pointer;
-      letter-spacing: -1px;
-      text-transform: lowercase;
-      line-height: 1;
-      transition: opacity 0.2s ease;
+
+    .about-text p:nth-of-type(2) {
+      animation-delay: 0.6s;
     }
-    .back-f:hover {
-      opacity: 0.5;
+
+    .about-text p:nth-of-type(3) {
+      animation-delay: 0.9s;
     }
-    .cube {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: #000;
-      opacity: 1;
-      transition: transform 0.4s ease, opacity 0.4s ease;
-      z-index: 999;
-    }
+
     @keyframes flicker {
       0%, 100% { opacity: 1; }
       5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% { opacity: 0.2; }
       10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90% { opacity: 1; }
     }
-    
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    
 
-@media (max-width: 600px) {
-  .brand-text {
-    font-size: 16px;
-    text-align: center;
-    padding: 0 16px;
-  }
-  .info-button {
-    font-size: 11px;
-    padding: 4px 6px;
-  }
-  .button-row {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 24px;
-    align-items: center;
-  }
-  .about-text {
-    padding: 20px 16px !important;
-  }
-  .about-text p {
-    font-size: 13px;
-  }
-  .back-f {
-    font-size: 28px;
-    top: 12px;
-    left: 12px;
-  }
-}
+    @keyframes fadeInParagraph {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-  .info-button {
-    font-size: 11px;
-    padding: 4px 6px;
-  }
-  .button-row {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 24px;
-    align-items: center;
-  }
-  .about-text {
-    padding: 20px 16px !important;
-  }
-  .about-text p {
-    font-size: 13px;
-  }
-  .back-f {
-    font-size: 28px;
-    top: 12px;
-    left: 12px;
-  }
-}
+    @media (max-width: 600px) {
+      .brand-text {
+        font-size: 36px;
+      }
 
-      .info-button { font-size: 12px; padding: 4px 8px; }
+      .info-button, .close-button {
+        font-size: 12px;
+        padding: 4px 8px;
+      }
+
       .button-row {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 16px;
-  opacity: 0;
-  transform: translateY(20px);
-}
-      .about-text p { font-size: 14px; }
-      .back-f { font-size: 32px; }
+        gap: 16px;
+      }
+
+      .about-text p {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
-<div class="view active" id="landingView">
-<div class="brand-text" onclick="toggleName()">
-<span id="brandContent"></span>
-</div>
-<div class="button-row">
-<button class="info-button" onclick="showAbout()">about</button>
-<button class="info-button" onclick="window.location.href='mailto:info@frgrnt.com?subject=Hello'">email</button>
-</div>
-</div>
-<div class="view" id="aboutView" style="overflow-y: auto; max-height: 100vh; padding-bottom: 60px;">
-<div class="back-f" id="backF" onclick="disintegrateF()">f</div>
-<div class="about-text" style="padding: 40px 20px; max-width: 600px; margin: 0 auto;">
-<h1 style="text-transform: lowercase;">about</h1>
-<p>“scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”</p>
-<p>we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
-<p>scent branding, custom fragrance creation and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
-</div>
-</div>
-<script>let disableFlicker = false;
-let initialLoadDone = false;
 
+  <!-- Landing View -->
+  <div id="landingView" class="view active">
+    <div onclick="toggleName()" class="brand-text">
+      <span id="brandContent"></span>
+    </div>
+    <div class="button-row">
+      <button class="info-button" onclick="showAbout()">about</button>
+      <button class="info-button" onclick="window.location.href='mailto:info@frgrnt.com?subject=Hello'">email</button>
+    </div>
+  </div>
+
+  <!-- About View -->
+  <div id="aboutView" class="view" style="overflow-y: auto; max-height: 100vh; padding-bottom: 60px;">
+    <button class="close-button" onclick="showLanding()" style="position: absolute; top: 20px; right: 20px;">x</button>
+    <div class="about-text" style="padding: 40px 20px; max-width: 600px; margin: 0 auto; overflow-y: auto; max-height: 80vh; -webkit-overflow-scrolling: touch;">
+      <h1 style="text-transform: lowercase;">about</h1>
+      <p style="font-size: 14px; line-height: 1.6; color: #000; font-style: italic; font-weight: 400; opacity: 0.75;">“scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions—silently and powerfully.”</p>
+      <p style="font-size: 14px; line-height: 1.6; color: #000;">
+        we design scent experiences that connect people to space. from clean, quiet diffusion systems to immersive signature fragrances, we help brands shape how they’re remembered.
+      </p>
+      <p style="font-size: 14px; line-height: 1.6; color: #000;">
+        consulting, custom fragrance development, and curated scent programs — for retail, hospitality, exhibitions and beyond.
+      </p>
+    </div>
+  </div>
+
+  <script>
     const brandContent = document.getElementById('brandContent');
     let toggled = false;
+
     function setFlickerText() {
       brandContent.innerHTML = 'fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt';
     }
+
     function resetText() {
       brandContent.textContent = 'frgrnt';
       toggled = false;
     }
+
     function showFlickerThenReset() {
       setFlickerText();
       setTimeout(resetText, 1200);
-  if (!initialLoadDone) {
-    setTimeout(animateButtons, 1300);
-    initialLoadDone = true;
-  }
     }
+
     function toggleName() {
       if (!toggled) {
         toggled = true;
         showFlickerThenReset();
       }
     }
+
     function showAbout() {
       document.getElementById('landingView').classList.remove('active');
       document.getElementById('aboutView').classList.add('active');
-  document.getElementById('backF').style.opacity = '1';
     }
+
     function showLanding() {
       document.getElementById('aboutView').classList.remove('active');
       document.getElementById('landingView').classList.add('active');
-
-      
-      if (!disableFlicker) {
-        showFlickerThenReset();
-      } else {
-        const frgrnt = document.getElementById('frgrnt');
-        const about = document.getElementById('about');
-        const emailbox = document.getElementById('emailbox');
-
-        const forceInstant = (el) => {
-          if (!el) return;
-          el.style.transition = 'none';
-          void el.offsetHeight; // force reflow
-          el.style.opacity = '1';
-          el.style.display = 'block';
-        };
-
-        forceInstant(frgrnt);
-        forceInstant(about);
-        forceInstant(emailbox);
-      }
-
-      disableFlicker = false;
-
+      showFlickerThenReset();
     }
-    function disintegrateF() {
-      const f = document.getElementById('backF');
-  f.style.opacity = '0';
-      const rect = f.getBoundingClientRect();
-      const gridSize = 5;
-      const numX = Math.ceil(rect.width / gridSize);
-      const numY = Math.ceil(rect.height / gridSize);
-      for (let y = 0; y < numY; y++) {
-        for (let x = 0; x < numX; x++) {
-          const cube = document.createElement('div');
-          cube.classList.add('cube');
-          cube.style.left = `${rect.left + x * gridSize}px`;
-          cube.style.top = `${rect.top + y * gridSize}px`;
-          document.body.appendChild(cube);
-          const dx = (Math.random() - 0.5) * 80;
-          const dy = (Math.random() - 0.5) * 80;
-          requestAnimationFrame(() => {
-            cube.style.transform = `translate(${dx}px, ${dy}px) scale(0.5)`;
-            cube.style.opacity = '0';
-          });
-          setTimeout(() => cube.remove(), 600);
-        }
-      }
-      disableFlicker = true;
-      setTimeout(showLanding, 600);
-    }
-    function animateButtons() {
-  const buttons = document.querySelector('.button-row');
-  buttons.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  buttons.style.opacity = '1';
-  buttons.style.transform = 'translateY(0)';
-}
 
-window.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("DOMContentLoaded", () => {
       showFlickerThenReset();
     });
   </script>
