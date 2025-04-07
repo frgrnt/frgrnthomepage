@@ -4,15 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>frgrnt – F Disintegration Effect</title>
+  <title>frgrnt</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
-      background-color: #fffef3;
+      background-color: #dcd5c5;
       font-family: 'JetBrains Mono', monospace;
       color: #000;
+      letter-spacing: 2px;
       height: 100vh;
       overflow: hidden;
     }
@@ -49,12 +50,14 @@
       justify-content: center;
       gap: 24px;
       margin-top: 16px;
-      opacity: 1;
-      transform: none;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards;
+      animation-delay: 2s;
     }
 
-    .info-button {
-      background-color: #fffef3;
+    .info-button, .close-button {
+      background-color: #dcd5c5;
       color: #000;
       font-size: 14px;
       border: 1px solid #000;
@@ -65,59 +68,17 @@
       text-transform: lowercase;
     }
 
-    .info-button:hover {
-      background-color: #e6e4d6;
+    .info-button:hover, .close-button:hover {
+      background-color: #c0b8a9;
     }
 
     .about-text {
       max-width: 600px;
       padding: 0 24px;
-      text-align: left;
+      text-align: center;
       overflow-y: auto;
       max-height: 80vh;
       -webkit-overflow-scrolling: touch;
-    }
-
-    .about-text p {
-      opacity: 1;
-      transform: none;
-      animation: none;
-    }
-
-    .about-text p:nth-of-type(1) {
-      font-style: italic;
-      font-weight: 400;
-      opacity: 0.75;
-    }
-
-    .back-f {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-size: 40px;
-      font-weight: 400;
-      font-family: 'JetBrains Mono', monospace;
-      cursor: pointer;
-      letter-spacing: -1px;
-      text-transform: lowercase;
-      line-height: 1;
-    }
-
-    .cube {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: #000;
-      opacity: 1;
-      transition: transform 0.4s ease, opacity 0.4s ease;
-    }
-
-    .disintegrate .cube {
-      opacity: 0;
-      transform: translate(
-        calc((random() - 0.5) * 100px),
-        calc((random() - 0.5) * 100px)
-      ) scale(0.5);
     }
 
     @keyframes flicker {
@@ -132,39 +93,30 @@
         transform: translateY(0);
       }
     }
-  
+
     @media (max-width: 600px) {
       .brand-text {
-        font-size: 40px;
-        padding: 0 16px;
-        text-align: center;
+        font-size: 36px;
       }
 
-      .info-button {
+      .info-button, .close-button {
         font-size: 12px;
-        padding: 6px 10px;
+        padding: 4px 8px;
       }
 
       .button-row {
-        flex-direction: column;
-        gap: 12px;
-        align-items: center;
+        gap: 16px;
       }
 
-      .about-text {
-        padding: 20px;
-      }
-
-      #backF {
-        font-size: 28px !important;
-        top: 16px !important;
-        left: 16px !important;
+      .about-text p {
+        font-size: 14px;
       }
     }
-
-</style>
+  </style>
 </head>
 <body>
+
+  <!-- Landing View -->
   <div id="landingView" class="view active">
     <div onclick="toggleName()" class="brand-text">
       <span id="brandContent"></span>
@@ -174,18 +126,20 @@
       <button class="info-button" onclick="window.location.href='mailto:info@frgrnt.com?subject=Hello'">email</button>
     </div>
   </div>
+
+  <!-- About View -->
   <div id="aboutView" class="view" style="overflow-y: auto; max-height: 100vh; padding-bottom: 60px;">
-    <div onclick="disintegrateF()" class="back-f" id="backF">f</div>
-    <div class="about-text" style="padding: 40px 20px; max-width: 600px; margin: 0 auto;">
+    <button class="close-button" onclick="showLanding()" style="position: absolute; top: 20px; right: 20px;">X</button>
+    <div class="about-text" style="text-align: center; padding: 40px 20px; max-width: 600px; margin: 0 auto; overflow-y: auto; max-height: 80vh; -webkit-overflow-scrolling: touch;">
       <h1 style="text-transform: lowercase;">about</h1>
-      <p style="font-size: 14px; line-height: 1.6; color: #000; font-style: italic; font-weight: 400; opacity: 0.75;">
-        “scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”
+      <p style="font-size: 14px; font-style: italic; max-width: 600px; margin: 0 auto; margin-bottom: 20px;">
+        scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions—silently and powerfully.
       </p>
-      <p style="font-size: 14px; line-height: 1.6; color: #000;">
-        we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.
+      <p style="font-size: 14px; line-height: 1.6; max-width: 600px; margin: 0 auto; margin-bottom: 20px;">
+        we design scent experiences that connect people to space. from clean, quiet diffusion systems to immersive signature fragrances, we help brands shape how they’re remembered.
       </p>
-      <p style="font-size: 14px; line-height: 1.6; color: #000;">
-        scent branding, custom fragrance creation and curated programs — for retail, hospitality, exhibitions, and creative spaces.
+      <p style="font-size: 14px; line-height: 1.6; max-width: 600px; margin: 0 auto;">
+        consulting, custom fragrance development, and curated scent programs — for retail, hospitality, exhibitions and beyond.
       </p>
     </div>
   </div>
@@ -216,52 +170,14 @@
     }
 
     function showAbout() {
-      document.getElementById('backF').style.visibility = 'visible';
       document.getElementById('landingView').classList.remove('active');
       document.getElementById('aboutView').classList.add('active');
     }
 
     function showLanding() {
-      document.getElementById('backF').style.visibility = 'visible';
-      document.getElementById('aboutView').classList.remove('active');
-      document.getElementById('landingView').classList.add('active');
-      resetText();
-      document.querySelector('.button-row').style.opacity = '1';
-      document.querySelector('.button-row').style.transform = 'none';
       document.getElementById('aboutView').classList.remove('active');
       document.getElementById('landingView').classList.add('active');
       showFlickerThenReset();
-    }
-
-    function disintegrateF() {
-      const f = document.getElementById('backF');
-      const rect = f.getBoundingClientRect();
-      const gridSize = 5;
-      const numX = Math.ceil(rect.width / gridSize);
-      const numY = Math.ceil(rect.height / gridSize);
-
-      for (let y = 0; y < numY; y++) {
-        for (let x = 0; x < numX; x++) {
-          const cube = document.createElement('div');
-          cube.classList.add('cube');
-          cube.style.left = `${rect.left + x * gridSize}px`;
-          cube.style.top = `${rect.top + y * gridSize}px`;
-          document.body.appendChild(cube);
-
-          const dx = (Math.random() - 0.5) * 80;
-          const dy = (Math.random() - 0.5) * 80;
-
-          requestAnimationFrame(() => {
-            cube.style.transform = `translate(${dx}px, ${dy}px) scale(0.5)`;
-            cube.style.opacity = '0';
-          });
-
-          setTimeout(() => cube.remove(), 600);
-        }
-      }
-
-      f.style.visibility = 'hidden';
-      setTimeout(showLanding, 600);
     }
 
     window.addEventListener("DOMContentLoaded", () => {
