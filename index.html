@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>frgrnt – Scent Branding Agency</title>
+  <title>frgrnt – F Disintegration Effect</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -12,7 +13,6 @@
       background-color: #fffef3;
       font-family: 'JetBrains Mono', monospace;
       color: #000;
-      letter-spacing: 2px;
       height: 100vh;
       overflow: hidden;
     }
@@ -55,7 +55,7 @@
       animation-delay: 2s;
     }
 
-    .info-button, .close-button {
+    .info-button {
       background-color: #fffef3;
       color: #000;
       font-size: 14px;
@@ -67,7 +67,7 @@
       text-transform: lowercase;
     }
 
-    .info-button:hover, .close-button:hover {
+    .info-button:hover {
       background-color: #e6e4d6;
     }
 
@@ -81,24 +81,45 @@
     }
 
     .about-text p {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInParagraph 1s ease forwards;
+      opacity: 1;
+      transform: none;
+      animation: none;
     }
 
     .about-text p:nth-of-type(1) {
-      animation-delay: 0.3s;
       font-style: italic;
       font-weight: 400;
       opacity: 0.75;
     }
 
-    .about-text p:nth-of-type(2) {
-      animation-delay: 0.6s;
+    .back-f {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 40px;
+      font-weight: 400;
+      font-family: 'JetBrains Mono', monospace;
+      cursor: pointer;
+      letter-spacing: -1px;
+      text-transform: lowercase;
+      line-height: 1;
     }
 
-    .about-text p:nth-of-type(3) {
-      animation-delay: 0.9s;
+    .cube {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #000;
+      opacity: 1;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    .disintegrate .cube {
+      opacity: 0;
+      transform: translate(
+        calc((random() - 0.5) * 100px),
+        calc((random() - 0.5) * 100px)
+      ) scale(0.5);
     }
 
     @keyframes flicker {
@@ -113,32 +134,6 @@
         transform: translateY(0);
       }
     }
-
-    @keyframes fadeInParagraph {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .brand-text {
-        font-size: 36px;
-      }
-
-      .info-button, .close-button {
-        font-size: 12px;
-        padding: 4px 8px;
-      }
-
-      .button-row {
-        gap: 16px;
-      }
-
-      .about-text p {
-        font-size: 14px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -151,10 +146,9 @@
       <button class="info-button" onclick="window.location.href='mailto:info@frgrnt.com?subject=Hello'">email</button>
     </div>
   </div>
-
   <div id="aboutView" class="view" style="overflow-y: auto; max-height: 100vh; padding-bottom: 60px;">
-    <button class="close-button" onclick="showLanding()" style="position: absolute; top: 20px; right: 20px;">x</button>
-    <div class="about-text" style="padding: 40px 20px; max-width: 600px; margin: 0 auto; overflow-y: auto; max-height: 80vh; -webkit-overflow-scrolling: touch;">
+    <div onclick="disintegrateF()" class="back-f" id="backF">f</div>
+    <div class="about-text" style="padding: 40px 20px; max-width: 600px; margin: 0 auto;">
       <h1 style="text-transform: lowercase;">about</h1>
       <p style="font-size: 14px; line-height: 1.6; color: #000; font-style: italic; font-weight: 400; opacity: 0.75;">
         “scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”
@@ -202,6 +196,37 @@
       document.getElementById('aboutView').classList.remove('active');
       document.getElementById('landingView').classList.add('active');
       showFlickerThenReset();
+    }
+
+    function disintegrateF() {
+      const f = document.getElementById('backF');
+      const rect = f.getBoundingClientRect();
+      const gridSize = 5;
+      const numX = Math.ceil(rect.width / gridSize);
+      const numY = Math.ceil(rect.height / gridSize);
+
+      for (let y = 0; y < numY; y++) {
+        for (let x = 0; x < numX; x++) {
+          const cube = document.createElement('div');
+          cube.classList.add('cube');
+          cube.style.left = `${rect.left + x * gridSize}px`;
+          cube.style.top = `${rect.top + y * gridSize}px`;
+          document.body.appendChild(cube);
+
+          const dx = (Math.random() - 0.5) * 80;
+          const dy = (Math.random() - 0.5) * 80;
+
+          requestAnimationFrame(() => {
+            cube.style.transform = `translate(${dx}px, ${dy}px) scale(0.5)`;
+            cube.style.opacity = '0';
+          });
+
+          setTimeout(() => cube.remove(), 600);
+        }
+      }
+
+      f.style.visibility = 'hidden';
+      setTimeout(showLanding, 600);
     }
 
     window.addEventListener("DOMContentLoaded", () => {
