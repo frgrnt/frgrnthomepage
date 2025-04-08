@@ -620,6 +620,55 @@
     height: 100vh;
   }
 }
+
+/* Mobile-first layout reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.text, .video-container {
+  width: 100%;
+  padding: 1.5rem;
+}
+
+.text {
+  background-color: #f8f8f8;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Tablet and desktop enhancements */
+@media screen and (min-width: 768px) {
+  .hero {
+    flex-direction: row;
+    height: 100vh;
+  }
+
+  .text, .video-container {
+    flex: 1;
+    padding: 4rem;
+  }
+
+  .video-container video {
+    height: 100%;
+  }
+}
 </style>
 </head>
 <body>
