@@ -2,208 +2,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>frgrnt – Scent Branding Agency</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>frgrnt — homepage</title>
   <style>
-    body {
+.logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 400;
+  letter-spacing: -1px;
+  text-transform: lowercase;
+  font-size: 18px;
+  text-decoration: none;
+  color: #000;
+}
+
+.nav-left .logo {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  letter-spacing: -1px !important;
+}
+    * {
       margin: 0;
       padding: 0;
-      background-color: #fffef3;
-      font-family: 'JetBrains Mono', monospace;
-      color: #000;
-      letter-spacing: 2px;
-      height: 100vh;
-      overflow: hidden;
+      box-sizing: border-box;
     }
-    .view {
-      display: none;
-      height: 100%;
+
+    body {
+  overflow: hidden;
+      font-family: 'JetBrains Mono', monospace;
+      background-color: #fffef3;
+      color: #000;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+      padding: 0 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 32px;
+      padding-right: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       width: 100%;
+      padding: 16px 16px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 24px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #fffef3;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #000;
+      text-transform: lowercase;
+      font-size: 14px;
+      border-bottom: none;
+      transition: border-bottom 0.2s ease;
+    }
+
+    .nav a:hover {
+  color: #888;
+}
+
+    .container {
+      display: flex;
+      height: 84vh;
+      width: 100vw;
+    }
+
+    .left,
+    .right {
+      width: 50vw;
+      height: 84vh;
+    }
+
+    .left {
+      background-color: #eae6df;
+      display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
     }
-    .active {
-      display: flex;
+
+    
+.left p {
+  max-width: 680px;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+
+    .right {
+      background-color: transparent;
     }
-    .brand-text {
-      font-size: 72px;
-      font-weight: 400;
-      text-transform: lowercase;
-      line-height: 1.2;
-      letter-spacing: -1px;
-      transition: all 0.4s ease-in-out;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      margin: 0;
+      padding: 0;
+      border: none;
     }
-    .flicker-a {
-      display: inline-block;
-      animation: flicker 1.2s linear infinite;
-    }
-    .button-row {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-top: 16px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s ease forwards;
-      animation-delay: 2s;
-    }
-    .info-button {
-      background-color: #fffef3;
-      color: #000;
-      font-size: 14px;
-      border: 1px solid #000;
-      padding: 6px 12px;
-      font-family: 'JetBrains Mono', monospace;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      text-transform: lowercase;
-    }
-    .info-button:hover {
-      background-color: #e6e4d6;
-    }
-    .about-text {
-      max-width: 600px;
-      padding: 0 24px;
-      text-align: left;
-      overflow-y: auto;
-      max-height: 80vh;
-      -webkit-overflow-scrolling: touch;
-    }
-    .about-text p {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #000;
-      opacity: 1;
-    }
-    .about-text p:nth-of-type(1) {
-      font-style: italic;
-      font-weight: 400;
-      opacity: 0.75;
-    }
-    .back-f {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-size: 40px;
-      font-weight: 400;
-      font-family: 'JetBrains Mono', monospace;
-      cursor: pointer;
-      letter-spacing: -1px;
-      text-transform: lowercase;
-      line-height: 1;
-      transition: opacity 0.2s ease;
-    }
-    .back-f:hover {
-      opacity: 0.5;
-    }
-    .cube {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: #000;
-      opacity: 1;
-      transition: transform 0.4s ease, opacity 0.4s ease;
-      z-index: 999;
-    }
-    @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% { opacity: 0.2; }
-      10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90% { opacity: 1; }
-    }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
+      .left, .right {
+        width: 100vw;
+        height: 50vh;
       }
     }
-    @media (max-width: 600px) {
-      .brand-text { font-size: 36px; }
-      .info-button { font-size: 12px; padding: 4px 8px; }
-      .button-row { gap: 16px; }
-      .about-text p { font-size: 14px; }
-      .back-f { font-size: 32px; }
+  
+    
+    .nav-right a {
+      margin-left: 24px;
     }
-  </style>
+    </style>
+
 </head>
 <body>
-  <div id="landingView" class="view active">
-    <div onclick="toggleName()" class="brand-text">
-      <span id="brandContent"></span>
-    </div>
-    <div class="button-row">
-      <button class="info-button" onclick="showAbout()">about</button>
-      <button class="info-button" onclick="window.location.href='mailto:info@frgrnt.com?subject=Hello'">email</button>
-    </div>
+  
+  
+<div class="nav">
+  <div class="nav-left" style="margin-right: auto; margin-left: 0;">
+    <a href="#" onclick="window.location.reload();" class="logo">frgrnt</a>
   </div>
-  <div id="aboutView" class="view" style="overflow-y: auto; max-height: 100vh; padding-bottom: 60px;">
-    <div onclick="disintegrateF()" class="back-f" id="backF">f</div>
-    <div class="about-text" style="padding: 40px 20px; max-width: 600px; margin: 0 auto;">
-      <h1 style="text-transform: lowercase;">about</h1>
+  <div class="nav-right">
+    <a href="#">about</a>
+    <a href="#">works</a>
+    <a href="mailto:info@frgrnt.com?subject=Hello">email</a>
+  </div>
+</div>
+
+<div class="container" style="height: 84vh; display: flex; align-items: center;">
+    <div class="left">
       <p>“scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”</p>
-      <p>we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
-      <p>scent branding, custom fragrance creation and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
+    </div>
+    <div class="right">
+      <video id="mainVideo" autoplay muted loop playsinline>
+        <source src="works_landing.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
   </div>
+
+  <div style="width: 100%; display: flex; justify-content: center; margin-top: 16px;">
+    <button class="pause-button" onclick="toggleVideo()">❚❚</button>
+  </div>
+  <style>
+    
+
+
+
+
+
+
+.pause-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  color: #eae6df;
+  transition: color 0.2s ease;
+}
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+.pause-button:hover {
+  color: #d7d1c9;
+}
+
+
+
+
+
+
+
+  </style>
   <script>
-    const brandContent = document.getElementById('brandContent');
-    let toggled = false;
-    function setFlickerText() {
-      brandContent.innerHTML = 'fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt';
-    }
-    function resetText() {
-      brandContent.textContent = 'frgrnt';
-      toggled = false;
-    }
-    function showFlickerThenReset() {
-      setFlickerText();
-      setTimeout(resetText, 1200);
-    }
-    function toggleName() {
-      if (!toggled) {
-        toggled = true;
-        showFlickerThenReset();
+    function toggleVideo() {
+      const video = document.getElementById('mainVideo');
+      const button = document.querySelector('.pause-button');
+      if (video.paused) {
+        video.play();
+        button.textContent = '❚❚';
+      } else {
+        video.pause();
+        button.textContent = '▶';
       }
     }
-    function showAbout() {
-      document.getElementById('landingView').classList.remove('active');
-      document.getElementById('aboutView').classList.add('active');
-    }
-    function showLanding() {
-      document.getElementById('aboutView').classList.remove('active');
-      document.getElementById('landingView').classList.add('active');
-      showFlickerThenReset();
-    }
-    function disintegrateF() {
-      const f = document.getElementById('backF');
-      const rect = f.getBoundingClientRect();
-      const gridSize = 5;
-      const numX = Math.ceil(rect.width / gridSize);
-      const numY = Math.ceil(rect.height / gridSize);
-      for (let y = 0; y < numY; y++) {
-        for (let x = 0; x < numX; x++) {
-          const cube = document.createElement('div');
-          cube.classList.add('cube');
-          cube.style.left = `${rect.left + x * gridSize}px`;
-          cube.style.top = `${rect.top + y * gridSize}px`;
-          document.body.appendChild(cube);
-          const dx = (Math.random() - 0.5) * 80;
-          const dy = (Math.random() - 0.5) * 80;
-          requestAnimationFrame(() => {
-            cube.style.transform = `translate(${dx}px, ${dy}px) scale(0.5)`;
-            cube.style.opacity = '0';
-          });
-          setTimeout(() => cube.remove(), 600);
-        }
-      }
-      f.style.visibility = 'hidden';
-      setTimeout(showLanding, 600);
-    }
-    window.addEventListener("DOMContentLoaded", () => {
-      showFlickerThenReset();
-    });
   </script>
 </body>
+
 </html>
