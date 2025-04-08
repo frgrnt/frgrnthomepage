@@ -204,6 +204,57 @@
     max-height: 60vh;
   }
 }
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-wrapper .text, .content-wrapper video {
+  flex: 1;
+  height: auto;
+}
+
+.content-wrapper video {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Portrait: stack */
+@media screen and (orientation: portrait) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .content-wrapper .text, .content-wrapper video {
+    width: 100%;
+  }
+
+  .content-wrapper video {
+    height: auto;
+    max-height: none;
+  }
+}
+
+/* Landscape (even mobile): keep side by side */
+@media screen and (orientation: landscape) {
+  .content-wrapper {
+    flex-direction: row;
+  }
+
+  .content-wrapper .text, .content-wrapper video {
+    height: 100%;
+  }
+
+  .content-wrapper video {
+    object-fit: cover;
+    height: 100%;
+  }
+}
 </style>
 </head>
 <body>
