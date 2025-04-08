@@ -1,14 +1,14 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>frgrnt — homepage</title>
-  <style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>frgrnt — homepage</title>
+<style>
 .logo {
   font-family: 'JetBrains Mono', monospace;
   font-weight: 400;
@@ -137,39 +137,51 @@
     .nav-right a {
       margin-left: 24px;
     }
-    </style>
-
+    
+/* Mobile-specific video handling */
+@media screen and (max-width: 768px) {
+  .hero video {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 60vh !important;
+    object-fit: cover !important;
+  }
+}
+@media screen and (min-width: 769px) {
+  .hero video {
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+}
+</style>
 </head>
 <body>
-  
-  
 <div class="nav">
-  <div class="nav-left" style="margin-right: auto; margin-left: 0;">
-    <a href="#" onclick="window.location.reload();" class="logo">frgrnt</a>
-  </div>
-  <div class="nav-right">
-    <a href="#">about</a>
-    <a href="#">works</a>
-    <a href="mailto:info@frgrnt.com?subject=Hello">email</a>
-  </div>
+<div class="nav-left" style="margin-right: auto; margin-left: 0;">
+<a class="logo" href="#" onclick="window.location.reload();">frgrnt</a>
 </div>
-
+<div class="nav-right">
+<a href="#">about</a>
+<a href="#">works</a>
+<a href="mailto:info@frgrnt.com?subject=Hello">email</a>
+</div>
+</div>
 <div class="container" style="height: 84vh; display: flex; align-items: center;">
-    <div class="left">
-      <p>“scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”</p>
-    </div>
-    <div class="right">
-      <video id="mainVideo" autoplay muted loop playsinline>
-        <source src="works_landing.mp4" type="video/mp4" />
+<div class="left">
+<p>“scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”</p>
+</div>
+<div class="right">
+<video autoplay="" id="mainVideo" loop="" muted="" playsinline="">
+<source src="works_landing.mp4" type="video/mp4"/>
         Your browser does not support the video tag.
       </video>
-    </div>
-  </div>
-
-  <div style="width: 100%; display: flex; justify-content: center; margin-top: 16px;">
-    <button class="pause-button" onclick="toggleVideo()">❚❚</button>
-  </div>
-  <style>
+</div>
+</div>
+<div style="width: 100%; display: flex; justify-content: center; margin-top: 16px;">
+<button class="pause-button" onclick="toggleVideo()">❚❚</button>
+</div>
+<style>
     
 
 
@@ -212,7 +224,7 @@
 
 
   </style>
-  <script>
+<script>
     function toggleVideo() {
       const video = document.getElementById('mainVideo');
       const button = document.querySelector('.pause-button');
@@ -226,5 +238,4 @@
     }
   </script>
 </body>
-
 </html>
