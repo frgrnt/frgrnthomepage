@@ -255,6 +255,61 @@
     height: 100%;
   }
 }
+
+.aesop-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 0;
+}
+
+.aesop-layout .text, .aesop-layout video {
+  flex: 1;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.aesop-layout video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Portrait Mobile: stack text + video, synced height */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .aesop-layout {
+    flex-direction: column;
+  }
+  .aesop-layout .text, .aesop-layout video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Landscape Mobile: keep side-by-side */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .aesop-layout {
+    flex-direction: row;
+  }
+  .aesop-layout .text, .aesop-layout video {
+    height: 100vh;
+  }
+  .aesop-layout video {
+    object-fit: cover;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 769px) {
+  .aesop-layout .text, .aesop-layout video {
+    height: auto;
+  }
+}
 </style>
 </head>
 <body>
