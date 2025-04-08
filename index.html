@@ -311,30 +311,47 @@
   }
 }
 
-.aesop-wrapper {
+.hero-pair {
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
+  flex-direction: column;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.aesop-wrapper .text,
-.aesop-wrapper video {
-  flex: 1;
+.hero-pair .text,
+.hero-pair video {
   width: 100%;
-  object-fit: cover;
 }
 
-@media screen and (max-width: 768px) {
-  .aesop-wrapper {
-    flex-direction: column;
+.hero-pair video {
+  object-fit: cover;
+  display: block;
+}
+
+/* Landscape: side by side layout */
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+  .hero-pair {
+    flex-direction: row;
+    align-items: stretch;
   }
 
-  .aesop-wrapper .text,
-  .aesop-wrapper video {
-    width: 100%;
+  .hero-pair .text,
+  .hero-pair video {
+    flex: 1;
     height: auto;
+  }
+}
+
+/* Desktop keeps existing styling */
+@media screen and (min-width: 1025px) {
+  .hero-pair {
+    flex-direction: row;
+  }
+
+  .hero-pair .text,
+  .hero-pair video {
+    flex: 1;
   }
 }
 </style>
@@ -422,18 +439,21 @@
   </script>
 
 <script>
-  function syncHeights() {
-    const text = document.querySelector('.aesop-wrapper .text');
-    const video = document.querySelector('.aesop-wrapper video');
-    if (text && video) {
-      const textHeight = text.offsetHeight;
-      video.style.height = textHeight + 'px';
-    }
-  }
+function matchVideoToText() {
+  const wrapper = document.querySelector('.hero-pair');
+  const video = wrapper?.querySelector('video');
+  const text = wrapper?.querySelector('.text');
 
-  window.addEventListener('load', syncHeights);
-  window.addEventListener('resize', syncHeights);
-  window.addEventListener('orientationchange', syncHeights);
+  if (window.matchMedia('(orientation: portrait)').matches && text && video) {
+    video.style.height = text.offsetHeight + 'px';
+  } else if (video) {
+    video.style.height = 'auto';
+  }
+}
+
+window.addEventListener('load', matchVideoToText);
+window.addEventListener('resize', matchVideoToText);
+window.addEventListener('orientationchange', matchVideoToText);
 </script>
 </body>
 </html>
