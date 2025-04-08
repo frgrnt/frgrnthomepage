@@ -1,75 +1,230 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Video Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>frgrnt — homepage</title>
   <style>
-    body {
+.logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 400;
+  letter-spacing: -1px;
+  text-transform: lowercase;
+  font-size: 18px;
+  text-decoration: none;
+  color: #000;
+}
+
+.nav-left .logo {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  letter-spacing: -1px !important;
+}
+    * {
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
+      box-sizing: border-box;
     }
 
-    .video-container {
-      position: relative;
-      max-width: 100%;
-      height: auto;
-      overflow: hidden;
+    body {
+  overflow: hidden;
+      font-family: 'JetBrains Mono', monospace;
+      background-color: #fffef3;
+      color: #000;
     }
 
-    video.video {
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+      padding: 0 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 32px;
+      padding-right: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-      max-height: 300px; /* Adjust this to match your other box */
-    }
-
-    .video-controls {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      background: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      padding: 6px 10px;
-      font-size: 16px;
-      border-radius: 4px;
+      padding: 16px 16px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 24px;
+      position: sticky;
+      top: 0;
       z-index: 10;
-      cursor: pointer;
+      background: #fffef3;
     }
 
-    @media screen and (max-width: 768px) {
-      video.video {
-        max-height: 250px; /* Smaller height for mobile */
+    .nav a {
+      text-decoration: none;
+      color: #000;
+      text-transform: lowercase;
+      font-size: 14px;
+      border-bottom: none;
+      transition: border-bottom 0.2s ease;
+    }
+
+    .nav a:hover {
+  color: #888;
+}
+
+    .container {
+      display: flex;
+      height: 84vh;
+      width: 100vw;
+    }
+
+    .left,
+    .right {
+      width: 50vw;
+      height: 84vh;
+    }
+
+    .left {
+      background-color: #eae6df;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    
+.left p {
+  max-width: 680px;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+
+    .right {
+      background-color: transparent;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
+      .left, .right {
+        width: 100vw;
+        height: 50vh;
       }
     }
-  </style>
+  
+    
+    .nav-right a {
+      margin-left: 24px;
+    }
+    </style>
+
 </head>
 <body>
+  
+  
+<div class="nav">
+  <div class="nav-left" style="margin-right: auto; margin-left: 0;">
+    <a href="#" onclick="window.location.reload();" class="logo">frgrnt</a>
+  </div>
+  <div class="nav-right">
+    <a href="#">about</a>
+    <a href="#">works</a>
+    <a href="mailto:info@frgrnt.com?subject=Hello">email</a>
+  </div>
+</div>
 
-  <div class="video-container">
-    <video id="myVideo" class="video" autoplay muted loop playsinline>
-      <source src="works_landing.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-    <button class="video-controls" onclick="toggleVideo()">Pause</button>
+<div class="container" style="height: 84vh; display: flex; align-items: center;">
+    <div class="left">
+      <p>“scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”</p>
+    </div>
+    <div class="right">
+      <video id="mainVideo" autoplay muted loop playsinline>
+        <source src="works_landing.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
   </div>
 
+  <div style="width: 100%; display: flex; justify-content: center; margin-top: 16px;">
+    <button class="pause-button" onclick="toggleVideo()">❚❚</button>
+  </div>
+  <style>
+    
+
+
+
+
+
+
+.pause-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  color: #eae6df;
+  transition: color 0.2s ease;
+}
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+.pause-button:hover {
+  color: #d7d1c9;
+}
+
+
+
+
+
+
+
+  </style>
   <script>
     function toggleVideo() {
-      const video = document.getElementById('myVideo');
-      const button = document.querySelector('.video-controls');
+      const video = document.getElementById('mainVideo');
+      const button = document.querySelector('.pause-button');
       if (video.paused) {
         video.play();
-        button.textContent = 'Pause';
+        button.textContent = '❚❚';
       } else {
         video.pause();
-        button.textContent = 'Play';
+        button.textContent = '▶';
       }
     }
   </script>
-
 </body>
+
 </html>
