@@ -310,6 +310,33 @@
     height: auto;
   }
 }
+
+.aesop-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.aesop-wrapper .text,
+.aesop-wrapper video {
+  flex: 1;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .aesop-wrapper {
+    flex-direction: column;
+  }
+
+  .aesop-wrapper .text,
+  .aesop-wrapper video {
+    width: 100%;
+    height: auto;
+  }
+}
 </style>
 </head>
 <body>
@@ -393,5 +420,20 @@
       }
     }
   </script>
+
+<script>
+  function syncHeights() {
+    const text = document.querySelector('.aesop-wrapper .text');
+    const video = document.querySelector('.aesop-wrapper video');
+    if (text && video) {
+      const textHeight = text.offsetHeight;
+      video.style.height = textHeight + 'px';
+    }
+  }
+
+  window.addEventListener('load', syncHeights);
+  window.addEventListener('resize', syncHeights);
+  window.addEventListener('orientationchange', syncHeights);
+</script>
 </body>
 </html>
