@@ -1,77 +1,146 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Video + Text Layout</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>frgrnt — homepage</title>
 
-    body {
-      font-family: sans-serif;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    .section {
-      display: flex;
-      flex-direction: row;
-      align-items: stretch;
-      height: 100vh;
-    }
+body {
+  font-family: sans-serif;
+}
 
-    .text, .video-container {
-      flex: 1;
-    }
+.section {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 100vh;
+}
 
-    .text {
-      padding: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f4f4f4;
-    }
+.text, .video-container {
+  flex: 1;
+}
 
-    .video-container {
-      position: relative;
-      overflow: hidden;
-    }
+.text {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f4f4;
+}
 
-    .video-container video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+.video-container {
+  position: relative;
+  overflow: hidden;
+}
 
-    @media screen and (max-width: 768px) and (orientation: portrait) {
-      .section {
-        flex-direction: column;
-        height: auto;
-      }
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-      .text, .video-container {
-        height: 100vw;
-      }
-    }
-  </style>
-</head>
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .text, .video-container {
+    height: 100vw;
+  }
+}
+</style></head>
 <body>
-
-  <div class="section">
-    <div class="text">
-      <p>This is your text box. Add whatever content you like here.</p>
-    </div>
-    <div class="video-container">
-      <video autoplay muted loop playsinline>
-        <source src="works_landing.mp4" type="video/mp4">
+<div class="nav">
+<div class="nav-left" style="margin-right: auto; margin-left: 0;">
+<a class="logo" href="#" onclick="window.location.reload();">frgrnt</a>
+</div>
+<div class="nav-right">
+<a href="#">about</a>
+<a href="#">works</a>
+<a href="mailto:info@frgrnt.com?subject=Hello">email</a>
+</div>
+</div>
+<div class="container" style="height: 84vh; display: flex; align-items: center;">
+<div class="left">
+<p>“scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”</p>
+</div>
+<div class="right">
+<video autoplay="" id="mainVideo" loop="" muted="" playsinline="">
+<source src="works_landing.mp4" type="video/mp4"/>
         Your browser does not support the video tag.
       </video>
-    </div>
-  </div>
+</div>
+</div>
+<div style="width: 100%; display: flex; justify-content: center; margin-top: 16px;">
+<button class="pause-button" onclick="toggleVideo()">❚❚</button>
+</div>
 
+<script>
+    function toggleVideo() {
+      const video = document.getElementById('mainVideo');
+      const button = document.querySelector('.pause-button');
+      if (video.paused) {
+        video.play();
+        button.textContent = '❚❚';
+      } else {
+        video.pause();
+        button.textContent = '▶';
+      }
+    }
+  </script>
+<script>
+function matchVideoToText() {
+  const wrapper = document.querySelector('.hero-pair');
+  const video = wrapper?.querySelector('video');
+  const text = wrapper?.querySelector('.text');
+
+  if (window.matchMedia('(orientation: portrait)').matches && text && video) {
+    video.style.height = text.offsetHeight + 'px';
+  } else if (video) {
+    video.style.height = 'auto';
+  }
+}
+
+window.addEventListener('load', matchVideoToText);
+window.addEventListener('resize', matchVideoToText);
+window.addEventListener('orientationchange', matchVideoToText);
+</script>
+<script>
+function syncVideoHeight() {
+  const container = document.querySelector('.aesop-container');
+  const text = container?.querySelector('.text');
+  const video = container?.querySelector('video');
+
+  if (!text || !video) return;
+
+  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+
+  if (isPortrait) {
+    const textHeight = text.offsetHeight;
+    video.style.height = textHeight + "px";
+  } else {
+    video.style.height = "100vh";
+  }
+}
+
+window.addEventListener("load", syncVideoHeight);
+window.addEventListener("resize", syncVideoHeight);
+window.addEventListener("orientationchange", () => {
+  setTimeout(syncVideoHeight, 300); // wait for rotation to complete
+});
+</script>
 </body>
 </html>
