@@ -1,789 +1,193 @@
-
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>frgrnt — homepage</title>
-<style>
-.logo {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 400;
-  letter-spacing: -1px;
-  text-transform: lowercase;
-  font-size: 18px;
-  text-decoration: none;
-  color: #000;
-}
-
-.nav-left .logo {
-  font-size: 18px !important;
-  font-weight: 400 !important;
-  letter-spacing: -1px !important;
-}
-    * {
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>frgrnt – Scent Branding Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-  overflow: hidden;
-      font-family: 'JetBrains Mono', monospace;
       background-color: #fffef3;
+      font-family: 'JetBrains Mono', monospace;
       color: #000;
+      letter-spacing: 2px;
+      height: 100vh;
+      overflow: hidden;
+      perspective: 1000px;
     }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 64px;
-      padding: 0 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-left: 32px;
-      padding-right: 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .view {
+      display: none;
+      height: 100%;
       width: 100%;
-      padding: 16px 16px;
-      display: flex;
-      justify-content: flex-end;
-      gap: 24px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: #fffef3;
-    }
-
-    .nav a {
-      text-decoration: none;
-      color: #000;
-      text-transform: lowercase;
-      font-size: 14px;
-      border-bottom: none;
-      transition: border-bottom 0.2s ease;
-    }
-
-    .nav a:hover {
-  color: #888;
-}
-
-    .container {
-      display: flex;
-      height: 84vh;
-      width: 100vw;
-    }
-
-    .left,
-    .right {
-      width: 50vw;
-      height: 84vh;
-    }
-
-    .left {
-      background-color: #eae6df;
-      display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
     }
-
-    
-.left p {
-  max-width: 680px;
-  font-size: 14px;
-  line-height: 1.6;
-  padding: 20px;
-  margin: 0 auto;
-}
-
-
-    .right {
-      background-color: transparent;
+    .active {
+      display: flex;
     }
-
-    video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      margin: 0;
-      padding: 0;
-      border: none;
+    .brand-text {
+      font-size: 72px;
+      font-weight: 400;
+      text-transform: lowercase;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      transition: all 0.4s ease-in-out;
     }
-
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        height: auto;
+    .flicker-a {
+      display: inline-block;
+      animation: flicker 1.2s linear infinite;
+    }
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 16px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards;
+      animation-delay: 2s;
+    }
+    .info-button {
+      background-color: #fffef3;
+      color: #000;
+      font-size: 14px;
+      border: 1px solid #000;
+      padding: 6px 12px;
+      font-family: 'JetBrains Mono', monospace;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-transform: lowercase;
+    }
+    .info-button:hover {
+      background-color: #e6e4d6;
+    }
+    .about-text {
+      max-width: 600px;
+      padding: 0 24px;
+      text-align: left;
+      overflow-y: auto;
+      max-height: 80vh;
+      -webkit-overflow-scrolling: touch;
+    }
+    .about-text p {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+    .about-text p:nth-of-type(1) {
+      font-style: italic;
+      font-weight: 400;
+      opacity: 0.75;
+    }
+    .back-f {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 40px;
+      font-weight: 400;
+      font-family: 'JetBrains Mono', monospace;
+      cursor: pointer;
+      letter-spacing: -1px;
+      text-transform: lowercase;
+      line-height: 1;
+      transition: opacity 0.2s ease, transform 0.3s ease;
+      transform-style: preserve-3d;
+    }
+    .back-f:hover {
+      opacity: 0.6;
+    }
+    .back-f.folding {
+      transform: rotateY(90deg);
+      transform-origin: left center;
+    }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% { opacity: 0.2; }
+      10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90% { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
-      .left, .right {
-        width: 100vw;
-        height: 50vh;
-      }
     }
-  
-    
-    .nav-right a {
-      margin-left: 24px;
+    @media (max-width: 600px) {
+      .brand-text { font-size: 36px; }
+      .info-button { font-size: 12px; padding: 4px 8px; }
+      .button-row { gap: 16px; }
+      .about-text p { font-size: 14px; }
+      .back-f { font-size: 32px; }
     }
-    
-/* Mobile-specific video handling */
-@media screen and (max-width: 768px) {
-  .hero video {
-    width: 100% !important;
-    height: auto !important;
-    max-height: 60vh !important;
-    object-fit: cover !important;
-  }
-}
-@media screen and (min-width: 769px) {
-  .hero video {
-    width: auto;
-    height: auto;
-    object-fit: contain;
-  }
-}
-/* Mobile-specific fixes only */
-@media (max-width: 768px) {
-  .hero video {
-    width: 100% !important;
-    height: auto !important;
-    max-height: 60vh;
-    object-fit: cover;
-  }
-}
-@media (min-width: 769px) {
-  .hero video {
-    width: auto;
-    height: auto;
-    object-fit: contain;
-  }
-}
-
-.content-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.content-wrapper .text, .content-wrapper video {
-  flex: 1;
-  height: auto;
-}
-
-.content-wrapper video {
-  width: 100%;
-  object-fit: cover;
-}
-
-@media screen and (max-width: 768px) {
-  .content-wrapper {
-    flex-direction: column;
-  }
-
-  .content-wrapper .text, .content-wrapper video {
-    width: 100%;
-    height: auto;
-  }
-
-  .content-wrapper video {
-    max-height: 60vh;
-  }
-}
-
-.content-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.content-wrapper .text, .content-wrapper video {
-  flex: 1;
-  height: auto;
-}
-
-.content-wrapper video {
-  width: 100%;
-  object-fit: cover;
-}
-
-/* Portrait: stack */
-@media screen and (orientation: portrait) {
-  .content-wrapper {
-    flex-direction: column;
-  }
-
-  .content-wrapper .text, .content-wrapper video {
-    width: 100%;
-  }
-
-  .content-wrapper video {
-    height: auto;
-    max-height: none;
-  }
-}
-
-/* Landscape (even mobile): keep side by side */
-@media screen and (orientation: landscape) {
-  .content-wrapper {
-    flex-direction: row;
-  }
-
-  .content-wrapper .text, .content-wrapper video {
-    height: 100%;
-  }
-
-  .content-wrapper video {
-    object-fit: cover;
-    height: 100%;
-  }
-}
-
-.aesop-layout {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  gap: 0;
-}
-
-.aesop-layout .text, .aesop-layout video {
-  flex: 1;
-  min-height: 100%;
-  object-fit: cover;
-}
-
-.aesop-layout video {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-/* Portrait Mobile: stack text + video, synced height */
-@media screen and (max-width: 768px) and (orientation: portrait) {
-  .aesop-layout {
-    flex-direction: column;
-  }
-  .aesop-layout .text, .aesop-layout video {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-  }
-}
-
-/* Landscape Mobile: keep side-by-side */
-@media screen and (max-width: 768px) and (orientation: landscape) {
-  .aesop-layout {
-    flex-direction: row;
-  }
-  .aesop-layout .text, .aesop-layout video {
-    height: 100vh;
-  }
-  .aesop-layout video {
-    object-fit: cover;
-  }
-}
-
-/* Desktop */
-@media screen and (min-width: 769px) {
-  .aesop-layout .text, .aesop-layout video {
-    height: auto;
-  }
-}
-
-.hero-pair {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.hero-pair .text,
-.hero-pair video {
-  width: 100%;
-}
-
-.hero-pair video {
-  object-fit: cover;
-  display: block;
-}
-
-/* Landscape: side by side layout */
-@media screen and (orientation: landscape) and (max-width: 1024px) {
-  .hero-pair {
-    flex-direction: row;
-    align-items: stretch;
-  }
-
-  .hero-pair .text,
-  .hero-pair video {
-    flex: 1;
-    height: auto;
-  }
-}
-
-/* Desktop keeps existing styling */
-@media screen and (min-width: 1025px) {
-  .hero-pair {
-    flex-direction: row;
-  }
-
-  .hero-pair .text,
-  .hero-pair video {
-    flex: 1;
-  }
-}
-
-.aesop-container {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.aesop-container .text,
-.aesop-container video {
-  flex: 1;
-  width: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Portrait stack + sync height */
-@media screen and (orientation: portrait) {
-  .aesop-container {
-    flex-direction: column;
-  }
-
-  .aesop-container .text,
-  .aesop-container video {
-    width: 100%;
-    height: auto;
-  }
-
-  .aesop-container video {
-    height: auto !important;
-  }
-}
-
-/* Landscape mobile + desktop: side by side */
-@media screen and (orientation: landscape) {
-  .aesop-container {
-    flex-direction: row;
-  }
-
-  .aesop-container .text,
-  .aesop-container video {
-    height: 100vh;
-  }
-
-  .aesop-container video {
-    object-fit: cover;
-  }
-}
-
-/* Aesop-style layout fix */
-.hero-pair {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  width: 100%;
-  max-width: 100%;
-}
-
-.hero-pair .text,
-.hero-pair .video-container {
-  flex: 1;
-  min-height: 100vh;
-}
-
-.hero-pair .video-container {
-  overflow: hidden;
-}
-
-.hero-pair .video-container video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@media screen and (max-width: 768px) and (orientation: portrait) {
-  .hero-pair {
-    flex-direction: column;
-  }
-
-  .hero-pair .text,
-  .hero-pair .video-container {
-    height: auto;
-  }
-
-  .hero-pair .video-container video {
-    height: auto;
-    aspect-ratio: 16 / 9;
-  }
-}
-
-/* Layout adjustments */
-.hero-pair {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.hero-pair .text,
-.hero-pair .video-container {
-  flex: 1;
-  position: relative;
-}
-
-.hero-pair .video-container video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Portrait mode: stack and sync height */
-@media screen and (max-width: 768px) and (orientation: portrait) {
-  .hero-pair {
-    flex-direction: column;
-  }
-
-  .hero-pair .text,
-  .hero-pair .video-container {
-    width: 100%;
-    height: auto;
-  }
-
-  .hero-pair .video-container video {
-    height: auto;
-    aspect-ratio: 16 / 9;
-  }
-}
-
-.hero-flex {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 100%;
-  align-items: stretch;
-}
-
-.hero-flex .text,
-.hero-flex .video-container {
-  flex: 1;
-  display: flex;
-  align-items: stretch;
-}
-
-.hero-flex .video-container video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Portrait = stacked */
-@media screen and (orientation: portrait) {
-  .hero-flex {
-    flex-direction: column;
-  }
-
-  .hero-flex .text,
-  .hero-flex .video-container {
-    width: 100%;
-    height: auto;
-  }
-
-  .hero-flex .video-container video {
-    height: auto;
-  }
-}
-
-/* Base Layout */
-.hero-pair {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100vh;
-}
-
-.hero-pair .text, .hero-pair .video-container {
-  flex: 1;
-  height: 100%;
-}
-
-.hero-pair .text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  background: #f5f5f5;
-}
-
-.hero-pair .video-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-pair .video-container video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Portrait (stacked) mode fix */
-@media screen and (max-width: 768px) and (orientation: portrait) {
-  .hero-pair {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .hero-pair .text,
-  .hero-pair .video-container {
-    height: 50vh;
-  }
-
-  .hero-pair .video-container video {
-    position: relative;
-    height: 100%;
-  }
-}
-
-/* Final fix using CSS Grid */
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 100vh;
-  width: 100%;
-}
-
-.hero-grid .text,
-.hero-grid .video-container {
-  width: 100%;
-  height: 100%;
-}
-
-.hero-grid .text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  background-color: #f5f5f5;
-}
-
-.hero-grid .video-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-grid .video-container video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Portrait (stacked) */
-@media screen and (max-width: 768px), screen and (orientation: portrait) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    height: 100vh;
-  }
-}
-</style>
+  </style>
 </head>
 <body>
-<div class="nav">
-<div class="nav-left" style="margin-right: auto; margin-left: 0;">
-<a class="logo" href="#" onclick="window.location.reload();">frgrnt</a>
-</div>
-<div class="nav-right">
-<a href="#">about</a>
-<a href="#">works</a>
-<a href="mailto:info@frgrnt.com?subject=Hello">email</a>
-</div>
-</div>
-<div class="container" style="height: 84vh; display: flex; align-items: center;">
-<div class="left">
-<p>“scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”</p>
-</div>
-<div class="right">
-<video autoplay="" id="mainVideo" loop="" muted="" playsinline="">
-<source src="works_landing.mp4" type="video/mp4"/>
-        Your browser does not support the video tag.
-      </video>
-</div>
-</div>
-<div style="width: 100%; display: flex; justify-content: center; margin-top: 16px;">
-<button class="pause-button" onclick="toggleVideo()">❚❚</button>
-</div>
-<style>
-    
-
-
-
-
-
-
-.pause-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-size: 14px;
-  font-family: 'JetBrains Mono', monospace;
-  color: #eae6df;
-  transition: color 0.2s ease;
-}
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-.pause-button:hover {
-  color: #d7d1c9;
-}
-
-
-
-
-
-
-
-  </style>
-<script>
-    function toggleVideo() {
-      const video = document.getElementById('mainVideo');
-      const button = document.querySelector('.pause-button');
-      if (video.paused) {
-        video.play();
-        button.textContent = '❚❚';
-      } else {
-        video.pause();
-        button.textContent = '▶';
+  <div id="landingView" class="view active">
+    <div onclick="toggleName()" class="brand-text">
+      <span id="brandContent"></span>
+    </div>
+    <div class="button-row">
+      <button class="info-button" onclick="showAbout()">about</button>
+      <button class="info-button" onclick="window.location.href='mailto:info@frgrnt.com?subject=Hello'">email</button>
+    </div>
+  </div>
+  <div id="aboutView" class="view" style="overflow-y: auto; max-height: 100vh; padding-bottom: 60px;">
+    <div onclick="foldAndReturn()" class="back-f">f</div>
+    <div class="about-text" style="padding: 40px 20px; max-width: 600px; margin: 0 auto;">
+      <h1 style="text-transform: lowercase;">about</h1>
+      <p style="font-size: 14px; line-height: 1.6; color: #000; font-style: italic; font-weight: 400; opacity: 0.75;">
+        “scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”
+      </p>
+      <p style="font-size: 14px; line-height: 1.6; color: #000;">
+        we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.
+      </p>
+      <p style="font-size: 14px; line-height: 1.6; color: #000;">
+        scent branding, custom fragrance creation and curated programs — for retail, hospitality, exhibitions, and creative spaces.
+      </p>
+    </div>
+  </div>
+  <script>
+    const brandContent = document.getElementById('brandContent');
+    let toggled = false;
+    function setFlickerText() {
+      brandContent.innerHTML = 'fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt';
+    }
+    function resetText() {
+      brandContent.textContent = 'frgrnt';
+      toggled = false;
+    }
+    function showFlickerThenReset() {
+      setFlickerText();
+      setTimeout(resetText, 1200);
+    }
+    function toggleName() {
+      if (!toggled) {
+        toggled = true;
+        showFlickerThenReset();
       }
     }
+    function showAbout() {
+      document.getElementById('landingView').classList.remove('active');
+      document.getElementById('aboutView').classList.add('active');
+    }
+    function showLanding() {
+      document.getElementById('aboutView').classList.remove('active');
+      document.getElementById('landingView').classList.add('active');
+      showFlickerThenReset();
+    }
+    function foldAndReturn() {
+      const f = document.querySelector('.back-f');
+      f.classList.add('folding');
+      setTimeout(() => {
+        f.classList.remove('folding');
+        showLanding();
+      }, 300);
+    }
+    window.addEventListener("DOMContentLoaded", () => {
+      showFlickerThenReset();
+    });
   </script>
-<script>
-function matchVideoToText() {
-  const wrapper = document.querySelector('.hero-pair');
-  const video = wrapper?.querySelector('video');
-  const text = wrapper?.querySelector('.text');
-
-  if (window.matchMedia('(orientation: portrait)').matches && text && video) {
-    video.style.height = text.offsetHeight + 'px';
-  } else if (video) {
-    video.style.height = 'auto';
-  }
-}
-
-window.addEventListener('load', matchVideoToText);
-window.addEventListener('resize', matchVideoToText);
-window.addEventListener('orientationchange', matchVideoToText);
-</script>
-<script>
-function syncVideoHeight() {
-  const container = document.querySelector('.aesop-container');
-  const text = container?.querySelector('.text');
-  const video = container?.querySelector('video');
-
-  if (!text || !video) return;
-
-  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
-
-  if (isPortrait) {
-    const textHeight = text.offsetHeight;
-    video.style.height = textHeight + "px";
-  } else {
-    video.style.height = "100vh";
-  }
-}
-
-window.addEventListener("load", syncVideoHeight);
-window.addEventListener("resize", syncVideoHeight);
-window.addEventListener("orientationchange", () => {
-  setTimeout(syncVideoHeight, 300); // wait for rotation to complete
-});
-</script>
-<script>
-function syncVideoHeight() {
-  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
-  const text = document.querySelector(".hero-pair .text");
-  const video = document.querySelector(".hero-pair .video-container video");
-
-  if (text && video && isPortrait) {
-    video.style.height = text.offsetHeight + "px";
-  } else if (video) {
-    video.style.height = "100%";
-  }
-}
-
-window.addEventListener("load", syncVideoHeight);
-window.addEventListener("resize", syncVideoHeight);
-window.addEventListener("orientationchange", () => {
-  setTimeout(syncVideoHeight, 300);
-});
-</script>
-<script>
-function matchHeights() {
-  const container = document.querySelector('.hero-flex');
-  if (!container) return;
-
-  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
-  const text = container.querySelector('.text');
-  const video = container.querySelector('video');
-
-  if (isPortrait && text && video) {
-    video.style.height = text.offsetHeight + 'px';
-  } else if (video) {
-    video.style.height = '100%';
-  }
-}
-
-window.addEventListener("load", matchHeights);
-window.addEventListener("resize", matchHeights);
-window.addEventListener("orientationchange", () => {
-  setTimeout(matchHeights, 300);
-});
-</script>
 </body>
 </html>
