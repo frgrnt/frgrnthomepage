@@ -89,8 +89,9 @@
       background-color: #eae6df;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
+      justify-content: flex-start;
+      text-align: left;
+      padding: 10vh 5vw 0;
     }
 
     .left p {
@@ -307,6 +308,29 @@
   .pause-button-mobile {
     font-size: 18px !important;  /* for a balanced look on mobile */
   }
+
+.intro-text {
+  max-width: 600px;
+  margin-top: -20vh;
+  text-align: left;
+}
+
+.intro-text h2 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: none;
+  color: #000;
+  text-align: left;
+}
+
+
+.aligned-text {
+  margin: 0;
+  padding-left: 0;
+}
+
 </style>
 </head>
 
@@ -327,10 +351,15 @@
   </div>
 
   <div class="container">
-    <div class="left">
-      <p>“scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”</p>
-    </div>
-    <div class="right">
+    
+<div class="left">
+  <div class="intro-text">
+    <h2 class="aligned-text">the subtle art of scent</h2>
+    <p class="aligned-text">“scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”</p>
+  </div>
+</div>
+
+<div class="right">
       <video autoplay muted loop playsinline id="mainVideo">
         <source src="works_landing.mp4" type="video/mp4" />
         Your browser does not support the video tag.
