@@ -1,193 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>frgrnt – Scent Branding Agency</title>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   frgrnt — Scent Branding Agency
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
   <style>
-    body {
+   * {
       margin: 0;
       padding: 0;
-      background-color: #fffef3;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'JetBrains Mono', monospace;
-      color: #000;
-      letter-spacing: 2px;
-      height: 100vh;
-      overflow: hidden;
-      perspective: 1000px;
-    }
-    .view {
-      display: none;
-      height: 100%;
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-    .active {
-      display: flex;
-    }
-    .brand-text {
-      font-size: 72px;
-      font-weight: 400;
-      text-transform: lowercase;
-      line-height: 1.2;
-      letter-spacing: -1px;
-      transition: all 0.4s ease-in-out;
-    }
-    .flicker-a {
-      display: inline-block;
-      animation: flicker 1.2s linear infinite;
-    }
-    .button-row {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-top: 16px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s ease forwards;
-      animation-delay: 2s;
-    }
-    .info-button {
       background-color: #fffef3;
       color: #000;
-      font-size: 14px;
-      border: 1px solid #000;
-      padding: 6px 12px;
-      font-family: 'JetBrains Mono', monospace;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      text-transform: lowercase;
-    }
-    .info-button:hover {
-      background-color: #e6e4d6;
-    }
-    .about-text {
-      max-width: 600px;
-      padding: 0 24px;
-      text-align: left;
+      overflow-x: hidden;
       overflow-y: auto;
-      max-height: 80vh;
-      -webkit-overflow-scrolling: touch;
     }
-    .about-text p {
-      opacity: 1;
-      transform: none;
-      animation: none;
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #fffef3;
     }
-    .about-text p:nth-of-type(1) {
-      font-style: italic;
-      font-weight: 400;
-      opacity: 0.75;
-    }
-    .back-f {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-size: 40px;
-      font-weight: 400;
+
+    .logo {
       font-family: 'JetBrains Mono', monospace;
-      cursor: pointer;
-      letter-spacing: -1px;
+      font-weight: 400 !important;
+      letter-spacing: -1px !important;
       text-transform: lowercase;
-      line-height: 1;
-      transition: opacity 0.2s ease, transform 0.3s ease;
-      transform-style: preserve-3d;
+      font-size: 18px !important;
+      text-decoration: none;
+      color: #000;
     }
-    .back-f:hover {
-      opacity: 0.6;
+
+    .nav-right {
+      display: flex;
+      gap: 24px;
     }
-    .back-f.folding {
-      transform: rotateY(90deg);
-      transform-origin: left center;
+
+    .nav-right a {
+      text-decoration: none;
+      color: #000;
+      text-transform: lowercase;
+      font-size: 14px;
     }
-    @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% { opacity: 0.2; }
-      10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90% { opacity: 1; }
+
+    .nav-right a:hover {
+      color: #888;
     }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      width: 100vw;
+      height: 86vh;
+    }
+
+    .left, .right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .left {
+      background-color: #eae6df;
+    }
+
+    .left {
+      background-color: #eae6df;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .left p {
+      max-width: 680px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .right video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .left, .right {
+        width: 100%;
+        height: auto;
+      }
+
+      .right video {
+        aspect-ratio: 16 / 9;
+        height: auto;
+        width: 100%;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .nav-right {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 16px;
       }
     }
-    @media (max-width: 600px) {
-      .brand-text { font-size: 36px; }
-      .info-button { font-size: 12px; padding: 4px 8px; }
-      .button-row { gap: 16px; }
-      .about-text p { font-size: 14px; }
-      .back-f { font-size: 32px; }
+
+    .pause-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #eae6df;
+      margin-top: 16px;
+      transition: color 0.2s ease;
+    }
+
+    .pause-button:hover {
+      color: #d7d1c9;
     }
   </style>
-</head>
-<body>
-  <div id="landingView" class="view active">
-    <div onclick="toggleName()" class="brand-text">
-      <span id="brandContent"></span>
-    </div>
-    <div class="button-row">
-      <button class="info-button" onclick="showAbout()">about</button>
-      <button class="info-button" onclick="window.location.href='mailto:info@frgrnt.com?subject=Hello'">email</button>
-    </div>
+ </head>
+ <body>
+  <div class="nav">
+   <a class="logo" href="#" onclick="window.location.reload();">
+    frgrnt
+   </a>
+   <div class="nav-right">
+    <a href="#">
+     about
+    </a>
+    <a href="#">
+     works
+    </a>
+    <a href="mailto:info@frgrnt.com?subject=Hello">
+     email
+    </a>
+   </div>
   </div>
-  <div id="aboutView" class="view" style="overflow-y: auto; max-height: 100vh; padding-bottom: 60px;">
-    <div onclick="foldAndReturn()" class="back-f">f</div>
-    <div class="about-text" style="padding: 40px 20px; max-width: 600px; margin: 0 auto;">
-      <h1 style="text-transform: lowercase;">about</h1>
-      <p style="font-size: 14px; line-height: 1.6; color: #000; font-style: italic; font-weight: 400; opacity: 0.75;">
-        “scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”
-      </p>
-      <p style="font-size: 14px; line-height: 1.6; color: #000;">
-        we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.
-      </p>
-      <p style="font-size: 14px; line-height: 1.6; color: #000;">
-        scent branding, custom fragrance creation and curated programs — for retail, hospitality, exhibitions, and creative spaces.
-      </p>
-    </div>
+  <div class="container" style="margin-bottom: 16px;">
+   <div class="left">
+    <p>
+     “scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”
+    </p>
+   </div>
+   <div class="right">
+    <video autoplay="" id="mainVideo" loop="" muted="" playsinline="">
+     <source src="works_landing.mp4" type="video/mp4"/>
+     Your browser does not support the video tag.
+    </video>
+   </div>
   </div>
+  
   <script>
-    const brandContent = document.getElementById('brandContent');
-    let toggled = false;
-    function setFlickerText() {
-      brandContent.innerHTML = 'fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt';
-    }
-    function resetText() {
-      brandContent.textContent = 'frgrnt';
-      toggled = false;
-    }
-    function showFlickerThenReset() {
-      setFlickerText();
-      setTimeout(resetText, 1200);
-    }
-    function toggleName() {
-      if (!toggled) {
-        toggled = true;
-        showFlickerThenReset();
+   function toggleVideo() {
+      const video = document.getElementById('mainVideo');
+      const button = document.querySelector('.pause-button');
+      if (video.paused) {
+        video.play();
+        button.textContent = '❚❚';
+      } else {
+        video.pause();
+        button.textContent = '▶';
       }
     }
-    function showAbout() {
-      document.getElementById('landingView').classList.remove('active');
-      document.getElementById('aboutView').classList.add('active');
-    }
-    function showLanding() {
-      document.getElementById('aboutView').classList.remove('active');
-      document.getElementById('landingView').classList.add('active');
-      showFlickerThenReset();
-    }
-    function foldAndReturn() {
-      const f = document.querySelector('.back-f');
-      f.classList.add('folding');
-      setTimeout(() => {
-        f.classList.remove('folding');
-        showLanding();
-      }, 300);
-    }
-    window.addEventListener("DOMContentLoaded", () => {
-      showFlickerThenReset();
-    });
   </script>
-</body>
+ </body>
 </html>
