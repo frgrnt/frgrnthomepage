@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>frgrnt — homepage</title>
+  <title>frgrnt — Scent Branding Agency</title>
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -166,7 +166,34 @@
         object-fit: cover !important;
       }
     }
-  </style>
+  
+    .pause-button-mobile {
+      display: none;
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      font-size: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      color: rgba(0, 0, 0, 0.4);
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .pause-wrapper {
+        display: none !important;
+      }
+
+      .right {
+        position: relative;
+      }
+
+      .pause-button-mobile {
+        display: block;
+      }
+    }
+
+</style>
 </head>
 <body>
   <div class="nav">
@@ -189,6 +216,7 @@
         <source src="works_landing.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+<div class="pause-button-mobile" id="pauseButtonMobile" onclick="toggleVideo()" aria-label="Toggle video playback">❚❚</div>
     </div>
   </div>
 
