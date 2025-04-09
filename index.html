@@ -420,6 +420,30 @@
     left: 12px;
   }
 }
+
+
+.styled-ctas {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 400px;
+}
+
+.cta-underline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  text-decoration: none;
+  color: rgba(0,0,0,0.6);
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  padding-bottom: 2px;
+  transition: all 0.2s ease;
+}
+
+.cta-underline:hover {
+  color: rgba(0,0,0,0.8);
+  border-color: rgba(0,0,0,0.6);
+}
 </style>
 </head>
 <body>
@@ -439,6 +463,10 @@
 <div class="text-wrapper">
 <h2>the subtle art of scent</h2>
 <p>“scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”</p>
+
+<div class="styled-ctas">
+<a class="cta-underline" href="mailto:info@frgrnt.com?subject=Frgrnt%20Enquiry">start your journey →</a>
+</div>
 </div>
 </div>
 </div>
@@ -447,8 +475,6 @@
 <source src="works_landing.mp4" type="video/mp4"/>
         Your browser does not support the video tag.
       </video>
-
-
 <div aria-label="Toggle video playback" class="control-button pause-button-mobile" id="pauseButtonMobile" onclick="toggleVideo(event)">
 <div class="play-icon" id="playIconMobile"></div>
 <div class="pause-icon" id="pauseIconMobile"><div></div><div></div></div>
@@ -492,5 +518,3 @@
     updateIcons();
   });
 </script></body></html>
-
-
