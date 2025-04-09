@@ -494,6 +494,12 @@
     const playIconMobile = document.getElementById('playIconMobile');
     const pauseIconMobile = document.getElementById('pauseIconMobile');
 
+    // Try to play video manually to help with Instagram autoplay
+    video.muted = true;
+    video.play().catch(() => {
+      // Autoplay likely blocked by browser (e.g. Instagram in-app)
+    });
+
     function updateIcons() {
       const showPlay = video.paused;
       if (playIconDesktop) playIconDesktop.style.display = showPlay ? 'block' : 'none';
