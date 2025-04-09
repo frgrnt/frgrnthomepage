@@ -1,15 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   frgrnt — Scent Branding Agency
-  </title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>frgrnt — homepage</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
   <style>
-   * {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -19,15 +20,14 @@
       font-family: 'JetBrains Mono', monospace;
       background-color: #fffef3;
       color: #000;
-      overflow-x: hidden;
-      overflow-y: auto;
     }
 
     .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px;
+      height: 64px;
+      padding: 0 32px;
       position: sticky;
       top: 0;
       z-index: 10;
@@ -35,28 +35,27 @@
     }
 
     .logo {
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 400 !important;
-      letter-spacing: -1px !important;
+      font-size: 18px;
+      font-weight: 400;
       text-transform: lowercase;
-      font-size: 18px !important;
-      text-decoration: none;
+      letter-spacing: -1px;
       color: #000;
+      text-decoration: none;
+      margin-top: 0;
+      margin-left: 0;
+      line-height: 64px;
     }
 
-    .nav-right {
-      display: flex;
-      gap: 24px;
-    }
-
-    .nav-right a {
+    .nav a {
       text-decoration: none;
       color: #000;
       text-transform: lowercase;
       font-size: 14px;
+      margin-left: 24px;
+      transition: color 0.2s ease;
     }
 
-    .nav-right a:hover {
+    .nav a:hover {
       color: #888;
     }
 
@@ -64,11 +63,11 @@
       display: flex;
       flex-direction: row;
       width: 100vw;
-      height: 86vh;
+      height: calc(100vh - 64px - 64px);
     }
 
     .left, .right {
-      flex: 1;
+      width: 50vw;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -76,57 +75,34 @@
 
     .left {
       background-color: #eae6df;
-    }
-
-    .left {
-      background-color: #eae6df;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
       padding: 20px;
+      text-align: center;
     }
+
     .left p {
       max-width: 680px;
       font-size: 14px;
       line-height: 1.6;
+      margin: 0 auto;
     }
 
-    .right video {
+    .right {
+      background-color: transparent;
+    }
+
+    video {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        height: auto;
-      }
-
-      .left, .right {
-        width: 100%;
-        height: auto;
-      }
-
-      .right video {
-        aspect-ratio: 16 / 9;
-        height: auto;
-        width: 100%;
-      }
-
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-
-      .nav-right {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 16px;
-      }
+    .pause-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      height: 64px;
+      align-items: center;
     }
 
     .pause-button {
@@ -136,54 +112,71 @@
       font-size: 14px;
       font-family: 'JetBrains Mono', monospace;
       color: #eae6df;
-      margin-top: 16px;
       transition: color 0.2s ease;
     }
 
     .pause-button:hover {
       color: #d7d1c9;
     }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .left, .right {
+        width: 100vw;
+        height: 50vh;
+      }
+
+      .left {
+        padding: 16px;
+      }
+
+      .left p {
+        font-size: 16px;
+        padding: 0;
+      }
+
+      video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+      }
+    }
   </style>
- 
-<meta property="og:title" content="frgrnt — Scent Branding Agency" />
-<meta property="og:description" content="Explore our unique approach to scent branding." />
-<meta property="og:image" content="/mnt/data/video_mid_placeholder.jpg" />
-<meta property="og:url" content="http://example.com" />
-<meta property="og:type" content="website" />
 </head>
- <body>
+<body>
   <div class="nav">
-   <a class="logo" href="#" onclick="window.location.reload();">
-    frgrnt
-   </a>
-   <div class="nav-right">
-    <a href="#">
-     about
-    </a>
-    <a href="#">
-     works
-    </a>
-    <a href="mailto:info@frgrnt.com?subject=Hello">
-     email
-    </a>
-   </div>
+    <div class="nav-left" style="margin-right: auto;">
+      <a class="logo" href="#" onclick="window.location.reload();">frgrnt</a>
+    </div>
+    <div class="nav-right">
+      <a href="#">about</a>
+      <a href="#">works</a>
+      <a href="mailto:info@frgrnt.com?subject=Hello">email</a>
+    </div>
   </div>
-  <div class="container" style="margin-bottom: 16px;">
-   <div class="left">
-    <p>
-     “scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”
-    </p>
-   </div>
-   <div class="right">
-    <video autoplay="" id="mainVideo" loop="" muted="" playsinline="" poster="/mnt/data/video_mid_placeholder.jpg">
-     <source src="works_landing.mp4" type="video/mp4"/>
-     Your browser does not support the video tag.
-    </video>
-   </div>
+
+  <div class="container">
+    <div class="left">
+      <p>“scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”</p>
+    </div>
+    <div class="right">
+      <video autoplay muted loop playsinline id="mainVideo">
+        <source src="works_landing.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
   </div>
-  
+
+  <div class="pause-wrapper">
+    <button class="pause-button" onclick="toggleVideo()" aria-label="Toggle video playback">❚❚</button>
+  </div>
+
   <script>
-   function toggleVideo() {
+    function toggleVideo() {
       const video = document.getElementById('mainVideo');
       const button = document.querySelector('.pause-button');
       if (video.paused) {
@@ -195,5 +188,5 @@
       }
     }
   </script>
- </body>
+</body>
 </html>
