@@ -72,6 +72,7 @@
 
     .container {
       display: flex;
+      flex-direction: row;
       width: 100vw;
       height: 84vh;
     }
@@ -136,9 +137,17 @@
         height: auto;
       }
 
-      .left, .right {
+      .right {
+        order: -1;
         width: 100vw;
         height: 50vh;
+      }
+
+      .left {
+        order: 1;
+        width: 100vw;
+        height: 50vh;
+        padding: 16px;
       }
 
       .left p {
