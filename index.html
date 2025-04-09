@@ -236,6 +236,23 @@
         button.textContent = '▶';
       }
     }
+  
+  <script>
+    function toggleVideo() {
+      const video = document.getElementById('mainVideo');
+      const desktopBtn = document.querySelector('.pause-button');
+      const mobileBtn = document.getElementById('pauseButtonMobile');
+
+      const isPaused = video.paused;
+      if (isPaused) {
+        video.play();
+        if (desktopBtn) desktopBtn.textContent = '❚❚';
+        if (mobileBtn) mobileBtn.textContent = '❚❚';
+      } else {
+        video.pause();
+        if (desktopBtn) desktopBtn.textContent = '▶';
+        if (mobileBtn) mobileBtn.textContent = '▶';
+      }
+    }
   </script>
 </body>
-</html>
