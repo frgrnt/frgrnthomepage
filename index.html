@@ -225,6 +225,17 @@
       }
     }
 
+
+    .flicker-a {
+      animation: flicker 0.15s infinite;
+      display: inline-block;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
 </style>
 <style>
   .pause-button, .pause-button-mobile {
@@ -449,7 +460,7 @@
 <body>
 <div class="nav">
 <div class="nav-left">
-<a class="logo" href="/index.html">frgrnt</a>
+<a class="logo" id="logoText" href="/index.html">fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt</a>
 </div>
 <div class="nav-right">
 <a href="/about.html">about</a>
@@ -522,4 +533,13 @@
     video.addEventListener('pause', updateIcons);
     updateIcons();
   });
-</script></body></html>
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const logo = document.getElementById('logoText');
+    setTimeout(() => {
+      logo.textContent = 'frgrnt';
+    }, 900);
+  });
+</script>
+</body></html>
