@@ -27,26 +27,37 @@
       justify-content: space-between;
       align-items: center;
       height: 64px;
-      padding: 0 32px;
+      width: 100%;
+      padding: 0;
       position: sticky;
       top: 0;
       z-index: 10;
       background: #fffef3;
     }
 
+    .nav-left {
+      padding-left: 16px;
+    }
+
     .logo {
-      font-size: 18px;
+      font-family: 'JetBrains Mono', monospace;
       font-weight: 400;
-      text-transform: lowercase;
       letter-spacing: -1px;
-      color: #000;
+      text-transform: lowercase;
+      font-size: 18px;
       text-decoration: none;
-      margin-top: 0;
-      margin-left: 0;
+      color: #000;
+      display: inline-block;
       line-height: 64px;
     }
 
-    .nav a {
+    .nav-right {
+      display: flex;
+      align-items: center;
+      padding-right: 16px;
+    }
+
+    .nav-right a {
       text-decoration: none;
       color: #000;
       text-transform: lowercase;
@@ -55,19 +66,19 @@
       transition: color 0.2s ease;
     }
 
-    .nav a:hover {
+    .nav-right a:hover {
       color: #888;
     }
 
     .container {
       display: flex;
-      flex-direction: row;
       width: 100vw;
-      height: calc(100vh - 64px - 64px);
+      height: 84vh;
     }
 
     .left, .right {
       width: 50vw;
+      height: 84vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -75,12 +86,12 @@
 
     .left {
       background-color: #eae6df;
-      padding: 20px;
       text-align: center;
+      padding: 0 24px;
     }
 
     .left p {
-      max-width: 680px;
+      max-width: 600px;
       font-size: 14px;
       line-height: 1.6;
       margin: 0 auto;
@@ -101,13 +112,13 @@
       width: 100%;
       display: flex;
       justify-content: center;
-      height: 64px;
-      align-items: center;
+      margin-top: 16px;
     }
 
     .pause-button {
       background: none;
       border: none;
+      padding: 0;
       cursor: pointer;
       font-size: 14px;
       font-family: 'JetBrains Mono', monospace;
@@ -130,13 +141,14 @@
         height: 50vh;
       }
 
-      .left {
-        padding: 16px;
+      .left p {
+        font-size: 14px;
+        padding: 0;
+        margin: 0 auto;
       }
 
-      .left p {
-        font-size: 16px;
-        padding: 0;
+      .nav-right a {
+        font-size: 14px;
       }
 
       video {
@@ -149,7 +161,7 @@
 </head>
 <body>
   <div class="nav">
-    <div class="nav-left" style="margin-right: auto;">
+    <div class="nav-left">
       <a class="logo" href="#" onclick="window.location.reload();">frgrnt</a>
     </div>
     <div class="nav-right">
