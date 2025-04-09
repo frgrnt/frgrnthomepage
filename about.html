@@ -232,6 +232,28 @@
     padding-top: 24px !important;
   }
 }
+
+@media (max-width: 768px) {
+  .intro-text {
+    margin-top: 0 !important;
+    padding-top: 24px !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 1;
+  }
+
+  .text-wrapper {
+    padding: 0 16px !important;
+  }
+
+  .text-wrapper h2 {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    margin-bottom: 12px !important;
+    color: #000 !important;
+    text-align: left !important;
+  }
+}
 </style>
 <style>
   .pause-button, .pause-button-mobile {
@@ -456,10 +478,10 @@
 <body>
 <div class="nav">
 <div class="nav-left">
-<a class="logo" href="/frgrnthomepage/index.html">frgrnt</a>
+<a class="logo" href="/index.html">frgrnt</a>
 </div>
 <div class="nav-right">
-<a href="/frgrnthomepage/about.html">about</a>
+<a href="/about.html">about</a>
 <a href="#">works</a>
 <a href="mailto:info@frgrnt.com?subject=Hello">email</a>
 </div>
@@ -480,7 +502,7 @@
 </div>
 <div class="right">
 <video autoplay="" id="mainVideo" loop="" muted="" playsinline="">
-<source src="about_video.mp4" type="video/mp4" />
+<source src="about_video.mp4" type="video/mp4"/>
         Your browser does not support the video tag.
       </video>
 <div aria-label="Toggle video playback" class="control-button pause-button-mobile" id="pauseButtonMobile" onclick="toggleVideo(event)">
