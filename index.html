@@ -316,7 +316,7 @@
 }
 
 .intro-text h2 {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
   margin-bottom: 16px;
   font-family: 'JetBrains Mono', monospace;
@@ -328,7 +328,44 @@
 
 .aligned-text {
   margin: 0;
+  padding: 0;
+  text-align: left;
+  display: block;
+}
+
+
+.text-wrapper {
   padding-left: 0;
+  margin: 0;
+  text-align: left;
+  display: block;
+  width: 100%;
+}
+
+.text-wrapper h2 {
+  margin: 0;
+  padding: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.text-wrapper p {
+  margin: 0;
+  padding: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.6;
+  font-style: italic;
+  margin-top: 12px;
+  text-align: left;
+}
+.text-wrapper p {
+  font-style: italic;
+  margin-top: 12px;
 }
 
 </style>
@@ -352,10 +389,13 @@
 
   <div class="container">
     
+
 <div class="left">
   <div class="intro-text">
-    <h2 class="aligned-text">the subtle art of scent</h2>
-    <p class="aligned-text">“scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”</p>
+    <div class="text-wrapper">
+      <h2>the subtle art of scent</h2>
+      <p>“scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”</p>
+    </div>
   </div>
 </div>
 
