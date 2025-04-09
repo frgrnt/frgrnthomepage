@@ -193,8 +193,122 @@
       }
     }
 
+
+    .pause-button-mobile {
+      display: none;
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      font-size: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      color: rgba(0, 0, 0, 0.4);
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .pause-wrapper {
+        display: none !important;
+      }
+
+      .right {
+        position: relative;
+      }
+
+      .pause-button-mobile {
+        display: block;
+      }
+    }
+
+</style>
+
+<style>
+  .pause-button, .pause-button-mobile {
+    font-size: 24px !important;
+    line-height: 1 !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+</style>
+
+<style>
+  .pause-button, .pause-button-mobile {
+    font-size: 18px !important;  /* smaller button size */
+    line-height: 1 !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    padding: 8px !important;
+    border: none !important;
+    background: none !important;
+    color: rgba(0, 0, 0, 0.6) !important;  /* subtle icon color */
+  }
+
+  .pause-button:hover, .pause-button-mobile:hover {
+    color: rgba(0, 0, 0, 0.8) !important;
+  }
+</style>
+
+<style>
+  .pause-button, .pause-button-mobile {
+    font-size: 16px !important;  /* smaller icon size */
+    line-height: 1 !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    padding: 4px !important;
+    border: none !important;
+    background: none !important;
+    color: rgba(0, 0, 0, 0.4) !important;  /* increased opacity */
+  }
+
+  .pause-button:hover, .pause-button-mobile:hover {
+    color: rgba(0, 0, 0, 0.6) !important;  /* hover opacity */
+  }
+</style>
+
+<style>
+  .pause-button, .pause-button-mobile {
+    font-size: 20px !important;  /* equalize font size for both icons */
+    line-height: 1 !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    padding: 4px !important;
+    border: none !important;
+    background: none !important;
+    color: rgba(0, 0, 0, 0.4) !important;  /* increased opacity */
+  }
+
+  .pause-button:hover, .pause-button-mobile:hover {
+    color: rgba(0, 0, 0, 0.6) !important;  /* hover opacity */
+  }
+</style>
+
+<style>
+  .pause-button, .pause-button-mobile {
+    font-size: 18px !important;  /* slightly smaller for consistency */
+    line-height: 1 !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    padding: 4px !important;
+    border: none !important;
+    background: none !important;
+    color: rgba(0, 0, 0, 0.4) !important;  /* light opacity */
+  }
+
+  .pause-button:hover, .pause-button-mobile:hover {
+    color: rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .pause-button {
+    font-size: 16px !important;  /* slightly smaller size for pause */
+  }
+
+  .pause-button-mobile {
+    font-size: 18px !important;  /* for a balanced look on mobile */
+  }
 </style>
 </head>
+
+
+
+
+
 <body>
   <div class="nav">
     <div class="nav-left">
@@ -224,35 +338,42 @@
     <button class="pause-button" onclick="toggleVideo()" aria-label="Toggle video playback">❚❚</button>
   </div>
 
-  <script>
-    function toggleVideo() {
-      const video = document.getElementById('mainVideo');
-      const button = document.querySelector('.pause-button');
-      if (video.paused) {
-        video.play();
-        button.textContent = '❚❚';
-      } else {
-        video.pause();
-        button.textContent = '▶';
-      }
-    }
   
+</html>
+
   <script>
-    function toggleVideo() {
+    document.addEventListener('DOMContentLoaded', function () {
       const video = document.getElementById('mainVideo');
       const desktopBtn = document.querySelector('.pause-button');
       const mobileBtn = document.getElementById('pauseButtonMobile');
 
-      const isPaused = video.paused;
-      if (isPaused) {
-        video.play();
-        if (desktopBtn) desktopBtn.textContent = '❚❚';
-        if (mobileBtn) mobileBtn.textContent = '❚❚';
-      } else {
-        video.pause();
-        if (desktopBtn) desktopBtn.textContent = '▶';
-        if (mobileBtn) mobileBtn.textContent = '▶';
+      function updateIcons() {
+        const icon = video.paused ? '▶' : '❚❚';
+        if (desktopBtn) desktopBtn.textContent = icon;
+        if (mobileBtn) mobileBtn.textContent = icon;
       }
-    }
+
+      function toggleVideo(e) {
+        e.stopPropagation();
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+        updateIcons();
+      }
+
+      if (desktopBtn) {
+        desktopBtn.addEventListener('click', toggleVideo);
+      }
+
+      if (mobileBtn) {
+        mobileBtn.addEventListener('click', toggleVideo);
+      }
+
+      video.addEventListener('play', updateIcons);
+      video.addEventListener('pause', updateIcons);
+      updateIcons();
+    });
   </script>
 </body>
