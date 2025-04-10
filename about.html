@@ -8,6 +8,12 @@
 <title>frgrnt — Scent Branding Agency</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+
+
+
+
+
+
 <style>
     * {
       margin: 0;
@@ -99,7 +105,7 @@
       line-height: 1.6;
       margin: 0 auto;
       padding: 0 24px;
-      
+      font-style: italic;
       text-align: center;
     }
 
@@ -226,112 +232,37 @@
     }
 
 
-@media (max-width: 768px) {
-  .intro-text {
-    margin-top: 0 !important;
-    padding-top: 24px !important;
-  }
-}
+    .flicker-a {
+      animation: flicker 0.15s infinite;
+      display: inline-block;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
 
 @media (max-width: 768px) {
-  .intro-text {
-    margin-top: 0 !important;
-    padding-top: 24px !important;
-    display: block !important;
-    position: relative !important;
-    z-index: 1;
-  }
-
-  .text-wrapper {
-    padding: 0 16px !important;
-  }
-
-  .text-wrapper h2 {
-    font-size: 20px !important;
-    font-weight: 600 !important;
-    margin-bottom: 12px !important;
-    color: #000 !important;
-    text-align: left !important;
-  }
-}
-@media (max-width: 768px) {
-  .left {
-    padding-top: 0px !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-    padding-bottom: 16px !important;
-  }
-
-  .intro-text {
-    margin: 0 auto !important;
-    padding: 0 !important;
-    max-width: 600px;
-  }
-
-  .text-wrapper {
-    padding: 0 !important;
-  }
-
-  .text-wrapper h2 {
-    font-size: 20px !important;
-    margin-bottom: 12px !important;
-  }
-
-  .text-wrapper p {
-    font-size: 14px !important;
-    margin-bottom: 12px !important;
-  }
-}
-
-  .text-wrapper {
-    padding: 0 !important;
-  }
-
-  .text-wrapper h2 {
-    font-size: 20px !important;
-    margin-bottom: 12px !important;
-  }
-
-  .text-wrapper p {
-    font-size: 14px !important;
-    margin-bottom: 12px !important;
-  }
-}
-
-  .text-wrapper {
-    padding: 0 !important;
-  }
-
-  .text-wrapper h2 {
-    font-size: 20px !important;
-    margin-bottom: 12px !important;
-  }
-
-  .text-wrapper p {
-    font-size: 14px !important;
-    margin-bottom: 12px !important;
-  }
-}
-
-  .text-wrapper {
-    padding: 0 !important;
-  }
-
-  .text-wrapper h2 {
-    font-size: 20px !important;
-    margin-bottom: 12px !important;
-  }
-
-  .text-wrapper p {
-    font-size: 14px !important;
-    margin-bottom: 12px !important;
+  .styled-ctas {
+    margin-top: 16px !important;
   }
 }
 
 .nav.transparent {
   background: transparent !important;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  height: 48px !important;
+  transition: background 0.3s ease, height 0.3s ease, backdrop-filter 0.3s ease;
   backdrop-filter: blur(0);
+}
+
+.nav.transparent .logo {
+  line-height: 48px !important;
+  font-size: 16px !important;
+}
+
+.nav.transparent .nav-right a {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
 }
 </style>
 <style>
@@ -461,12 +392,12 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.6;
-  
+  font-style: italic;
   margin-top: 12px;
   text-align: left;
 }
 .text-wrapper p {
-  
+  font-style: italic;
   margin-top: 12px;
 }
 
@@ -531,7 +462,7 @@
 
 
 .styled-ctas {
-  margin-top: 32px;
+  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -630,8 +561,7 @@
     video.addEventListener('pause', updateIcons);
     updateIcons();
   });
-</script>
-<script>
+</script><script>
   window.addEventListener('scroll', function () {
     const nav = document.querySelector('.nav');
     if (window.scrollY > 10) {
@@ -641,5 +571,4 @@
     }
   });
 </script>
-
 </body></html>
