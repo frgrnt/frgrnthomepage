@@ -327,22 +327,11 @@
     margin-bottom: 12px !important;
   }
 }
-
 .nav.transparent {
   background: transparent !important;
   height: 48px !important;
   transition: background 0.3s ease, height 0.3s ease, backdrop-filter 0.3s ease;
   backdrop-filter: blur(0);
-}
-
-.nav.transparent .logo {
-  line-height: 48px !important;
-  font-size: 16px !important;
-}
-
-.nav.transparent .nav-right a {
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
 }
 </style>
 <style>
@@ -642,8 +631,7 @@
     video.addEventListener('pause', updateIcons);
     updateIcons();
   });
-</script>
-<script>
+</script><script>
   window.addEventListener('scroll', function () {
     const nav = document.querySelector('.nav');
     if (window.scrollY > 10) {
@@ -653,5 +641,4 @@
     }
   });
 </script>
-
 </body></html>
