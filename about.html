@@ -327,6 +327,13 @@
     margin-bottom: 12px !important;
   }
 }
+
+.nav.scrolled {
+  background: rgba(255, 254, 243, 0.7); /* soft transparent beige */
+  backdrop-filter: blur(8px);
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
 </style>
 <style>
   .pause-button, .pause-button-mobile {
@@ -624,4 +631,16 @@
     video.addEventListener('pause', updateIcons);
     updateIcons();
   });
-</script></body></html>
+</script>
+<script>
+  document.addEventListener('scroll', () => {
+    const nav = document.querySelector('.nav');
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+</script>
+
+</body></html>
