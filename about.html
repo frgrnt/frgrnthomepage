@@ -327,6 +327,12 @@
     margin-bottom: 12px !important;
   }
 }
+
+.nav.transparent {
+  background: transparent !important;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  backdrop-filter: blur(0); /* Optional for subtle visual polish */
+}
 </style>
 <style>
   .pause-button, .pause-button-mobile {
@@ -625,4 +631,16 @@
     video.addEventListener('pause', updateIcons);
     updateIcons();
   });
-</script></body></html>
+</script>
+<script>
+  window.addEventListener('scroll', function () {
+    const nav = document.querySelector('.nav');
+    if (window.scrollY > 10) {
+      nav.classList.add('transparent');
+    } else {
+      nav.classList.remove('transparent');
+    }
+  });
+</script>
+
+</body></html>
