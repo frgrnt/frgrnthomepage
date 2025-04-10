@@ -484,7 +484,7 @@
 <style>
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(24px);
   transition: all 0.6s ease-out;
 }
 
@@ -492,12 +492,8 @@
   opacity: 1;
   transform: none;
 }
-
-body.fade-out {
-  opacity: 0;
-  transition: opacity 0.4s ease-out;
-}
-</style></head>
+</style>
+</head>
 <body>
 <div class="nav">
 <div class="nav-left">
@@ -595,20 +591,6 @@ body.fade-out {
   });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
-
-
-<script>
-  document.querySelectorAll('a').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href && !href.startsWith('#') && !href.startsWith('mailto:') && !link.hasAttribute('target')) {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        document.body.classList.add('fade-out');
-        setTimeout(() => window.location = href, 400);
-      });
-    }
-  });
 </script>
 
 </body></html>
