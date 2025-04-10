@@ -263,6 +263,19 @@
   opacity: 0.6;
   transition: opacity 0.3s ease;
 }
+
+.intro-text {
+  max-width: 600px;
+  margin-top: -20vh;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .intro-text {
+    margin-top: 0 !important;
+  }
+}
+
 </style>
 <style>
   .pause-button, .pause-button-mobile {
@@ -341,11 +354,7 @@
     font-size: 18px !important;  /* for a balanced look on mobile */
   }
 
-.intro-text {
-  max-width: 600px;
-  
-  text-align: left;
-}
+
 
 .intro-text h2 {
   font-size: 14px;
@@ -496,10 +505,12 @@
 <div class="container">
 <div class="left">
 <div class="intro-text">
-<div class="text-wrapper"><h2>about</h2>
+<div class="text-wrapper">
+<h2>about</h2>
 <p>we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
 <p>scent branding, custom fragrance creation, and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
-<p>from concept to composition, we guide brands through the creation of their olfactive signature.</p></div>
+<p>from concept to composition, we guide brands through the creation of their olfactive signature.</p>
+
 </div>
 </div>
 </div>
