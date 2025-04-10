@@ -244,8 +244,19 @@
 
 .nav.transparent {
   background: transparent !important;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease;
-  backdrop-filter: blur(0); /* Optional for subtle visual polish */
+  height: 48px !important;
+  transition: background 0.3s ease, height 0.3s ease, backdrop-filter 0.3s ease;
+  backdrop-filter: blur(0);
+}
+
+.nav.transparent .logo {
+  line-height: 48px !important;
+  font-size: 16px !important;
+}
+
+.nav.transparent .nav-right a {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
 }
 </style>
 <style>
