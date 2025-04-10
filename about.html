@@ -481,7 +481,23 @@
   border-color: rgba(0,0,0,0.6);
 }
 </style>
-</head>
+<style>
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+body.fade-out {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+</style></head>
 <body>
 <div class="nav">
 <div class="nav-left">
@@ -498,9 +514,9 @@
 <div class="intro-text">
 <div class="text-wrapper">
 <h2>about</h2>
-<p>we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
-<p>scent branding, custom fragrance creation, and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
-<p>from concept to composition, we guide brands through the creation of their olfactive signature.</p>
+<p class="fade-in">we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
+<p class="fade-in">scent branding, custom fragrance creation, and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
+<p class="fade-in">from concept to composition, we guide brands through the creation of their olfactive signature.</p>
 
 </div>
 </div>
@@ -568,4 +584,31 @@
     }
   });
 </script>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+
+<script>
+  document.querySelectorAll('a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && !href.startsWith('#') && !href.startsWith('mailto:') && !link.hasAttribute('target')) {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => window.location = href, 400);
+      });
+    }
+  });
+</script>
+
 </body></html>
