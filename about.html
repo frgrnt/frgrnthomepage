@@ -99,7 +99,7 @@
       line-height: 1.6;
       margin: 0 auto;
       padding: 0 24px;
-      font-style: italic;
+      
       text-align: center;
     }
 
@@ -226,37 +226,112 @@
     }
 
 
-    .flicker-a {
-      animation: flicker 0.15s infinite;
-      display: inline-block;
-    }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
+@media (max-width: 768px) {
+  .intro-text {
+    margin-top: 0 !important;
+    padding-top: 24px !important;
+  }
+}
 
 @media (max-width: 768px) {
-  .styled-ctas {
-    margin-top: 16px !important;
+  .intro-text {
+    margin-top: 0 !important;
+    padding-top: 24px !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 1;
+  }
+
+  .text-wrapper {
+    padding: 0 16px !important;
+  }
+
+  .text-wrapper h2 {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    margin-bottom: 12px !important;
+    color: #000 !important;
+    text-align: left !important;
+  }
+}
+@media (max-width: 768px) {
+  .left {
+    padding-top: 0px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-bottom: 16px !important;
+  }
+
+  .intro-text {
+    margin: 0 auto !important;
+    padding: 0 !important;
+    max-width: 600px;
+  }
+
+  .text-wrapper {
+    padding: 0 !important;
+  }
+
+  .text-wrapper h2 {
+    font-size: 20px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .text-wrapper p {
+    font-size: 14px !important;
+    margin-bottom: 12px !important;
+  }
+}
+
+  .text-wrapper {
+    padding: 0 !important;
+  }
+
+  .text-wrapper h2 {
+    font-size: 20px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .text-wrapper p {
+    font-size: 14px !important;
+    margin-bottom: 12px !important;
+  }
+}
+
+  .text-wrapper {
+    padding: 0 !important;
+  }
+
+  .text-wrapper h2 {
+    font-size: 20px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .text-wrapper p {
+    font-size: 14px !important;
+    margin-bottom: 12px !important;
+  }
+}
+
+  .text-wrapper {
+    padding: 0 !important;
+  }
+
+  .text-wrapper h2 {
+    font-size: 20px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .text-wrapper p {
+    font-size: 14px !important;
+    margin-bottom: 12px !important;
   }
 }
 
 .nav.transparent {
   background: transparent !important;
-  height: 48px !important;
-  transition: background 0.3s ease, height 0.3s ease, backdrop-filter 0.3s ease;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
   backdrop-filter: blur(0);
-}
-
-.nav.transparent .logo {
-  line-height: 48px !important;
-  font-size: 16px !important;
-}
-
-.nav.transparent .nav-right a {
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
 }
 </style>
 <style>
@@ -386,12 +461,12 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.6;
-  font-style: italic;
+  
   margin-top: 12px;
   text-align: left;
 }
 .text-wrapper p {
-  font-style: italic;
+  
   margin-top: 12px;
 }
 
@@ -456,7 +531,7 @@
 
 
 .styled-ctas {
-  margin-top: 16px;
+  margin-top: 32px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -482,11 +557,11 @@
 <body>
 <div class="nav">
 <div class="nav-left">
-<a class="logo" id="logoText" href="/index.html">fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt</a>
+<a class="logo" id="logoText" href="/index.html">frgrnt</a>
 </div>
 <div class="nav-right">
 <a href="/about.html">about</a>
-<a href="/works.html">works</a>
+<a href="#">works</a>
 <a href="mailto:info@frgrnt.com?subject=Hello">email</a>
 </div>
 </div>
@@ -495,7 +570,6 @@
 <div class="intro-text">
 <div class="text-wrapper">
 <h2>about</h2>
-
 <p>we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
 <p>scent branding, custom fragrance creation, and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
 <p>from concept to composition, we guide brands through the creation of their olfactive signature.</p>
@@ -557,15 +631,6 @@
     updateIcons();
   });
 </script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const logo = document.getElementById('logoText');
-    setTimeout(() => {
-      logo.textContent = 'frgrnt';
-    }, 900);
-  });
-</script>
-
 <script>
   window.addEventListener('scroll', function () {
     const nav = document.querySelector('.nav');
