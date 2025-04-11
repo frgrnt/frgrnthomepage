@@ -145,6 +145,23 @@
       height: 50vh;
     }
   }
+
+.nav.transparent {
+  background: transparent !important;
+  height: 48px !important;
+  transition: background 0.3s ease, height 0.3s ease, backdrop-filter 0.3s ease;
+  backdrop-filter: blur(0);
+  border-bottom: none !important;
+}
+.nav.transparent .logo {
+  line-height: 48px !important;
+  font-size: 16px !important;
+}
+.nav.transparent .nav-right a {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
 </style>
 </head>
 <body>
@@ -182,11 +199,11 @@
   const slides = document.querySelectorAll('.slide');
   const textBox = document.getElementById('slideText');
   const textContent = [
-    { title: 'retail presence' },
-    { title: 'hospitality flow' },
-    { title: 'gallery installations' },
-    { title: 'wellness experience' },
-    { title: 'coastal refinement' }
+    { title: 'residential developments' },
+    { title: 'health & wellness' },
+    { title: 'hotels' },
+    { title: 'retail stores' },
+    { title: 'commercial units' }
   ];
   let current = 0;
 
@@ -204,6 +221,18 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => showSlide(0));
+</script>
+
+
+<script>
+  window.addEventListener('scroll', function () {
+    const nav = document.querySelector('.nav');
+    if (window.scrollY > 10) {
+      nav.classList.add('transparent');
+    } else {
+      nav.classList.remove('transparent');
+    }
+  });
 </script>
 
 </body>
