@@ -129,16 +129,20 @@
     background: rgba(0,0,0,0.6);
   }
   @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      height: auto;
-    }
-    .left {
-      order: 2;
-      width: 100vw;
-      height: 50vh;
-      padding: 16px;
-    }
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+  .left {
+    order: 2;
+    width: 100vw;
+    height: 50vh;
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
     .right {
       order: 1;
       width: 100vw;
