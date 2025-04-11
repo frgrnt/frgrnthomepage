@@ -1,192 +1,193 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>frgrnt — Scent Branding Agency</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'JetBrains Mono', monospace;
-    background-color: #fffef3;
-    color: #000;
-  }
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 64px;
-    width: 100%;
-    padding: 0;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: #fffef3;
-  }
-  .nav-left { padding-left: 16px; }
-  .logo {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 500;
-    letter-spacing: -1px;
-    text-transform: lowercase;
-    font-size: 18px;
-    text-decoration: none;
-    color: #000;
-    display: inline-block;
-    line-height: 64px;
-  }
-  .nav-right {
-    display: flex;
-    align-items: center;
-    padding-right: 16px;
-  }
-  .nav-right a {
-    text-decoration: none;
-    color: #000;
-    text-transform: lowercase;
-    font-size: 14px;
-    margin-left: 24px;
-    transition: color 0.2s ease;
-  }
-  .nav-right a:hover { color: #888; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>frgrnt — Scent Branding Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background-color: #fffef3;
+      color: #000;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+      width: 100%;
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #fffef3;
+    }
+    .nav-left { padding-left: 16px; }
+    .logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      letter-spacing: -1px;
+      text-transform: lowercase;
+      font-size: 18px;
+      text-decoration: none;
+      color: #000;
+      display: inline-block;
+      line-height: 64px;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      padding-right: 16px;
+    }
+    .nav-right a {
+      text-decoration: none;
+      color: #000;
+      text-transform: lowercase;
+      font-size: 14px;
+      margin-left: 24px;
+      transition: color 0.2s ease;
+    }
+    .nav-right a:hover { color: #888; }
 
-  .container {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 84vh;
-  }
-  .left, .right {
-    width: 50vw;
-    height: 84vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .left {
-    order: 1;
-    background-color: #eae6df;
-    text-align: left;
-    padding: 32px 24px;
-  }
-  .text-wrapper {
-  max-width: 600px;
-  font-size: 14px;
-  line-height: 1.6;
-  text-transform: lowercase;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-  display: block;
-}
-  .text-wrapper h2 {
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 600;
-  margin: 0;
-  padding: 0;
-  text-transform: lowercase;
-}
-  .text-wrapper p {
-  font-style: normal;
-  margin: 12px 0 0;
-  padding: 0;
-}
+    .container {
+      display: flex;
+      flex-direction: row;
+      width: 100vw;
+      height: 84vh;
+    }
+    .left, .right {
+      width: 50vw;
+      height: 84vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .left {
+      order: 1;
+      background-color: #eae6df;
+      text-align: left;
+      padding: 32px 24px;
+    }
+    .text-wrapper {
+      max-width: 600px;
+      font-size: 14px;
+      line-height: 1.6;
+      text-transform: lowercase;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+      display: block;
+      transition: opacity 0.6s ease;
+    }
+    .text-wrapper h2 {
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      margin: 0;
+      padding: 0;
+      text-transform: lowercase;
+    }
+    .text-wrapper p {
+      font-style: normal;
+      margin: 12px 0 0;
+      padding: 0;
+    }
 
-  .right {
-    order: 2;
-    position: relative;
-    background-color: transparent;
-    overflow: hidden;
-  }
-  .slide {
-    display: none;
-    width: 100%;
-    height: 100%;
-  }
-  .slide.active {
-    display: block;
-  }
-  .slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .nav-buttons {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-    padding: 0 20px;
-    z-index: 2;
-  }
-  .nav-buttons button {
-    background: rgba(0,0,0,0.3);
-    border: none;
-    color: #fff;
-    font-size: 24px;
-    padding: 10px;
-    cursor: pointer;
-    transition: background 0.2s ease;
-  }
-  .nav-buttons button:hover {
-    background: rgba(0,0,0,0.6);
-  }
-  @media (max-width: 768px) {
+    .right {
+      order: 2;
+      position: relative;
+      background-color: transparent;
+      overflow: hidden;
+    }
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      z-index: 0;
+    }
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .nav-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 20px;
+      z-index: 2;
+    }
+    .nav-buttons button {
+      background: rgba(0,0,0,0.3);
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      padding: 10px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .nav-buttons button:hover {
+      background: rgba(0,0,0,0.6);
+    }
+    @media (max-width: 768px) {
       .container {
         flex-direction: column;
         height: auto;
       }
-    .left {
-      order: 2;
-      width: 100vw;
-      height: 50vh;
-      padding: 16px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
+      .left {
+        order: 2;
+        width: 100vw;
+        height: 50vh;
+        padding: 16px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+      .right {
+        order: 1;
+        width: 100vw;
+        height: 50vh;
+      }
     }
-    .right {
-      order: 1;
-      width: 100vw;
-      height: 50vh;
+
+    .nav.transparent {
+      background: transparent !important;
+      height: 48px !important;
+      transition: background 0.3s ease, height 0.3s ease, backdrop-filter 0.3s ease;
+      backdrop-filter: blur(0);
     }
-  }
-
-.nav.transparent {
-  background: transparent !important;
-  height: 48px !important;
-  transition: background 0.3s ease, height 0.3s ease, backdrop-filter 0.3s ease;
-  backdrop-filter: blur(0);
-}
-
-.nav.transparent .logo {
-  line-height: 48px !important;
-  font-size: 16px !important;
-}
-
-.nav.transparent .nav-right a {
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-
-  .intro-text {
-    max-width: 600px;
-    margin-top: 0;
-    text-align: left;
-  }
-
-@media (max-width: 768px) {
-  .intro-text {
-    margin-top: 2vh;
-  }
-}
-</style>
+    .nav.transparent .logo {
+      line-height: 48px !important;
+      font-size: 16px !important;
+    }
+    .nav.transparent .nav-right a {
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+    }
+    .intro-text {
+      max-width: 600px;
+      margin-top: 0;
+      text-align: left;
+    }
+    @media (max-width: 768px) {
+      .intro-text {
+        margin-top: 2vh;
+      }
+    }
+  </style>
 </head>
 <body>
 <div class="nav">
@@ -212,8 +213,8 @@
     <div class="slide"><img src="IMG_8054.jpeg" alt="Slide 4"></div>
     <div class="slide"><img src="IMG_8055.jpeg" alt="Slide 5"></div>
     <div class="nav-buttons">
-      <button onclick="changeSlide(-1)">&#10094;</button>
-      <button onclick="changeSlide(1)">&#10095;</button>
+      <button onclick="manualChangeSlide(-1)">&#10094;</button>
+      <button onclick="manualChangeSlide(1)">&#10095;</button>
     </div>
   </div>
 </div>
@@ -228,14 +229,24 @@
     { title: 'retail stores', text: 'memorable scenting supports brand identity and elevates consumer engagement.' },
     { title: 'commercial units', text: 'fragrance adds refinement and polish to professional or shared spaces.' }
   ];
+
   let current = 0;
+  let autoplay = true;
+  let intervalId;
 
   function showSlide(index) {
     slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
+      slide.classList.remove('active');
     });
-    const { title, text } = textContent[index];
-    textBox.innerHTML = `<h2>${title}</h2><p>${text}</p>`;
+    slides[index].classList.add('active');
+
+    textBox.style.opacity = 0;
+    setTimeout(() => {
+      const { title, text } = textContent[index];
+      textBox.innerHTML = `<h2>${title}</h2><p>${text}</p>`;
+      textBox.style.opacity = 1;
+    }, 300);
+
     current = index;
   }
 
@@ -244,10 +255,21 @@
     showSlide(newIndex);
   }
 
-  // Initialize with first slide content
-  showSlide(0);
-</script>
+  function manualChangeSlide(dir) {
+    autoplay = false;
+    clearInterval(intervalId);
+    changeSlide(dir);
+  }
 
+  function startAutoplay() {
+    intervalId = setInterval(() => {
+      if (autoplay) changeSlide(1);
+    }, 4000);
+  }
+
+  showSlide(0);
+  startAutoplay();
+</script>
 <script>
   window.addEventListener('scroll', function () {
     const nav = document.querySelector('.nav');
@@ -258,6 +280,5 @@
     }
   });
 </script>
-
 </body>
 </html>
