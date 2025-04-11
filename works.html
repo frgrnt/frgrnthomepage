@@ -129,42 +129,22 @@
     background: rgba(0,0,0,0.6);
   }
   @media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    height: auto;
-  }
-  .left {
-    order: 2;
-    width: 100vw;
-    height: 50vh;
-    padding: 16px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-  }
+    .container {
+      flex-direction: column;
+      height: auto;
+    }
+    .left {
+      order: 2;
+      width: 100vw;
+      height: 50vh;
+      padding: 16px;
+    }
     .right {
       order: 1;
       width: 100vw;
       height: 50vh;
     }
   }
-
-.nav.transparent {
-  background: transparent !important;
-  height: 48px !important;
-  transition: background 0.3s ease, height 0.3s ease, backdrop-filter 0.3s ease;
-  backdrop-filter: blur(0);
-}
-.nav.transparent .logo {
-  line-height: 48px !important;
-  font-size: 16px !important;
-}
-.nav.transparent .nav-right a {
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
 </style>
 </head>
 <body>
@@ -180,11 +160,8 @@
 </div>
 <div class="container">
   <div class="left">
-<div class="intro-text" style="margin-top: -20vh;">
-<div class="text-wrapper">
+    <div id="slideText" class="text-wrapper">
 <h2>retail presence</h2>
-<p>a signature scent builds atmosphere, subtly guiding experience and brand memory from the moment they walk in.</p>
-</div>
 </div>
   </div>
   <div class="right">
@@ -199,15 +176,17 @@
     </div>
   </div>
 </div>
+
+
 <script>
   const slides = document.querySelectorAll('.slide');
   const textBox = document.getElementById('slideText');
   const textContent = [
-    { title: 'retail presence', text: 'a signature scent builds atmosphere, subtly guiding experience and brand memory from the moment they walk in.' },
-    { title: 'hospitality flow', text: 'from lobby to suite, scent becomes a continuous story — calm, luxurious, and unforgettable.' },
-    { title: 'gallery installations', text: 'scent deepens perception in spatial storytelling, anchoring emotional responses to moments and works.' },
-    { title: 'wellness experience', text: 'aligning scent with lighting and sound enhances clarity, stillness, and focus in health and fitness spaces.' },
-    { title: 'coastal refinement', text: 'our ambient scenting supports luxurious coastal architecture with airy, mineral olfactive textures.' },
+    { title: 'retail presence' },
+    { title: 'hospitality flow' },
+    { title: 'gallery installations' },
+    { title: 'wellness experience' },
+    { title: 'coastal refinement' }
   ];
   let current = 0;
 
@@ -215,33 +194,7 @@
     slides.forEach((slide, i) => {
       slide.classList.toggle('active', i === index);
     });
-    textBox.innerHTML = `<h2>${textContent[index].title}</h2><p>${textContent[index].text}</p>`;
-    current = index;
-  }
-
-  function changeSlide(dir) {
-    const newIndex = (current + dir + slides.length) % slides.length;
-    showSlide(newIndex);
-  }
-</script>
-
-<script>
-  const slides = document.querySelectorAll('.slide');
-  const textBox = document.getElementById('slideText');
-  const textContent = [
-    { title: 'retail presence', text: 'a signature scent builds atmosphere, subtly guiding experience and brand memory from the moment they walk in.' },
-    { title: 'hospitality flow', text: 'from lobby to suite, scent becomes a continuous story — calm, luxurious, and unforgettable.' },
-    { title: 'gallery installations', text: 'scent deepens perception in spatial storytelling, anchoring emotional responses to moments and works.' },
-    { title: 'wellness experience', text: 'aligning scent with lighting and sound enhances clarity, stillness, and focus in health and fitness spaces.' },
-    { title: 'coastal refinement', text: 'our ambient scenting supports luxurious coastal architecture with airy, mineral olfactive textures.' },
-  ];
-  let current = 0;
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-    textBox.innerHTML = `<div class='text-wrapper'><h2>${textContent[index].title}</h2><p>${textContent[index].text}</p></div>`;
+    textBox.innerHTML = `<div class='text-wrapper'><h2>${textContent[index].title}</h2></div>`;
     current = index;
   }
 
@@ -251,17 +204,6 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => showSlide(0));
-</script>
-
-<script>
-  window.addEventListener('scroll', function () {
-    const nav = document.querySelector('.nav');
-    if (window.scrollY > 10) {
-      nav.classList.add('transparent');
-    } else {
-      nav.classList.remove('transparent');
-    }
-  });
 </script>
 
 </body>
