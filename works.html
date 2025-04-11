@@ -129,10 +129,10 @@
     background: rgba(0,0,0,0.6);
   }
   @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      height: auto;
-    }
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
     .left {
       order: 2;
       width: 100vw;
@@ -145,23 +145,6 @@
       height: 50vh;
     }
   }
-
-.nav.transparent {
-  background: transparent !important;
-  height: 48px !important;
-  transition: background 0.3s ease, height 0.3s ease, backdrop-filter 0.3s ease;
-  backdrop-filter: blur(0);
-  border-bottom: none !important;
-}
-.nav.transparent .logo {
-  line-height: 48px !important;
-  font-size: 16px !important;
-}
-.nav.transparent .nav-right a {
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
 </style>
 </head>
 <body>
@@ -177,9 +160,10 @@
 </div>
 <div class="container">
   <div class="left">
-    <div id="slideText" class="text-wrapper">
-<h2>retail presence</h2>
-</div>
+    <div class="text-wrapper" id="slideText">
+      <h2>retail presence</h2>
+      <p>a signature scent builds atmosphere, subtly guiding experience and brand memory from the moment they walk in.</p>
+    </div>
   </div>
   <div class="right">
     <div class="slide active"><img src="IMG_8049.jpeg" alt="Slide 1"></div>
@@ -193,17 +177,15 @@
     </div>
   </div>
 </div>
-
-
 <script>
   const slides = document.querySelectorAll('.slide');
   const textBox = document.getElementById('slideText');
   const textContent = [
-    { title: 'residential developments' },
-    { title: 'health & wellness' },
-    { title: 'hotels' },
-    { title: 'retail stores' },
-    { title: 'commercial units' }
+    { title: 'residential developments', text: 'enhancing everyday environments with subtle, familiar scent signatures.' },
+    { title: 'health & wellness', text: 'supporting calm, clarity and renewal through tailored scent atmospheres.' },
+    { title: 'hotels', text: 'creating lasting impressions from arrival to rest through immersive scent.' },
+    { title: 'retail stores', text: 'guiding brand experience and emotion through ambient olfactory cues.' },
+    { title: 'commercial units', text: 'bringing identity and comfort to shared business environments.' }
   ];
   let current = 0;
 
@@ -211,7 +193,7 @@
     slides.forEach((slide, i) => {
       slide.classList.toggle('active', i === index);
     });
-    textBox.innerHTML = `<div class='text-wrapper'><h2>${textContent[index].title}</h2></div>`;
+    textBox.innerHTML = `<h2>${textContent[index].title}</h2><p>${textContent[index].text}</p>`;
     current = index;
   }
 
@@ -219,21 +201,6 @@
     const newIndex = (current + dir + slides.length) % slides.length;
     showSlide(newIndex);
   }
-
-  document.addEventListener('DOMContentLoaded', () => showSlide(0));
 </script>
-
-
-<script>
-  window.addEventListener('scroll', function () {
-    const nav = document.querySelector('.nav');
-    if (window.scrollY > 10) {
-      nav.classList.add('transparent');
-    } else {
-      nav.classList.remove('transparent');
-    }
-  });
-</script>
-
 </body>
 </html>
