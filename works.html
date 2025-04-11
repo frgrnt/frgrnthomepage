@@ -173,6 +173,18 @@
   transition: opacity 0.3s ease;
 }
 
+
+  .intro-text {
+    max-width: 600px;
+    margin-top: 0;
+    text-align: left;
+  }
+
+@media (max-width: 768px) {
+  .intro-text {
+    margin-top: 8vh;
+  }
+}
 </style>
 </head>
 <body>
@@ -188,7 +200,9 @@
 </div>
 <div class="container">
   <div class="left">
-    <div class="text-wrapper" id="slideText"></div>
+    <div class="intro-text">
+      <div class="text-wrapper" id="slideText"></div>
+    </div>
   </div>
   <div class="right">
     <div class="slide active"><img src="IMG_8049.jpeg" alt="Slide 1"></div>
