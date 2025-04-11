@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>frgrnt — works</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #fffef3;
+    color: #000;
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    width: 100%;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #fffef3;
+  }
+  .nav-left { padding-left: 16px; }
+  .logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    letter-spacing: -1px;
+    text-transform: lowercase;
+    font-size: 18px;
+    text-decoration: none;
+    color: #000;
+    display: inline-block;
+    line-height: 64px;
+  }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    padding-right: 16px;
+  }
+  .nav-right a {
+    text-decoration: none;
+    color: #000;
+    text-transform: lowercase;
+    font-size: 14px;
+    margin-left: 24px;
+    transition: color 0.2s ease;
+  }
+  .nav-right a:hover { color: #888; }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 84vh;
+  }
+  .left, .right {
+    width: 50vw;
+    height: 84vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .left {
+    order: 1;
+    background-color: #eae6df;
+    text-align: left;
+    padding: 10vh 5vw 0;
+  }
+  .text-wrapper {
+    max-width: 600px;
+    font-size: 14px;
+    line-height: 1.6;
+    text-transform: lowercase;
+  }
+  .text-wrapper h2 {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-transform: lowercase;
+  }
+  .text-wrapper p {
+    font-style: normal;
+  }
+
+  .right {
+    order: 2;
+    position: relative;
+    background-color: transparent;
+    overflow: hidden;
+  }
+  .slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+  .slide.active {
+    display: block;
+  }
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .nav-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 20px;
+    z-index: 2;
+  }
+  .nav-buttons button {
+    background: rgba(0,0,0,0.3);
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .nav-buttons button:hover {
+    background: rgba(0,0,0,0.6);
+  }
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      height: auto;
+    }
+    .left {
+      order: 2;
+      width: 100vw;
+      height: 50vh;
+      padding: 16px;
+    }
+    .right {
+      order: 1;
+      width: 100vw;
+      height: 50vh;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="nav">
+  <div class="nav-left">
+    <a class="logo" href="/index.html">frgrnt</a>
+  </div>
+  <div class="nav-right">
+    <a href="/about.html">about</a>
+    <a href="#">works</a>
+    <a href="mailto:info@frgrnt.com?subject=Hello">email</a>
+  </div>
+</div>
+<div class="container">
+  <div class="left">
+    <div class="text-wrapper" id="slideText">
+      <h2>retail presence</h2>
+      <p>a signature scent builds atmosphere, subtly guiding experience and brand memory from the moment they walk in.</p>
+    </div>
+  </div>
+  <div class="right">
+    <div class="slide active"><img src="IMG_8049.jpeg" alt="Slide 1"></div>
+    <div class="slide"><img src="IMG_8052.jpeg" alt="Slide 2"></div>
+    <div class="slide"><img src="IMG_8053.jpeg" alt="Slide 3"></div>
+    <div class="slide"><img src="IMG_8054.jpeg" alt="Slide 4"></div>
+    <div class="slide"><img src="IMG_8055.jpeg" alt="Slide 5"></div>
+    <div class="nav-buttons">
+      <button onclick="changeSlide(-1)">&#10094;</button>
+      <button onclick="changeSlide(1)">&#10095;</button>
+    </div>
+  </div>
+</div>
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const textBox = document.getElementById('slideText');
+  const textContent = [
+    { title: 'retail presence', text: 'a signature scent builds atmosphere, subtly guiding experience and brand memory from the moment they walk in.' },
+    { title: 'hospitality flow', text: 'from lobby to suite, scent becomes a continuous story — calm, luxurious, and unforgettable.' },
+    { title: 'gallery installations', text: 'scent deepens perception in spatial storytelling, anchoring emotional responses to moments and works.' },
+    { title: 'wellness experience', text: 'aligning scent with lighting and sound enhances clarity, stillness, and focus in health and fitness spaces.' },
+    { title: 'coastal refinement', text: 'our ambient scenting supports luxurious coastal architecture with airy, mineral olfactive textures.' },
+  ];
+  let current = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+    textBox.innerHTML = `<h2>${textContent[index].title}</h2><p>${textContent[index].text}</p>`;
+    current = index;
+  }
+
+  function changeSlide(dir) {
+    const newIndex = (current + dir + slides.length) % slides.length;
+    showSlide(newIndex);
+  }
+</script>
+</body>
+</html>
