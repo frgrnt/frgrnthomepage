@@ -99,6 +99,7 @@
       line-height: 1.6;
       margin: 0 auto;
       padding: 0 24px;
+      font-style: italic;
       text-align: center;
     }
 
@@ -257,19 +258,6 @@
   opacity: 0.6;
   transition: opacity 0.3s ease;
 }
-
-.intro-text {
-  max-width: 600px;
-  margin-top: -20vh;
-  text-align: left;
-}
-
-@media (max-width: 768px) {
-  .intro-text {
-    margin-top: 0 !important;
-  }
-}
-
 </style>
 <style>
   .pause-button, .pause-button-mobile {
@@ -348,7 +336,11 @@
     font-size: 18px !important;  /* for a balanced look on mobile */
   }
 
-
+.intro-text {
+  max-width: 600px;
+  margin-top: -20vh;
+  text-align: left;
+}
 
 .intro-text h2 {
   font-size: 14px;
@@ -394,10 +386,12 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.6;
+  font-style: italic;
   margin-top: 12px;
   text-align: left;
 }
 .text-wrapper p {
+  font-style: italic;
   margin-top: 12px;
 }
 
@@ -488,7 +482,7 @@
 <body>
 <div class="nav">
 <div class="nav-left">
-<a class="logo" href="/index.html" id="logoText">frgrnt</a>
+<a class="logo" href="/index.html" id="logoText">fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt</a>
 </div>
 <div class="nav-right">
 <a href="/about.html">about</a>
@@ -500,16 +494,17 @@
 <div class="left">
 <div class="intro-text">
 <div class="text-wrapper">
-<h2>about</h2>
-<p>we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
-<p>scent branding, custom fragrance creation, and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
-<p>from concept to composition, we guide brands through the creation of their olfactive signature.</p>
+<h2>the subtle art of scent</h2>
+<p>“scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”</p>
+<div class="styled-ctas">
+<a class="cta-underline" href="mailto:info@frgrnt.com?subject=Hello">start your journey →</a>
+</div>
 </div>
 </div>
 </div>
 <div class="right">
 <video autoplay="" id="mainVideo" loop="" muted="" playsinline="">
-<source src="about_video.mp4" type="video/mp4"/>
+<source src="works_landing.mp4" type="video/mp4"/>
         Your browser does not support the video tag.
       </video>
 <div aria-label="Toggle video playback" class="control-button pause-button-mobile" id="pauseButtonMobile" onclick="toggleVideo(event)">
@@ -560,7 +555,16 @@
     video.addEventListener('pause', updateIcons);
     updateIcons();
   });
-</script><script>
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const logo = document.getElementById('logoText');
+    setTimeout(() => {
+      logo.textContent = 'frgrnt';
+    }, 900);
+  });
+</script>
+<script>
   window.addEventListener('scroll', function () {
     const nav = document.querySelector('.nav');
     if (window.scrollY > 10) {
