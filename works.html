@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>frgrnt — Scent Branding Agency</title>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>frgrnt — Scent Branding Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'JetBrains Mono', monospace;
@@ -191,34 +192,33 @@
 </head>
 <body>
 <div class="nav">
-  <div class="nav-left">
-    <a class="logo" href="/index.html">frgrnt</a>
-  </div>
-  <div class="nav-right">
-    <a href="/about.html">about</a>
-    <a href="#">works</a>
-    <a href="mailto:info@frgrnt.com?subject=Hello">email</a>
-  </div>
+<div class="nav-left">
+<a class="logo" href="/index.html">frgrnt</a>
+</div>
+<div class="nav-right">
+<a href="/about.html">about</a>
+<a href="#">works</a>
+<a href="mailto:info@frgrnt.com?subject=Hello">email</a>
+</div>
 </div>
 <div class="container">
-  <div class="left">
-    <div class="intro-text">
-      <div class="text-wrapper" id="slideText"></div>
-    </div>
-  </div>
-  <div class="right">
-    <div class="slide active"><img src="IMG_8049.jpeg" alt="Slide 1"></div>
-    <div class="slide"><img src="IMG_8052.jpeg" alt="Slide 2"></div>
-    <div class="slide"><img src="IMG_8053.jpeg" alt="Slide 3"></div>
-    <div class="slide"><img src="IMG_8054.jpeg" alt="Slide 4"></div>
-    <div class="slide"><img src="IMG_8055.jpeg" alt="Slide 5"></div>
-    <div class="nav-buttons">
-      <button onclick="manualChangeSlide(-1)">&#10094;</button>
-      <button onclick="manualChangeSlide(1)">&#10095;</button>
-    </div>
-  </div>
+<div class="left">
+<div class="intro-text">
+<div class="text-wrapper" id="slideText"></div>
 </div>
-
+</div>
+<div class="right">
+<div class="slide active"><img alt="Slide 1" src="IMG_8049.jpeg"/></div>
+<div class="slide"><img alt="Slide 2" src="IMG_8052.jpeg"/></div>
+<div class="slide"><img alt="Slide 3" src="IMG_8053.jpeg"/></div>
+<div class="slide"><img alt="Slide 4" src="IMG_8054.jpeg"/></div>
+<div class="slide"><img alt="Slide 5" src="IMG_8055.jpeg"/></div>
+<div class="nav-buttons">
+<button onclick="manualChangeSlide(-1)">❮</button>
+<button onclick="manualChangeSlide(1)">❯</button>
+</div>
+</div>
+</div>
 <script>
   const slides = document.querySelectorAll('.slide');
   const textBox = document.getElementById('slideText');
@@ -281,9 +281,5 @@
   });
 </script>
 
-<footer style="text-align: center; font-size: 12px; font-family: 'JetBrains Mono', monospace; padding: 16px; color: rgba(0,0,0,0.4); background: transparent;">
-  © 2025, frgrnt. all rights reserved.
-</footer>
-
-</body>
+<footer style="position: absolute; bottom: 12px; left: 12px; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: rgba(0,0,0,0.4); background: transparent;">© 2025, frgrnt. all rights reserved.</footer></body>
 </html>
