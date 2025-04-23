@@ -21,6 +21,12 @@
   font-weight: 700;
   font-style: normal;
 }
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 </style>
 <style>
     * {
@@ -568,17 +574,27 @@
 </div>
 </div>
 </div>
-<script>document.addEventListener('DOMContentLoaded', function () {
+<script>
+document.addEventListener('DOMContentLoaded', function () {
   const video = document.getElementById('mainVideo');
   const playIcon = document.getElementById('playIcon');
   const pauseIcon = document.getElementById('pauseIcon');
+
   video.muted = true;
-  video.play().catch(() => {});
+
+  // Slight delay to improve autoplay reliability on iOS
+  setTimeout(() => {
+    video.play().catch(err => {
+      console.log("Autoplay failed:", err);
+    });
+  }, 300);
+
   function updateIcons() {
     const showPlay = video.paused;
     if (playIcon) playIcon.style.display = showPlay ? 'block' : 'none';
     if (pauseIcon) pauseIcon.style.display = showPlay ? 'none' : 'flex';
   }
+
   window.toggleVideo = function (e) {
     e.stopPropagation();
     if (video.paused) {
@@ -588,10 +604,12 @@
     }
     updateIcons();
   }
+
   video.addEventListener('play', updateIcons);
   video.addEventListener('pause', updateIcons);
   updateIcons();
-});</script><script>
+});
+</script><script>
   window.addEventListener('scroll', function () {
     const nav = document.querySelector('.nav');
     if (window.scrollY > 10) {
