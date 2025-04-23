@@ -527,9 +527,31 @@
         height: 12px;
         background-color: rgba(0, 0, 0, 0.6);
       }
-    </style>
+    
+/* Make video a fixed full-background */
+#mainVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Frosted nav bar */
+.nav {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: backdrop-filter 0.3s ease;
+}
+</style>
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
+
+
+
 <div class="nav">
 <div class="nav-left">
 <a class="logo" href="/index.html" id="logoText">fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt</a>
@@ -553,10 +575,7 @@
 </div>
 </div>
 <div class="right" style=" position: relative;">
-<video autoplay="" id="mainVideo" loop="" muted="" playsinline="">
-<source src="works_landing.mp4" type="video/mp4"/>
-        Your browser does not support the video tag.
-      </video>
+
 <div aria-label="Toggle video playback" class="control-button pause-button" id="pauseButton" onclick="toggleVideo(event)">
 <div class="play-icon" id="playIcon"></div>
 <div class="pause-icon" id="pauseIcon"><div></div><div></div></div>
