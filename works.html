@@ -19,6 +19,9 @@
   font-weight: 700;
   font-style: normal;
 }
+
+
+
 </style>
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -135,74 +138,68 @@
       height: 100%;
       object-fit: cover;
     }
-    .nav-buttons {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      padding: 0 20px;
-      z-index: 2;
-    }
-    .nav-buttons button {
-      background: rgba(0,0,0,0.3);
-      border: none;
-      color: #fff;
-      font-size: 24px;
-      padding: 10px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-    .nav-buttons button:hover {
-      background: rgba(0,0,0,0.6);
-    }
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        height: auto;
-      }
-      .left {
-        order: 2;
-        width: 100vw;
-        height: 50vh;
-        padding: 16px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-      }
-      .right {
-        order: 1;
-        width: 100vw;
-        height: 50vh;
-      }
-    }
+    
 
-    .nav.transparent {
-      background: transparent !important;
-      height: 48px !important;
-      transition: background 0.3s ease, height 0.3s ease, backdrop-filter 0.3s ease;
-      backdrop-filter: blur(0);
-    }
-    .nav.transparent .logo {
-      line-height: 48px !important;
-      font-size: 16px !important;
-    }
-    .nav.transparent .nav-right a {
-      opacity: 0.6;
-      transition: opacity 0.3s ease;
-    }
-    .intro-text {
-      max-width: 600px;
-      margin-top: 0;
-      text-align: left;
-    }
-    @media (max-width: 768px) {
-      .intro-text {
-        margin-top: 2vh;
-      }
-    }
-  </style>
+
+
+
+
+.nav-buttons {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  display: flex;
+  gap: 12px;
+  z-index: 5;
+}
+
+.control-button {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  position: relative;
+}
+
+.control-button:hover {
+  opacity: 0.6;
+}
+
+.arrow-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-left .arrow-icon::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 10px solid rgba(0, 0, 0, 0.6);
+}
+
+.arrow-right .arrow-icon::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 10px solid rgba(0, 0, 0, 0.6);
+}
+
+</style>
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 <div class="nav">
@@ -222,15 +219,21 @@
 </div>
 </div>
 <div class="right">
+<div class="nav-buttons">
+  <button class="control-button arrow-left" onclick="manualChangeSlide(-1)">
+    <span class="arrow-icon"></span>
+  </button>
+  <button class="control-button arrow-right" onclick="manualChangeSlide(1)">
+    <span class="arrow-icon"></span>
+  </button>
+</div>
+
 <div class="slide active"><img alt="Slide 1" src="IMG_8049.jpeg"/></div>
 <div class="slide"><img alt="Slide 2" src="IMG_8052.jpeg"/></div>
 <div class="slide"><img alt="Slide 3" src="IMG_8053.jpeg"/></div>
 <div class="slide"><img alt="Slide 4" src="IMG_8054.jpeg"/></div>
 <div class="slide"><img alt="Slide 5" src="IMG_8055.jpeg"/></div>
-<div class="nav-buttons">
-<button onclick="manualChangeSlide(-1)">❮</button>
-<button onclick="manualChangeSlide(1)">❯</button>
-</div>
+
 </div>
 </div>
 <script>
