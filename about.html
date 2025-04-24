@@ -542,84 +542,15 @@ video::-webkit-media-controls-start-playback-button {
     </style>
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
-
 <div class="nav">
-  <div class="nav-left">
-    <a class="logo" href="/index.html">frgrnt</a>
-  </div>
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-  </div>
+<div class="nav-left">
+<a class="logo" href="/index.html" id="logoText">frgrnt</a>
 </div>
-
-<div class="menu-overlay-top" id="mobileMenu">
-  <a href="/about.html">about</a>
-  <a href="/works.html">works</a>
-  <a href="mailto:info@frgrnt.com?subject=Hello">email</a>
+<div class="nav-right">
+<a href="/about.html">about</a>
+<a href="/works.html">works</a>
+<a href="mailto:info@frgrnt.com?subject=Hello">email</a>
 </div>
-
-<style>
-  .hamburger {
-    width: 24px;
-    height: 18px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    margin-right: 16px;
-    z-index: 11;
-  }
-
-  .hamburger div {
-    height: 2px;
-    background-color: #000;
-    transition: all 0.3s ease;
-  }
-
-  .menu-overlay-top {
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    display: none;
-    position: absolute;
-    top: 64px;
-    right: 16px;
-    background-color: #fffef3;
-    padding: 12px 16px;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    z-index: 12;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .menu-overlay-top a {
-    font-size: 14px;
-    text-decoration: none;
-    color: #000;
-    text-transform: lowercase;
-  }
-
-  .menu-overlay-top a:hover {
-    color: #888;
-  }
-
-  .menu-overlay-top.open {
-    display: flex;
-  }
-</style>
-
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('open');
-  }
-</script>
-
-
 </div>
 <div class="container" style="flex: 1;">
 <div class="left">
