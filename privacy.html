@@ -128,6 +128,24 @@
       border-color: rgba(51, 51, 51, 0.6);
     }
   </style>
+
+<style>
+.nav.transparent {
+  background: transparent !important;
+  height: 48px !important;
+  transition: background 0.3s ease, height 0.3s ease, backdrop-filter 0.3s ease;
+  backdrop-filter: blur(0);
+}
+.nav.transparent .logo {
+  line-height: 48px !important;
+  font-size: 16px !important;
+}
+.nav.transparent .nav-right a {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+</style>
+
 </head>
 <body>
   <div class="nav">
@@ -181,6 +199,18 @@
   <a href="/privacy.html" style="text-decoration: none; color: rgba(51, 51, 51, 0.4); font-size: 12px;">privacy policy</a>
   <div>© 2025, frgrnt</div>
 </footer>
+
+<script>
+  window.addEventListener('scroll', function () {
+    const nav = document.querySelector('.nav');
+    if (window.scrollY > 10) {
+      nav.classList.add('transparent');
+    } else {
+      nav.classList.remove('transparent');
+    }
+  });
+</script>
+
 </body>
 </html>
 
