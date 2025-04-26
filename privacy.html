@@ -152,9 +152,22 @@
 <a class="logo" href="/index.html">frgrnt</a>
 </div>
 <div class="nav-right">
-<a href="/about.html">about</a>
-<a href="/works.html">works</a>
-<a href="mailto:info@frgrnt.com?subject=Hello">email</a>
+<div id="navLinks" style="display: none; align-items: center;">
+<a href="/about.html" style="margin-left: 0;">about</a>
+<a href="/works.html" style="margin-left: 24px;">works</a>
+<a href="mailto:info@frgrnt.com?subject=hello" style="margin-left: 24px;">email</a>
+</div>
+<div class="spray-menu" onclick="toggleMenu()" style="margin-left: 24px;">
+<div class="spray-line" style="margin-left: 0px;">
+<span></span><span></span><span></span>
+</div>
+<div class="spray-line" style="margin-left: 8px;">
+<span></span><span></span>
+</div>
+<div class="spray-line" style="margin-left: 16px;">
+<span></span>
+</div>
+</div>
 </div>
 </div>
 <div class="content">
@@ -196,5 +209,70 @@
     }
   });
 </script>
-</body>
+<style>
+.spray-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  cursor: pointer;
+  gap: 6px;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.spray-menu:hover span,
+.spray-menu.rotate span {
+  background-color: #888888;
+}
+
+.spray-menu.rotate {
+  transform: rotate(180deg);
+}
+
+.spray-line {
+  display: flex;
+  gap: 6px;
+}
+
+.spray-line span {
+  width: 4px;
+  height: 4px;
+  background-color: #333;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+#navLinks {
+  display: none;
+  flex-direction: row;
+}
+
+#navLinks a {
+  text-decoration: none;
+  color: #333333;
+  text-transform: lowercase;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+#navLinks a:hover {
+  color: #888;
+}
+</style><script>
+let menuOpen = false;
+function toggleMenu() {
+  const navLinks = document.getElementById('navLinks');
+  const sprayMenu = document.querySelector('.spray-menu');
+  if (menuOpen) {
+    navLinks.style.display = 'none';
+    sprayMenu.classList.remove('rotate');
+    menuOpen = false;
+  } else {
+    navLinks.style.display = 'flex';
+    sprayMenu.classList.add('rotate');
+    menuOpen = true;
+  }
+}
+</script></body>
 </html>
