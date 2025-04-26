@@ -570,7 +570,7 @@ body {
 
 
 <style>
-/* --- Footer Font Lock and No Zoom --- */
+/* --- Footer Lock --- */
 footer a, footer div {
   font-size: 12px !important;
 }
@@ -579,16 +579,19 @@ html {
   text-size-adjust: 100%;
 }
 
-/* --- Mobile Split Layout with Flexible Growth --- */
+/* --- Mobile View Flexible Growing Text Box --- */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
     min-height: 100vh;
   }
+
   .left, .right {
     width: 100%;
-    min-height: 50vh;
+    min-height: 50vh; /* start at 50vh */
+    height: auto;     /* allow grow if needed */
   }
+
   .left {
     display: flex;
     align-items: center;
@@ -597,24 +600,28 @@ html {
     padding: 24px;
     text-align: center;
   }
+
   .left p {
     font-size: 14px;
     margin: 12px 0 0 0;
     padding: 0;
   }
+
   .left p:first-child {
     margin-top: 0;
   }
+
   .intro-text {
     margin-top: 0 !important;
   }
 }
 
-/* --- Optional Font Clamp --- */
+/* --- Optional Font Scaling --- */
 body {
   font-size: clamp(12px, 2vw, 16px);
 }
 </style>
+
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 <div class="nav">
