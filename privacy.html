@@ -138,7 +138,7 @@
 }
 .nav.transparent .logo {
   line-height: 48px !important;
-  font-size: 16px !important;
+  font-size: 18px !important;
 }
 .nav.transparent .nav-right a {
   opacity: 0.6;
@@ -264,13 +264,21 @@ let menuOpen = false;
 function toggleMenu() {
   const navLinks = document.getElementById('navLinks');
   const sprayMenu = document.querySelector('.spray-menu');
+  const dots = document.querySelectorAll('.spray-menu span');
+  
   if (menuOpen) {
     navLinks.style.display = 'none';
     sprayMenu.classList.remove('rotate');
+    dots.forEach(dot => {
+      dot.style.backgroundColor = '#333333';
+    });
     menuOpen = false;
   } else {
     navLinks.style.display = 'flex';
     sprayMenu.classList.add('rotate');
+    dots.forEach(dot => {
+      dot.style.backgroundColor = '#888888';
+    });
     menuOpen = true;
   }
 }
