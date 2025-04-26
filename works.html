@@ -414,6 +414,7 @@ body {
 <div>© 2025, frgrnt</div>
 </footer>
 <style>
+
 .spray-menu {
   display: flex;
   flex-direction: column;
@@ -421,8 +422,8 @@ body {
   align-items: flex-end;
   cursor: pointer;
   gap: 6px;
-  padding: 10px;
   transition: transform 0.3s ease;
+  /* padding: 10px; --> REMOVED */
 }
 
 .spray-menu:hover span,
@@ -447,23 +448,7 @@ body {
   transition: background-color 0.2s ease;
 }
 
-#navLinks {
-  display: none;
-  flex-direction: row;
-}
-
-#navLinks a {
-  text-decoration: none;
-  color: #333333;
-  text-transform: lowercase;
-  font-size: 14px;
-  transition: color 0.2s ease;
-}
-
-#navLinks a:hover {
-  color: #888;
-}
-</style><script>
+</style></style><script>
 let menuOpen = false;
 function toggleMenu() {
   const navLinks = document.getElementById('navLinks');
