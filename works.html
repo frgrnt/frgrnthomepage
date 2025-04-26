@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>frgrnt — Scent Branding Agency</title>
 <style>
 @font-face {
@@ -202,6 +202,36 @@
       }
     }
   </style>
+
+<style>
+/* --- Footer and Font Size Fixes --- */
+footer, footer a, footer div {
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  footer, footer a, footer div {
+    font-size: 10px !important;
+  }
+
+  .container {
+    flex-direction: column;
+    height: 100vh; /* Maintain full screen height */
+  }
+
+  .left, .right {
+    width: 100vw;
+    height: 50vh; /* Split evenly */
+    padding: 16px;
+  }
+}
+
+/* --- Prevent Text Zoom and Add Font Clamping --- */
+body {
+  font-size: clamp(12px, 2vw, 16px);
+}
+</style>
+
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 <div class="nav">
