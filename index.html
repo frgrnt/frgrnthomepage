@@ -528,17 +528,12 @@
     </style>
 
 <style>
-/* --- Footer Font Size --- */
+/* --- Footer Uniform Size --- */
 footer a, footer div {
   font-size: 12px;
 }
-@media (max-width: 768px) {
-  footer a, footer div {
-    font-size: 10px;
-  }
-}
 
-/* --- Maintain Split Layout (square text and video) --- */
+/* --- Maintain Split Layout for Text and Video --- */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -551,11 +546,11 @@ footer a, footer div {
   }
 
   .left {
-    padding: 10vh 5vw 0; /* Restore breathing room like original */
+    padding: 10vh 5vw 0;
   }
 }
 
-/* --- Optional: Slight font clamp to avoid zoom spikes --- */
+/* --- Optional: Font Clamping --- */
 body {
   font-size: clamp(12px, 2vw, 16px);
 }
