@@ -175,6 +175,60 @@ body {
 }
 </style>
 
+
+<style>
+/* --- Lock Footer Size and Prevent Mobile Zoom --- */
+footer a, footer div {
+  font-size: 12px !important;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* --- Maintain Split Layout for Text and Video --- */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .left, .right {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .left p {
+    padding: 0;
+    margin: 0 auto;
+    font-size: 14px;
+    margin-top: 12px;
+  }
+
+  .left p:first-child {
+    margin-top: 0;
+  }
+
+  .intro-text {
+    margin-top: 0 !important;
+  }
+}
+
+/* --- Optional Font Scaling for Body --- */
+body {
+  font-size: clamp(12px, 2vw, 16px);
+}
+</style>
+
 </head>
 <body>
 <div class="nav">
