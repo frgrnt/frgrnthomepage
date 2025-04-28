@@ -678,7 +678,25 @@ body {
 </div>
 </div>
 <div class="right" style=" position: relative;">
-<video autoplay disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" controls="false" disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" controls="false" disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" id="mainVideo"=""=""="">
+
+
+<video autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" id="mainVideo">
+  <source src="about_video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<div aria-label="Toggle video playback" class="control-button pause-button" id="pauseButton" onclick="toggleVideo(event)">
+  <div class="play-icon" id="playIcon"></div>
+  <div class="pause-icon" id="pauseIcon"><div></div><div></div></div>
+</div>
+muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" id="mainVideo">
+  <source src="about_video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<div aria-label="Toggle video playback" class="control-button pause-button" id="pauseButton" onclick="toggleVideo(event)">
+  <div class="play-icon" id="playIcon"></div>
+  <div class="pause-icon" id="pauseIcon"><div></div><div></div></div>
+</div>
+
 <source src="about_video.mp4" type="video/mp4"/>
         Your browser does not support the video tag.
       </video>
