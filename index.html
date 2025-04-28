@@ -629,6 +629,20 @@ body {
 }
 </style>
 
+
+<style>
+video::-webkit-media-controls {
+  display: none !important;
+}
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+</style>
+
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 <div class="nav">
@@ -667,7 +681,7 @@ body {
 </div>
 </div>
 <div class="right" style=" position: relative;">
-<video autoplay="" id="mainVideo" loop="" muted="" playsinline="">
+<video autoplay muted loop playsinline controls="false" disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" muted loop playsinline controls="false" disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" id="mainVideo" loop="" muted="" playsinline="">
 <source src="works_landing.mp4" type="video/mp4"/>
         Your browser does not support the video tag.
       </video>
