@@ -4,8 +4,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>frgrnt — Scent Branding Agency</title><link href="/favicon-f-sharp.ico" rel="icon" type="image/x-icon"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>frgrnt — Scent Branding Agency</title>
 <style>
 @font-face {
   font-family: 'JetBrains Mono';
@@ -526,7 +526,6 @@
         background-color: rgba(51, 51, 51, 0.6);
       }
     </style>
-
 <style>
 /* --- Footer Uniform Size --- */
 footer a, footer div {
@@ -555,8 +554,6 @@ body {
   font-size: clamp(12px, 2vw, 16px);
 }
 </style>
-
-
 <style>
 /* --- Proper Footer Left Alignment --- */
 footer {
@@ -628,8 +625,6 @@ body {
   font-size: clamp(12px, 2vw, 16px);
 }
 </style>
-
-
 <style>
 video::-webkit-media-controls {
   display: none !important;
@@ -643,6 +638,27 @@ video::-webkit-media-controls-start-playback-button {
 }
 </style>
 
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<meta content="#fffef3" name="theme-color"/>
+<meta content="#fffef3" name="msapplication-TileColor"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "frgrnt",
+  "url": "https://www.frgrnt.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.frgrnt.com/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 <div class="nav">
@@ -681,17 +697,16 @@ video::-webkit-media-controls-start-playback-button {
 </div>
 </div>
 <div class="right" style=" position: relative;">
-<video autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" id="mainVideo">
-  <source src="works_landing.mp4" type="video/mp4">
-</video>
+<video autoplay="" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture="" id="mainVideo" loop="" muted="" playsinline="">
 <source src="works_landing.mp4" type="video/mp4"/>
-        
-      </video>
+</video>
+<source src="works_landing.mp4" type="video/mp4">
+
 <div aria-label="Toggle video playback" class="control-button pause-button" id="pauseButton" onclick="toggleVideo(event)">
 <div class="play-icon" id="playIcon"></div>
 <div class="pause-icon" id="pauseIcon"><div></div><div></div></div>
 </div>
-</div>
+</source></div>
 </div>
 <script>document.addEventListener('DOMContentLoaded', function () {
   const video = document.getElementById('mainVideo');
@@ -774,7 +789,7 @@ video::-webkit-media-controls-start-playback-button {
   transition: background-color 0.2s ease;
 }
 
-</style></style><script>
+</style><script>
 let menuOpen = false;
 function toggleMenu() {
   const navLinks = document.getElementById('navLinks');

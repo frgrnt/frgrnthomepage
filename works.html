@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>frgrnt — Scent Branding Agency</title>
 <style>
 @font-face {
@@ -202,7 +202,6 @@
       }
     }
   </style>
-
 <style>
 /* --- Footer Uniform Size --- */
 footer a, footer div {
@@ -231,8 +230,6 @@ body {
   font-size: clamp(12px, 2vw, 16px);
 }
 </style>
-
-
 <style>
 /* --- Proper Footer Left Alignment --- */
 footer {
@@ -305,6 +302,27 @@ body {
 }
 </style>
 
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<meta content="#fffef3" name="theme-color"/>
+<meta content="#fffef3" name="msapplication-TileColor"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "frgrnt",
+  "url": "https://www.frgrnt.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.frgrnt.com/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 <div class="nav">
@@ -448,7 +466,7 @@ body {
   transition: background-color 0.2s ease;
 }
 
-</style></style><script>
+</style><script>
 let menuOpen = false;
 function toggleMenu() {
   const navLinks = document.getElementById('navLinks');
