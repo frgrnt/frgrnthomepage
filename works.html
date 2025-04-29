@@ -301,7 +301,31 @@ body {
   font-size: clamp(12px, 2vw, 16px);
 }
 </style>
-<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/><link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/><link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/><link href="/site.webmanifest" rel="manifest"/><link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/><meta content="#fffef3" name="theme-color"/><meta content="#fffef3" name="msapplication-TileColor"/></head>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/><link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/><link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/><link href="/site.webmanifest" rel="manifest"/><link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/><meta content="#fffef3" name="theme-color"/><meta content="#fffef3" name="msapplication-TileColor"/><style>
+.slide-controls {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  z-index: 5;
+  display: flex;
+  gap: 12px;
+}
+
+.slide-control-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  color: rgba(51, 51, 51, 0.4);
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+
+.slide-control-button:hover {
+  color: rgba(51, 51, 51, 0.6);
+}
+</style></head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 <div class="nav">
 <div class="nav-left">
@@ -338,11 +362,8 @@ body {
 <div class="slide"><img alt="Slide 3" src="IMG_8053.jpeg"/></div>
 <div class="slide"><img alt="Slide 4" src="IMG_8054.jpeg"/></div>
 <div class="slide"><img alt="Slide 5" src="IMG_8055.jpeg"/></div>
-<div class="nav-buttons">
-<button onclick="manualChangeSlide(-1)">❮</button>
-<button onclick="manualChangeSlide(1)">❯</button>
-</div>
-</div>
+
+<div class="slide-controls"><button class="slide-control-button" onclick="manualChangeSlide(-1)">❮</button><button class="slide-control-button" onclick="manualChangeSlide(1)">❯</button></div></div>
 </div>
 <script>
   const slides = document.querySelectorAll('.slide');
