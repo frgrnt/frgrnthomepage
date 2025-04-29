@@ -362,7 +362,6 @@ body {
 <div class="slide"><img alt="Slide 3" src="IMG_8053.jpeg"/></div>
 <div class="slide"><img alt="Slide 4" src="IMG_8054.jpeg"/></div>
 <div class="slide"><img alt="Slide 5" src="IMG_8055.jpeg"/></div>
-
 <div class="slide-controls"><button class="slide-control-button" onclick="manualChangeSlide(-1)">❮</button><button class="slide-control-button" onclick="manualChangeSlide(1)">❯</button></div></div>
 </div>
 <script>
@@ -465,6 +464,20 @@ body {
   transition: background-color 0.2s ease;
 }
 
+
+.pause-button, .pause-button-mobile, .slide-control-button {
+  background: none !important;
+  border: none !important;
+  font-size: 20px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  color: rgba(0, 0, 0, 0.7) !important;  /* More opaque, no box */
+  padding: 4px !important;
+  transition: color 0.2s ease;
+}
+
+.pause-button:hover, .pause-button-mobile:hover, .slide-control-button:hover {
+  color: rgba(0, 0, 0, 1) !important;  /* Fully opaque on hover */
+}
 </style><script>
 let menuOpen = false;
 function toggleMenu() {
