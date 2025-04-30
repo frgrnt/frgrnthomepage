@@ -646,8 +646,20 @@ video::-webkit-media-controls-start-playback-button {
 <meta name="theme-color" content="#fffef3">
 <meta name="msapplication-TileColor" content="#fffef3">
 
+
+<style>
+html.is-animating #swup {
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+#swup {
+  opacity: 1;
+  transition: opacity 300ms ease;
+}
+</style>
+
 </head>
-<body><div id="swup">
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
 <div class="nav">
 <div class="nav-left">
 <a class="logo" href="/index.html" id="logoText">fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt</a>
@@ -799,10 +811,4 @@ function toggleMenu() {
     menuOpen = true;
   }
 }
-</script><script src="https://instant.page/5.1.0" type="module" defer></script>
-</div>
-<script src="https://unpkg.com/swup@4"></script>
-<script>
-  const swup = new Swup();
-</script>
-</body></html>
+</script></body></html>
