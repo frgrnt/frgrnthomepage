@@ -637,13 +637,16 @@ video::-webkit-media-controls-start-playback-button {
   -webkit-appearance: none;
 }
 </style>
-<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
-<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="/site.webmanifest" rel="manifest"/>
-<meta content="#fffef3" name="theme-color"/>
-<meta content="#fffef3" name="msapplication-TileColor"/>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#fffef3">
+<meta name="msapplication-TileColor" content="#fffef3">
+
+
 <style>
 html.is-animating #swup {
   opacity: 0;
@@ -654,25 +657,9 @@ html.is-animating #swup {
   transition: opacity 300ms ease;
 }
 </style>
-<style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
-    .snap-wrapper {
-      scroll-snap-type: y mandatory;
-      overflow-y: scroll;
-      height: 100vh;
-    }
-    .container {
-      scroll-snap-align: start;
-      height: 100vh;
-      width: 100vw;
-    }
-    </style></head>
-<body style="display: flex; flex-direction: column; min-height: 100vh;"><div class="snap-wrapper">
+
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
 <div class="nav">
 <div class="nav-left">
 <a class="logo" href="/index.html" id="logoText">fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt</a>
@@ -712,28 +699,13 @@ html.is-animating #swup {
 <video autoplay="" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture="" id="mainVideo" loop="" muted="" playsinline="">
 <source src="works_landing.mp4" type="video/mp4"/>
 </video>
-<source src="works_landing.mp4" type="video/mp4"/>
+<source src="works_landing.mp4" type="video/mp4">
+
 <div aria-label="Toggle video playback" class="control-button pause-button" id="pauseButton" onclick="toggleVideo(event)">
 <div class="play-icon" id="playIcon"></div>
 <div class="pause-icon" id="pauseIcon"><div></div><div></div></div>
 </div>
-</div>
-</div><div class="container" id="scent-branding" style="flex: 1;">
-<div class="left">
-<div class="intro-text">
-<div class="text-wrapper"><h2>the power of scent branding</h2><p style="font-style: normal;">65% of scent-linked memories last a year, compared to just 50% for visuals after three months.</p><p style="font-style: normal;">pleasant ambient scents can increase positive mood by up to 40%.</p><p style="font-style: normal;">in retail spaces, scent can boost purchase intent by as much as 80% and increase time spent in-store.</p><p style="font-style: normal;">multisensory brand experiences are up to 70% more effective when scent is part of the mix.</p><div class="styled-ctas"><a class="cta-underline" href="mailto:info@frgrnt.com?subject=Enquiry">start your journey →</a></div></div>
-</div>
-</div>
-<div class="right" style=" position: relative;">
-<video autoplay="" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture="" id="mainVideo" loop="" muted="" playsinline="">
-<source src="works_landing.mp4" type="video/mp4"/>
-</video>
-<source src="works_landing.mp4" type="video/mp4"/>
-<div aria-label="Toggle video playback" class="control-button pause-button" id="pauseButton" onclick="toggleVideo(event)">
-<div class="play-icon" id="playIcon"></div>
-<div class="pause-icon" id="pauseIcon"><div></div><div></div></div>
-</div>
-</div>
+</source></div>
 </div>
 <script>document.addEventListener('DOMContentLoaded', function () {
   const video = document.getElementById('mainVideo');
@@ -839,4 +811,4 @@ function toggleMenu() {
     menuOpen = true;
   }
 }
-</script></div></body></html>
+</script></body></html>
