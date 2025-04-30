@@ -1,31 +1,346 @@
-
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>frgrnt — scent branding</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    html, body {
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>works — frgrnt</title>
+<style>
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono/JetBrainsMono-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+</style>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background-color: #fffef3;
+      color: #333333;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+      width: 100%;
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #fffef3;
+    }
+    .nav-left { padding-left: 16px; }
+    .logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      letter-spacing: -1px;
+      text-transform: lowercase;
+      font-size: 20px;
+      text-decoration: none;
+      color: #333333;
+      display: inline-block;
+      line-height: 64px;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      padding-right: 16px;
+    }
+    .nav-right a {
+      text-decoration: none;
+      color: #333333;
+      text-transform: lowercase;
+      font-size: 14px;
+      margin-left: 24px;
+      transition: color 0.2s ease;
+    }
+    .nav-right a:hover { color: #888; }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      width: 100vw;
+      height: 84vh;
+    }
+    .left, .right {
+      width: 50vw;
+      height: 84vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .left {
+      order: 1;
+      background-color: #eae6df;
+      text-align: left;
+      padding: 32px 24px;
+    }
+    .text-wrapper {
+      max-width: 600px;
+      font-size: 14px;
+      line-height: 1.6;
+      text-transform: lowercase;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+      display: block;
+      transition: opacity 0.6s ease;
+    }
+    .text-wrapper h2 {
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
       margin: 0;
       padding: 0;
-      background-color: #fffef3;
-      font-family: 'JetBrains Mono', monospace;
-      overflow-x: hidden;
+      text-transform: lowercase;
     }
-    html.is-animating #swup {
+    .text-wrapper p {
+      font-style: normal;
+      margin: 12px 0 0;
+      padding: 0;
+    }
+
+    .right {
+      order: 2;
+      position: relative;
+      background-color: transparent;
+      overflow: hidden;
+    }
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       opacity: 0;
-      transition: opacity 300ms ease;
+      transition: opacity 0.8s ease;
+      z-index: 0;
     }
-    #swup {
+    .slide.active {
       opacity: 1;
-      transition: opacity 300ms ease;
+      z-index: 1;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .nav-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 20px;
+      z-index: 2;
+    }
+    .nav-buttons button {
+      background: rgba(0,0,0,0.3);
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      padding: 10px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .nav-buttons button:hover {
+      background: rgba(0,0,0,0.6);
+    }
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
+      .left {
+        order: 2;
+        width: 100vw;
+        height: 50vh;
+        padding: 16px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+      .right {
+        order: 1;
+        width: 100vw;
+        height: 50vh;
+      }
+    }
+
+    .nav.transparent {
+      background: transparent !important;
+      height: 48px !important;
+      transition: background 0.3s ease, height 0.3s ease, backdrop-filter 0.3s ease;
+      backdrop-filter: blur(0);
+    }
+    .nav.transparent .logo {
+      line-height: 48px !important;
+      font-size: 18px !important;
+    }
+    .nav.transparent .nav-right a {
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+    }
+    .intro-text {
+      max-width: 600px;
+      margin-top: 0;
+      text-align: left;
+    }
+    @media (max-width: 768px) {
+      .intro-text {
+        margin-top: 2vh;
+      }
     }
   </style>
+<style>
+/* --- Footer Uniform Size --- */
+footer a, footer div {
+  font-size: 12px;
+}
+
+/* --- Maintain Split Layout for Text and Video --- */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .left, .right {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .left {
+    padding: 10vh 5vw 0;
+  }
+}
+
+/* --- Optional: Font Clamping --- */
+body {
+  font-size: clamp(12px, 2vw, 16px);
+}
+</style>
+<style>
+/* --- Proper Footer Left Alignment --- */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  font-size: 12px !important;
+  font-family: 'JetBrains Mono', monospace;
+  color: rgba(51, 51, 51, 0.4);
+  background: transparent;
+}
+footer a, footer div {
+  font-size: 12px;
+  text-align: left;
+  text-decoration: none;
+  color: rgba(51, 51, 51, 0.4);
+}
+
+/* --- Prevent Mobile Zoom --- */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* --- Mobile View Text Left Align --- */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .left {
+    width: 100%;
+    min-height: 50vh;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 24px 16px;
+    text-align: left;
+  }
+
+  .right {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .left p, .intro-text p {
+    font-size: 14px;
+    margin: 12px 0 0 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  .left p:first-child, .intro-text p:first-child {
+    margin-top: 0;
+  }
+
+  .intro-text {
+    margin-top: 0 !important;
+    text-align: left;
+  }
+}
+
+/* --- Optional Font Scaling for Body --- */
+body {
+  font-size: clamp(12px, 2vw, 16px);
+}
+</style>
+<style>
+.slide-controls {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  z-index: 5;
+  display: flex;
+  gap: 12px;
+}
+
+.slide-control-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  color: rgba(51, 51, 51, 0.4);
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+
+.slide-control-button:hover {
+  color: rgba(51, 51, 51, 0.6);
+}
+</style>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#fffef3">
+<meta name="msapplication-TileColor" content="#fffef3">
+
 </head>
-<body>
-<header>
-  <div class="nav-right">
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+<div class="nav">
+<div class="nav-left">
+<a class="logo" href="/index.html">frgrnt</a>
+</div>
+<div class="nav-right">
 <div id="navLinks" style="display: none; align-items: center;">
 <a href="/about.html" style="margin-left: 0;">about</a>
 <a href="/works.html" style="margin-left: 24px;">works</a>
@@ -42,23 +357,145 @@
 <span></span>
 </div>
 </div>
-</header>
-<video autoplay muted loop playsinline id="bg-video" style="position: fixed; z-index: -1; width: 100vw; height: 100vh; object-fit: cover;">
-  <source src="works_landing.mp4" type="video/mp4">
-</video>
-<div id="swup">
-  <div class="container" style="flex: 1;">
+</div>
+</div>
+<div class="container" style="flex: 1;">
 <div class="left">
 <div class="intro-text">
 <div class="text-wrapper" id="slideText"></div>
 </div>
 </div>
-<script src="https://unpkg.com/swup@4"></script>
+<div class="right">
+<div class="slide active"><img alt="Slide 1" src="IMG_8049.jpeg"/></div>
+<div class="slide"><img alt="Slide 2" src="IMG_8052.jpeg"/></div>
+<div class="slide"><img alt="Slide 3" src="IMG_8053.jpeg"/></div>
+<div class="slide"><img alt="Slide 4" src="IMG_8054.jpeg"/></div>
+<div class="slide"><img alt="Slide 5" src="IMG_8055.jpeg"/></div>
+
+<div class="slide-controls"><button class="slide-control-button" onclick="manualChangeSlide(-1)">❮</button><button class="slide-control-button" onclick="manualChangeSlide(1)">❯</button></div></div>
+</div>
 <script>
-  const swup = new Swup();
-  swup.hooks.on('page:view', () => {
-    console.log('Page view triggered');
+  const slides = document.querySelectorAll('.slide');
+  const textBox = document.getElementById('slideText');
+  const textContent = [
+    { title: 'residential developments', text: 'enhancing everyday environments with subtle, familiar scent signatures.' },
+    { title: 'health & wellness', text: 'fragrance can foster calm and connection—key to wellness experiences.' },
+    { title: 'hotels', text: 'distinctive scenting creates familiarity and deepens hospitality impressions.' },
+    { title: 'retail stores', text: 'memorable scenting supports brand identity and elevates consumer engagement.' },
+    { title: 'commercial units', text: 'fragrance adds refinement and polish to professional or shared spaces.' }
+  ];
+
+  let current = 0;
+  let autoplay = true;
+  let intervalId;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+    });
+    slides[index].classList.add('active');
+
+    textBox.style.opacity = 0;
+    setTimeout(() => {
+      const { title, text } = textContent[index];
+      textBox.innerHTML = `<h2>${title}</h2><p>${text}</p>`;
+      textBox.style.opacity = 1;
+    }, 300);
+
+    current = index;
+  }
+
+  function changeSlide(dir) {
+    const newIndex = (current + dir + slides.length) % slides.length;
+    showSlide(newIndex);
+  }
+
+  function manualChangeSlide(dir) {
+    autoplay = false;
+    clearInterval(intervalId);
+    changeSlide(dir);
+  }
+
+  function startAutoplay() {
+    intervalId = setInterval(() => {
+      if (autoplay) changeSlide(1);
+    }, 4000);
+  }
+
+  showSlide(0);
+  startAutoplay();
+</script>
+<script>
+  window.addEventListener('scroll', function () {
+    const nav = document.querySelector('.nav');
+    if (window.scrollY > 10) {
+      nav.classList.add('transparent');
+    } else {
+      nav.classList.remove('transparent');
+    }
   });
 </script>
-</body>
-</html>
+<footer style="padding: 16px; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: rgba(51, 51, 51, 0.4); background: transparent;">
+<a href="/privacy.html" style="text-decoration: none; color: rgba(51, 51, 51, 0.4); font-size: 12px;">privacy policy</a>
+<div>© 2025, frgrnt</div>
+</footer>
+<style>
+
+.spray-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  cursor: pointer;
+  gap: 6px;
+  transition: transform 0.3s ease;
+  /* padding: 10px; --> REMOVED */
+}
+
+.spray-menu:hover span,
+.spray-menu.rotate span {
+  background-color: #888888;
+}
+
+.spray-menu.rotate {
+  transform: rotate(180deg);
+}
+
+.spray-line {
+  display: flex;
+  gap: 6px;
+}
+
+.spray-line span {
+  width: 4px;
+  height: 4px;
+  background-color: #333;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+</style><script>
+let menuOpen = false;
+function toggleMenu() {
+  const navLinks = document.getElementById('navLinks');
+  const sprayMenu = document.querySelector('.spray-menu');
+  const dots = document.querySelectorAll('.spray-menu span');
+  
+  if (menuOpen) {
+    navLinks.style.display = 'none';
+    sprayMenu.classList.remove('rotate');
+    dots.forEach(dot => {
+      dot.style.backgroundColor = '#333333';
+    });
+    menuOpen = false;
+  } else {
+    navLinks.style.display = 'flex';
+    sprayMenu.classList.add('rotate');
+    dots.forEach(dot => {
+      dot.style.backgroundColor = '#888888';
+    });
+    menuOpen = true;
+  }
+}
+</script><script src="https://instant.page/5.1.0" type="module" defer></script>
+</body></html>
