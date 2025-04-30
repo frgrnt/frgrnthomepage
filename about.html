@@ -647,7 +647,7 @@ body {
 <meta name="msapplication-TileColor" content="#fffef3">
 
 </head>
-<body style="display: flex; flex-direction: column; min-height: 100vh;">
+<body><div id="swup">
 <div class="nav">
 <div class="nav-left">
 <a class="logo" href="/index.html" id="logoText">frgrnt</a>
@@ -802,4 +802,9 @@ function toggleMenu() {
   }
 }
 </script><script src="https://instant.page/5.1.0" type="module" defer></script>
+</div>
+<script src="https://unpkg.com/swup@4"></script>
+<script>
+  const swup = new Swup();
+</script>
 </body></html>
