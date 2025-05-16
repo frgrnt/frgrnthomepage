@@ -749,10 +749,7 @@ html.is-animating #swup {
     }
   });
 </script>
-<footer style="padding: 16px; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: rgba(51, 51, 51, 0.4); background: transparent;">
-<a href="/privacy.html" style="text-decoration: none; color: rgba(51, 51, 51, 0.4); font-size: 12px;">privacy policy</a>
-<div>© 2025, frgrnt</div>
-</footer>
+
 <style>
 
 .spray-menu {
@@ -812,3 +809,39 @@ function toggleMenu() {
   }
 }
 </script></body></html>
+<div class="container" id="discoverySetSlide" style="display: none;">
+  <div class="left">
+    <div class="intro-text">
+      <div class="text-wrapper">
+        <h2>the discovery set</h2>
+        <p style="font-style: normal;">a curated selection of our most loved natural fragrances.<br/>
+        the set includes 6 × 3ml samples, suitable for your setting.</p>
+        <ul style="margin-top: 12px; font-size: 13px; line-height: 1.6; list-style: none; padding-left: 0;">
+          <li>– phthalate free</li>
+          <li>– paraben free</li>
+          <li>– cruelty free</li>
+          <li>– vegan friendly</li>
+        </ul>
+        <div class="styled-ctas">
+          <a class="cta-underline" href="mailto:info@frgrnt.com?subject=Discovery Set Enquiry">enquire now →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <img src="IMG_8671_jpg.jpeg" alt="Discovery Set" style="width: 100%; height: 100%; object-fit: cover;" />
+  </div>
+</div>
+
+<script>
+  let current = 0;
+  setInterval(() => {
+    const containers = document.querySelectorAll('.container');
+    containers.forEach((el, i) => {
+      el.style.display = (i === current % containers.length) ? 'flex' : 'none';
+    });
+    current++;
+  }, 5000);
+</script>
+
+</body>
