@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -635,13 +637,16 @@ video::-webkit-media-controls-start-playback-button {
   -webkit-appearance: none;
 }
 </style>
-<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
-<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="/site.webmanifest" rel="manifest"/>
-<meta content="#fffef3" name="theme-color"/>
-<meta content="#fffef3" name="msapplication-TileColor"/>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#fffef3">
+<meta name="msapplication-TileColor" content="#fffef3">
+
+
 <style>
 html.is-animating #swup {
   opacity: 0;
@@ -652,35 +657,9 @@ html.is-animating #swup {
   transition: opacity 300ms ease;
 }
 </style>
-</head>
-<style>
-  #slideshow {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 1s ease-in-out;
-    z-index: 0;
-  }
-  .slide.active {
-    opacity: 1;
-    pointer-events: auto;
-    z-index: 1;
-  }
-</style>
-<body style="display: flex; flex-direction: column; min-height: 100vh;">
 
-<div id="slideshow">
-  <div class="slide active" id="slide1">
-    
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
 <div class="nav">
 <div class="nav-left">
 <a class="logo" href="/index.html" id="logoText">fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt</a>
@@ -720,11 +699,38 @@ html.is-animating #swup {
 <video autoplay="" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture="" id="mainVideo" loop="" muted="" playsinline="">
 <source src="works_landing.mp4" type="video/mp4"/>
 </video>
+<source src="works_landing.mp4" type="video/mp4">
 
-
+<div aria-label="Toggle video playback" class="control-button pause-button" id="pauseButton" onclick="toggleVideo(event)">
+<div class="play-icon" id="playIcon"></div>
+<div class="pause-icon" id="pauseIcon"><div></div><div></div></div>
 </div>
+</source></div>
 </div>
-
+<script>document.addEventListener('DOMContentLoaded', function () {
+  const video = document.getElementById('mainVideo');
+  const playIcon = document.getElementById('playIcon');
+  const pauseIcon = document.getElementById('pauseIcon');
+  video.muted = true;
+  video.play().catch(() => {});
+  function updateIcons() {
+    const showPlay = video.paused;
+    if (playIcon) playIcon.style.display = showPlay ? 'block' : 'none';
+    if (pauseIcon) pauseIcon.style.display = showPlay ? 'none' : 'flex';
+  }
+  window.toggleVideo = function (e) {
+    e.stopPropagation();
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+    updateIcons();
+  }
+  video.addEventListener('play', updateIcons);
+  video.addEventListener('pause', updateIcons);
+  updateIcons();
+});</script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const logo = document.getElementById('logoText');
@@ -805,157 +811,4 @@ function toggleMenu() {
     menuOpen = true;
   }
 }
-</script>
-  </div>
-  <div class="slide" id="slide2">
-    
-<div class="nav">
-<div class="nav-left">
-<a class="logo" href="/index.html" id="logoText">frgrnt</a>
-</div>
-<div class="nav-right">
-<div id="navLinks" style="display: none; align-items: center;">
-<a href="/about.html" style="margin-left: 0;">about</a>
-<a href="/works.html" style="margin-left: 24px;">works</a>
-<a href="mailto:info@frgrnt.com?subject=Enquiry" style="margin-left: 24px;">email</a>
-</div>
-<div class="spray-menu" onclick="toggleMenu()" style="margin-left: 24px;">
-<div class="spray-line" style="margin-left: 0px;">
-<span></span><span></span><span></span>
-</div>
-<div class="spray-line" style="margin-left: 8px;">
-<span></span><span></span>
-</div>
-<div class="spray-line" style="margin-left: 16px;">
-<span></span>
-</div>
-</div>
-</div>
-</div>
-<div class="container" style="flex: 1;">
-<div class="left">
-<div class="intro-text">
-<div class="text-wrapper">
-<h2>the discovery set</h2>
-<p style="margin-top: 12px;">a curated selection of our most loved natural fragrances.<br/><br/>
-    the set includes 6 × 3ml samples, suitable for your setting.</p>
-<p style="margin-top: 20px;">phthalate-free, paraben-free, cruelty-free and vegan-friendly — thoughtfully crafted using responsibly sourced ingredients and packaged in recycled materials.</p>
-<div class="styled-ctas">
-<a class="cta-underline" href="mailto:info@frgrnt.com?subject=Enquiry">enquire now →</a>
-</div>
-</div>
-</div>
-</div><div class="right" style="position: relative;"><img alt="discovery set" src="IMG_8731.jpeg" style="width:100%; height:100%; object-fit:cover;"/>
-<source src="works_landing.mp4" type="video/mp4"/>
-<div></div></div>
-</div>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const logo = document.getElementById('logoText');
-    setTimeout(() => {
-      logo.textContent = 'frgrnt';
-    }, 900);
-  });
-</script>
-<script>
-  window.addEventListener('scroll', function () {
-    const nav = document.querySelector('.nav');
-    if (window.scrollY > 10) {
-      nav.classList.add('transparent');
-    } else {
-      nav.classList.remove('transparent');
-    }
-  });
-</script>
-<footer style="padding: 16px; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: rgba(51, 51, 51, 0.4); background: transparent;">
-<a href="/privacy.html" style="text-decoration: none; color: rgba(51, 51, 51, 0.4); font-size: 12px;">privacy policy</a>
-<div>© 2025, frgrnt</div>
-</footer>
-<style>
-
-.spray-menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  cursor: pointer;
-  gap: 6px;
-  transition: transform 0.3s ease;
-  /* padding: 10px; --> REMOVED */
-}
-
-.spray-menu:hover span,
-.spray-menu.rotate span {
-  background-color: #888888;
-}
-
-.spray-menu.rotate {
-  transform: rotate(180deg);
-}
-
-.spray-line {
-  display: flex;
-  gap: 6px;
-}
-
-.spray-line span {
-  width: 4px;
-  height: 4px;
-  background-color: #333;
-  border-radius: 50%;
-  transition: background-color 0.2s ease;
-}
-
-</style><script>
-let menuOpen = false;
-function toggleMenu() {
-  const navLinks = document.getElementById('navLinks');
-  const sprayMenu = document.querySelector('.spray-menu');
-  const dots = document.querySelectorAll('.spray-menu span');
-  
-  if (menuOpen) {
-    navLinks.style.display = 'none';
-    sprayMenu.classList.remove('rotate');
-    dots.forEach(dot => {
-      dot.style.backgroundColor = '#333333';
-    });
-    menuOpen = false;
-  } else {
-    navLinks.style.display = 'flex';
-    sprayMenu.classList.add('rotate');
-    dots.forEach(dot => {
-      dot.style.backgroundColor = '#888888';
-    });
-    menuOpen = true;
-  }
-}
-</script>
-  </div>
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Flicker logo once
-    const logo = document.getElementById('logoText');
-    if (logo && logo.innerHTML.includes('flicker-a')) {
-      logo.innerHTML = 'fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt';
-      setTimeout(() => {
-        logo.textContent = 'frgrnt';
-      }, 900);
-    }
-
-    // Slideshow logic
-    const slides = document.querySelectorAll('.slide');
-    let current = 0;
-    setInterval(() => {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    }, 5000);
-  });
-</script>
-
-</body>
-</html>
+</script></body></html>
