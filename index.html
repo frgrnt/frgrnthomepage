@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -636,13 +637,16 @@ video::-webkit-media-controls-start-playback-button {
   -webkit-appearance: none;
 }
 </style>
-<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
-<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="/site.webmanifest" rel="manifest"/>
-<meta content="#fffef3" name="theme-color"/>
-<meta content="#fffef3" name="msapplication-TileColor"/>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#fffef3">
+<meta name="msapplication-TileColor" content="#fffef3">
+
+
 <style>
 html.is-animating #swup {
   opacity: 0;
@@ -653,44 +657,9 @@ html.is-animating #swup {
   transition: opacity 300ms ease;
 }
 </style>
-<style>
-.fade-in {
-  animation: fadeIn 1s ease forwards;
-}
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-</style><style>
-.slide-block:nth-of-type(2) .text-wrapper p {
-  font-style: normal !important;
-}
-</style><style>
-.slide-controls {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  z-index: 5;
-  display: flex;
-  gap: 12px;
-}
-.slide-control-button {
-  background: none;
-  border: none;
-  font-size: 20px;
-  font-family: 'JetBrains Mono', monospace;
-  color: rgba(51, 51, 51, 0.4);
-  cursor: pointer;
-  padding: 4px;
-  transition: color 0.2s ease;
-}
-.slide-control-button:hover {
-  color: rgba(51, 51, 51, 0.6);
-}
-</style></head>
-<body>
-<div class="slide-block" style="display: block;">
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
 <div class="nav">
 <div class="nav-left">
 <a class="logo" href="/index.html" id="logoText">fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt</a>
@@ -730,12 +699,13 @@ html.is-animating #swup {
 <video autoplay="" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture="" id="mainVideo" loop="" muted="" playsinline="">
 <source src="works_landing.mp4" type="video/mp4"/>
 </video>
-<source src="works_landing.mp4" type="video/mp4"/>
-<div class="slide-controls">
-<button class="slide-control-button" onclick="manualChangeSlide(-1)">❮</button>
-<button class="slide-control-button" onclick="manualChangeSlide(1)">❯</button>
+<source src="works_landing.mp4" type="video/mp4">
+
+<div aria-label="Toggle video playback" class="control-button pause-button" id="pauseButton" onclick="toggleVideo(event)">
+<div class="play-icon" id="playIcon"></div>
+<div class="pause-icon" id="pauseIcon"><div></div><div></div></div>
 </div>
-</div>
+</source></div>
 </div>
 <script>document.addEventListener('DOMContentLoaded', function () {
   const video = document.getElementById('mainVideo');
@@ -761,127 +731,6 @@ html.is-animating #swup {
   video.addEventListener('pause', updateIcons);
   updateIcons();
 });</script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const logo = document.getElementById('logoText');
-    setTimeout(() => {
-      logo.textContent = 'frgrnt';
-    }, 900);
-  });
-</script>
-<script>
-window.addEventListener('scroll', function () {
-  const navs = document.querySelectorAll('.nav');
-  navs.forEach(nav => {
-    if (window.scrollY > 10) {
-      nav.classList.add('transparent');
-    } else {
-      nav.classList.remove('transparent');
-    }
-  });
-});
-</script>
-<style>
-
-.spray-menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  cursor: pointer;
-  gap: 6px;
-  transition: transform 0.3s ease;
-  /* padding: 10px; --> REMOVED */
-}
-
-.spray-menu:hover span,
-.spray-menu.rotate span {
-  background-color: #888888;
-}
-
-.spray-menu.rotate {
-  transform: rotate(180deg);
-}
-
-.spray-line {
-  display: flex;
-  gap: 6px;
-}
-
-.spray-line span {
-  width: 4px;
-  height: 4px;
-  background-color: #333;
-  border-radius: 50%;
-  transition: background-color 0.2s ease;
-}
-
-</style><script>
-let menuOpen = false;
-function toggleMenu() {
-  const navLinks = document.querySelectorAll('#navLinks, #navLinks2');
-  const sprayMenu = document.querySelector('.spray-menu');
-  const dots = document.querySelectorAll('.spray-menu span');
-
-  if (menuOpen) {
-    navLinks.forEach(links => links.style.display = 'none');
-    sprayMenu.classList.remove('rotate');
-    dots.forEach(dot => dot.style.backgroundColor = '#333333');
-    menuOpen = false;
-  } else {
-    navLinks.forEach(links => links.style.display = 'flex');
-    sprayMenu.classList.add('rotate');
-    dots.forEach(dot => dot.style.backgroundColor = '#888888');
-    menuOpen = true;
-  }
-}
-</script></div>
-<div class="slide-block" style="display: none;">
-<div class="nav">
-<div class="nav-left">
-<a class="logo" href="/index.html">frgrnt</a>
-</div>
-<div class="nav-right">
-<div id="navLinks2" style="display: none; align-items: center;">
-<a href="/about.html" style="margin-left: 0;">about</a>
-<a href="/works.html" style="margin-left: 24px;">works</a>
-<a href="mailto:info@frgrnt.com?subject=Enquiry" style="margin-left: 24px;">email</a>
-</div>
-<div class="spray-menu" onclick="toggleMenu()" style="margin-left: 24px;">
-<div class="spray-line" style="margin-left: 0px;">
-<span></span><span></span><span></span>
-</div>
-<div class="spray-line" style="margin-left: 8px;">
-<span></span><span></span>
-</div>
-<div class="spray-line" style="margin-left: 16px;">
-<span></span>
-</div>
-</div>
-</div>
-</div>
-<div class="container" style="flex: 1;">
-<div class="left">
-<div class="intro-text">
-<div class="text-wrapper">
-<h2>the discovery set</h2>
-<p style="">a curated selection of our most loved natural fragrances.
-        the set includes 6 × 3ml samples, suitable for your setting.</p>
-
-<div class="styled-ctas">
-<a class="cta-underline" href="mailto:info@frgrnt.com?subject=Enquiry">enquire now →</a>
-</div>
-</div>
-</div>
-</div><div class="right" style="position: relative;">
-<img alt="discovery set" src="IMG_8731.jpeg" style="width:100%; height:100%; object-fit:cover;"/>
-<div class="slide-controls">
-<button class="slide-control-button" onclick="manualChangeSlide(-1)">❮</button>
-<button class="slide-control-button" onclick="manualChangeSlide(1)">❯</button>
-</div>
-</div>
-</div>
-</div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const logo = document.getElementById('logoText');
@@ -962,79 +811,4 @@ function toggleMenu() {
     menuOpen = true;
   }
 }
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const slides = document.querySelectorAll('.slide-block');
-    let current = 0;
-    setInterval(() => {
-      const intro = slides[current].querySelector('.intro-text');
-      const image = slides[current].querySelector('img');
-
-      if (intro) intro.classList.remove('fade-in');
-      if (image) image.classList.remove('fade-in');
-
-      slides[current].style.display = 'none';
-      current = (current + 1) % slides.length;
-      slides[current].style.display = 'block';
-
-      const newIntro = slides[current].querySelector('.intro-text');
-      const newImage = slides[current].querySelector('img');
-
-      if (newIntro) newIntro.classList.add('fade-in');
-      if (newImage) newImage.classList.add('fade-in');
-    }, 5000);
-  });
-</script>
-<script>
-  const slides = document.querySelectorAll('.slide-block');
-  const textBox = document.getElementById('slideText');
-  const textContent = [
-    { title: 'residential developments', text: 'enhancing everyday environments with subtle, familiar scent signatures.' },
-    { title: 'health & wellness', text: 'fragrance can foster calm and connection—key to wellness experiences.' },
-    { title: 'hotels', text: 'distinctive scenting creates familiarity and deepens hospitality impressions.' },
-    { title: 'retail stores', text: 'memorable scenting supports brand identity and elevates consumer engagement.' },
-    { title: 'commercial units', text: 'fragrance adds refinement and polish to professional or shared spaces.' }
-  ];
-
-  let current = 0;
-  let autoplay = true;
-  let intervalId;
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.remove('active');
-    });
-    slides[index].classList.add('active');
-
-    textBox.style.opacity = 0;
-    setTimeout(() => {
-      const { title, text } = textContent[index];
-      textBox.innerHTML = `<h2>${title}</h2><p>${text}</p>`;
-      textBox.style.opacity = 1;
-    }, 300);
-
-    current = index;
-  }
-
-  function changeSlide(dir) {
-    const newIndex = (current + dir + slides.length) % slides.length;
-    showSlide(newIndex);
-  }
-
-  function manualChangeSlide(dir) {
-    autoplay = false;
-    clearInterval(intervalId);
-    changeSlide(dir);
-  }
-
-  function startAutoplay() {
-    intervalId = setInterval(() => {
-      if (autoplay) changeSlide(1);
-    }, 4000);
-  }
-
-  showSlide(0);
-  startAutoplay();
-</script></body>
-</html>
+</script></body></html>
