@@ -637,16 +637,13 @@ body {
   font-size: clamp(12px, 2vw, 16px);
 }
 </style>
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#fffef3">
-<meta name="msapplication-TileColor" content="#fffef3">
-
-
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<meta content="#fffef3" name="theme-color"/>
+<meta content="#fffef3" name="msapplication-TileColor"/>
 <style>
 html.is-animating #swup {
   opacity: 0;
@@ -657,7 +654,6 @@ html.is-animating #swup {
   transition: opacity 300ms ease;
 }
 </style>
-
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 <div class="nav">
@@ -698,50 +694,11 @@ html.is-animating #swup {
 <video autoplay="" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture="" id="mainVideo" loop="" muted="" playsinline="">
 <source src="about_video.mp4" type="video/mp4"/>
 </video>
-<source src="about_video.mp4" type="video/mp4">
+<source src="about_video.mp4" type="video/mp4"/>
 
-<div aria-label="Toggle video playback" class="control-button pause-button" id="pauseButton" onclick="toggleVideo(event)">
-<div class="play-icon" id="playIcon"></div>
-<div class="pause-icon" id="pauseIcon"><div></div><div></div></div>
 </div>
-</source></div>
 </div>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const video = document.getElementById('mainVideo');
-  const playIcon = document.getElementById('playIcon');
-  const pauseIcon = document.getElementById('pauseIcon');
-
-  video.muted = true;
-
-  // Slight delay to improve autoplay reliability on iOS
-  setTimeout(() => {
-    video.play().catch(err => {
-      console.log("Autoplay failed:", err);
-    });
-  }, 300);
-
-  function updateIcons() {
-    const showPlay = video.paused;
-    if (playIcon) playIcon.style.display = showPlay ? 'block' : 'none';
-    if (pauseIcon) pauseIcon.style.display = showPlay ? 'none' : 'flex';
-  }
-
-  window.toggleVideo = function (e) {
-    e.stopPropagation();
-    if (video.paused) {
-      video.play();
-    } else {
-      video.pause();
-    }
-    updateIcons();
-  }
-
-  video.addEventListener('play', updateIcons);
-  video.addEventListener('pause', updateIcons);
-  updateIcons();
-});
-</script><script>
   window.addEventListener('scroll', function () {
     const nav = document.querySelector('.nav');
     if (window.scrollY > 10) {
