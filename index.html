@@ -781,17 +781,7 @@ video::-webkit-media-controls-start-playback-button {
   <div class="slide-block" style="display: block;">
    <div class="nav">
     <div class="nav-left">
-     <a class="logo" href="/index.html" id="logoText">
-      fr
-      <span class="flicker-a">
-       a
-      </span>
-      gr
-      <span class="flicker-a">
-       a
-      </span>
-      nt
-     </a>
+     <a class="logo" href="/index.html" id="logoText">fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt</a>
     </div>
     <div class="nav-right">
      <div id="navLinks" style="display: none; align-items: center;">
@@ -858,40 +848,7 @@ video::-webkit-media-controls-start-playback-button {
      </div>
     </div>
    </div>
-   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-  const video = document.getElementById('mainVideo');
-  const playIcon = document.getElementById('playIcon');
-  const pauseIcon = document.getElementById('pauseIcon');
-  video.muted = true;
-  video.play().catch(() => {});
-  function updateIcons() {
-    const showPlay = video.paused;
-    if (playIcon) playIcon.style.display = showPlay ? 'block' : 'none';
-    if (pauseIcon) pauseIcon.style.display = showPlay ? 'none' : 'flex';
-  }
-  window.toggleVideo = function (e) {
-    e.stopPropagation();
-    if (video.paused) {
-      video.play();
-    } else {
-      video.pause();
-    }
-    updateIcons();
-  }
-  video.addEventListener('play', updateIcons);
-  video.addEventListener('pause', updateIcons);
-  updateIcons();
-});
-   </script>
-   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const logo = document.getElementById('logoText');
-    setTimeout(() => {
-      logo.textContent = 'frgrnt';
-    }, 900);
-  });
-   </script>
+   
    <script>
     window.addEventListener('scroll', function () {
   const navs = document.querySelectorAll('.nav');
@@ -1030,14 +987,7 @@ function toggleMenu() {
     </div>
    </div>
   </div>
-  <script>
-   document.addEventListener('DOMContentLoaded', function () {
-    const logo = document.getElementById('logoText');
-    setTimeout(() => {
-      logo.textContent = 'frgrnt';
-    }, 900);
-  });
-  </script>
+  
   <script>
    window.addEventListener('scroll', function () {
     const nav = document.querySelector('.nav');
@@ -1178,5 +1128,15 @@ showSlide(currentSlide);
 </footer>
 
 </main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const logo = document.getElementById('logoText');
+    setTimeout(() => {
+      logo.textContent = 'frgrnt';
+    }, 900);
+  });
+</script>
+
 </body>
 </html>
