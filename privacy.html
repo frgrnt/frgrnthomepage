@@ -6,7 +6,6 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>privacy policy — frgrnt</title>
-
 <style>
     @font-face {
       font-family: 'JetBrains Mono';
@@ -244,16 +243,13 @@ body {
   font-size: clamp(12px, 2vw, 16px);
 }
 </style>
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#fffef3">
-<meta name="msapplication-TileColor" content="#fffef3">
-
-
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<meta content="#fffef3" name="theme-color"/>
+<meta content="#fffef3" name="msapplication-TileColor"/>
 <style>
 html.is-animating #swup {
   opacity: 0;
@@ -264,9 +260,8 @@ html.is-animating #swup {
   transition: opacity 300ms ease;
 }
 </style>
-
 </head>
-<body><div id="swup">
+<body style="display: flex; flex-direction: column; min-height: 100vh;"><div id="swup">
 <div class="nav">
 <div class="nav-left">
 <a class="logo" href="/index.html">frgrnt</a>
@@ -290,7 +285,7 @@ html.is-animating #swup {
 </div>
 </div>
 </div>
-<div class="content">
+<main style="flex: 1;"><div class="content">
 <h1>privacy policy</h1>
 <p>last updated: april 2025</p>
 <p>frgrnt is a uk-based scent branding agency. we are committed to protecting your personal data in accordance with the uk general data protection regulation (uk gdpr) and the data protection act 2018.</p>
@@ -315,10 +310,7 @@ html.is-animating #swup {
     website: <a href="https://www.frgrnt.com">www.frgrnt.com</a></p>
 <a class="back-link" href="/index.html">← back to home</a>
 </div>
-<footer style="padding: 16px; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: rgba(51, 51, 51, 0.4); background: transparent;">
-<a href="/privacy.html" style="text-decoration: none; color: rgba(51, 51, 51, 0.4); font-size: 12px;">privacy policy</a>
-<div>© 2025, frgrnt</div>
-</footer>
+
 <script>
   window.addEventListener('scroll', function () {
     const nav = document.querySelector('.nav');
@@ -387,10 +379,13 @@ function toggleMenu() {
     menuOpen = true;
   }
 }
-</script></div>
+</script></main></div>
 <script src="https://unpkg.com/swup@4"></script>
 <script>
   const swup = new Swup();
 </script>
-</body>
+<footer style="padding-top: 24px; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: rgba(51, 51, 51, 0.4); background: transparent;">
+<a href="/privacy.html" style="text-decoration: none; color: rgba(51, 51, 51, 0.4); font-size: 12px;">privacy policy</a>
+<div>© 2025, frgrnt</div>
+</footer></body>
 </html>
