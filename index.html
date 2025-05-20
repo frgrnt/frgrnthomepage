@@ -795,7 +795,7 @@ video::-webkit-media-controls-start-playback-button {
        email
       </a>
      </div>
-     <div class="spray-menu" onclick="toggleMenu()" style="margin-left: 24px;">
+     <div class="spray-menu" onclick="toggleMenu(event)" style="margin-left: 24px;">
       <div class="spray-line" style="margin-left: 0px;">
        <span>
        </span>
@@ -895,26 +895,30 @@ video::-webkit-media-controls-start-playback-button {
   transition: background-color 0.2s ease;
 }
    </style>
-   <script>
-    let menuOpen = false;
-function toggleMenu() {
-  const navLinks = document.querySelectorAll('#navLinks, #navLinks2');
-  const sprayMenu = document.querySelector('.spray-menu');
-  const dots = document.querySelectorAll('.spray-menu span');
+   
+<script>
+  let menuOpen = false;
 
-  if (menuOpen) {
-    navLinks.forEach(links => links.style.display = 'none');
-    sprayMenu.classList.remove('rotate');
-    dots.forEach(dot => dot.style.backgroundColor = '#333333');
-    menuOpen = false;
-  } else {
-    navLinks.forEach(links => links.style.display = 'flex');
-    sprayMenu.classList.add('rotate');
-    dots.forEach(dot => dot.style.backgroundColor = '#888888');
-    menuOpen = true;
+  function toggleMenu(event) {
+    const clickedMenu = event.currentTarget;
+    const nav = clickedMenu.closest('.nav');
+    const navLinks = nav.querySelector('#navLinks') || nav.querySelector('#navLinks2');
+    const dots = clickedMenu.querySelectorAll('span');
+
+    if (menuOpen) {
+      navLinks.style.display = 'none';
+      clickedMenu.classList.remove('rotate');
+      dots.forEach(dot => dot.style.backgroundColor = '#333333');
+      menuOpen = false;
+    } else {
+      navLinks.style.display = 'flex';
+      clickedMenu.classList.add('rotate');
+      dots.forEach(dot => dot.style.backgroundColor = '#888888');
+      menuOpen = true;
+    }
   }
-}
-   </script>
+</script>
+
   </div>
   <div class="slide-block" style="display: none;">
    <div class="nav">
@@ -935,7 +939,7 @@ function toggleMenu() {
        email
       </a>
      </div>
-     <div class="spray-menu" onclick="toggleMenu()" style="margin-left: 24px;">
+     <div class="spray-menu" onclick="toggleMenu(event)" style="margin-left: 24px;">
       <div class="spray-line" style="margin-left: 0px;">
        <span>
        </span>
@@ -1032,30 +1036,30 @@ function toggleMenu() {
   transition: background-color 0.2s ease;
 }
   </style>
-  <script>
-   let menuOpen = false;
-function toggleMenu() {
-  const navLinks = document.getElementById('navLinks');
-  const sprayMenu = document.querySelector('.spray-menu');
-  const dots = document.querySelectorAll('.spray-menu span');
   
-  if (menuOpen) {
-    navLinks.style.display = 'none';
-    sprayMenu.classList.remove('rotate');
-    dots.forEach(dot => {
-      dot.style.backgroundColor = '#333333';
-    });
-    menuOpen = false;
-  } else {
-    navLinks.style.display = 'flex';
-    sprayMenu.classList.add('rotate');
-    dots.forEach(dot => {
-      dot.style.backgroundColor = '#888888';
-    });
-    menuOpen = true;
+<script>
+  let menuOpen = false;
+
+  function toggleMenu(event) {
+    const clickedMenu = event.currentTarget;
+    const nav = clickedMenu.closest('.nav');
+    const navLinks = nav.querySelector('#navLinks') || nav.querySelector('#navLinks2');
+    const dots = clickedMenu.querySelectorAll('span');
+
+    if (menuOpen) {
+      navLinks.style.display = 'none';
+      clickedMenu.classList.remove('rotate');
+      dots.forEach(dot => dot.style.backgroundColor = '#333333');
+      menuOpen = false;
+    } else {
+      navLinks.style.display = 'flex';
+      clickedMenu.classList.add('rotate');
+      dots.forEach(dot => dot.style.backgroundColor = '#888888');
+      menuOpen = true;
+    }
   }
-}
-  </script>
+</script>
+
   <script>
    let slideshowInterval;
 
