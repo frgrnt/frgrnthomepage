@@ -747,8 +747,37 @@ video::-webkit-media-controls-start-playback-button {
   }
 }
   </style>
- </head>
- <body style="display: flex; flex-direction: column; min-height: 100vh;">
+ 
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  main {
+    flex: 1;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: rgba(51, 51, 51, 0.4);
+    background: transparent;
+  }
+  footer a, footer div {
+    font-size: 12px;
+    text-align: left;
+    text-decoration: none;
+    color: rgba(51, 51, 51, 0.4);
+  }
+</style>
+
+</head>
+ <body>
+<main>
   <div class="slide-block" style="display: block;">
    <div class="nav">
     <div class="nav-left">
@@ -1136,13 +1165,18 @@ function showSlide(index) {
 let currentSlide = 0;
 showSlide(currentSlide);
   </script>
-  <footer style="padding: 16px; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: rgba(51, 51, 51, 0.4); background: transparent; text-align: left;">
-   <a href="/privacy.html" style="text-decoration: none; color: rgba(51, 51, 51, 0.4); font-size: 12px;">
-    privacy policy
-   </a>
-   <div>
-    &copy; 2025, frgrnt
-   </div>
-  </footer>
- </body>
+  
+ 
+
+
+
+
+
+<footer>
+  <a href="/privacy.html">privacy policy</a>
+  <div>© 2025, frgrnt</div>
+</footer>
+
+</main>
+</body>
 </html>
