@@ -1130,12 +1130,16 @@ showSlide(currentSlide);
       position: absolute;
       top: -12px;
       right: -12px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 24px;
       font-weight: bold;
       cursor: pointer;
       background: rgba(248, 248, 248, 0.85);
       border-radius: 50%;
-      padding: 4px 10px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     ">×</span>
 <h3 style="margin-top:0; font-size:14px;  font-weight:700;">
@@ -1150,6 +1154,7 @@ showSlide(currentSlide);
 </div>
 <script>
 function openModal() {
+  clearInterval(slideshowInterval);
   var modal = document.getElementById('modalOverlay');
   modal.style.visibility = 'visible';
 }
@@ -1161,6 +1166,7 @@ function closeModal() {
 <script src="https://www.paypal.com/sdk/js?client-id=AR1zwcZCWpl0KIWn2UXsDkF2DX34g1Ih2aqhMZT0yxhEkxEi6S-DVJtGyuTwjH7tmKMvlUGfj05ftRWJ&currency=GBP"></script>
 <script>
 function openModal() {
+  clearInterval(slideshowInterval);
   var modal = document.getElementById('modalOverlay');
   modal.style.visibility = 'visible';
 }
