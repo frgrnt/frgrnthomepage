@@ -103,13 +103,15 @@ video::-webkit-media-controls-start-playback-button {
     }
 
     .left {
-      background-color: #eae6df;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      text-align: left;
-      padding: 10vh 5vw 0;
-    }
+  width: 50vw;
+  height: 84vh;
+  display: flex;
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center of the box */
+  text-align: left;
+  background-color: #eae6df;
+  padding: 0;
+}
 
     .left p {
       max-width: 600px;
@@ -166,11 +168,15 @@ video::-webkit-media-controls-start-playback-button {
       }
 
       .left {
-        order: 1;
-        width: 100vw;
-        height: 50vh;
-        padding: 16px;
-      }
+  width: 50vw;
+  height: 84vh;
+  display: flex;
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center of the box */
+  text-align: left;
+  background-color: #eae6df;
+  padding: 0;
+}
 
       .left p {
         font-size: 14px;
@@ -278,14 +284,26 @@ video::-webkit-media-controls-start-playback-button {
 
 .intro-text {
   max-width: 600px;
-  margin-top: -20vh;
+  width: 100%;
+  margin: 0;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {
   .intro-text {
-    margin-top: 0 !important;
-  }
+  max-width: 600px;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
 }
 
 </style>
@@ -557,8 +575,15 @@ footer a, footer div {
   }
 
   .left {
-    padding: 10vh 5vw 0;
-  }
+  width: 50vw;
+  height: 84vh;
+  display: flex;
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center of the box */
+  text-align: left;
+  background-color: #eae6df;
+  padding: 0;
+}
 }
 
 /* --- Optional: Font Clamping --- */
@@ -599,16 +624,15 @@ html {
   }
 
   .left {
-    width: 100%;
-    min-height: 50vh;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    padding: 24px 16px;
-    text-align: left;
-  }
+  width: 50vw;
+  height: 84vh;
+  display: flex;
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center of the box */
+  text-align: left;
+  background-color: #eae6df;
+  padding: 0;
+}
 
   .right {
     width: 100%;
@@ -627,9 +651,15 @@ html {
   }
 
   .intro-text {
-    margin-top: 0 !important;
-    text-align: left;
-  }
+  max-width: 600px;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
 }
 
 /* --- Optional Font Scaling for Body --- */
@@ -637,13 +667,16 @@ body {
   font-size: clamp(12px, 2vw, 16px);
 }
 </style>
-<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
-<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="/site.webmanifest" rel="manifest"/>
-<meta content="#fffef3" name="theme-color"/>
-<meta content="#fffef3" name="msapplication-TileColor"/>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#fffef3">
+<meta name="msapplication-TileColor" content="#fffef3">
+
+
 <style>
 html.is-animating #swup {
   opacity: 0;
@@ -654,6 +687,7 @@ html.is-animating #swup {
   transition: opacity 300ms ease;
 }
 </style>
+
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 <div class="nav">
@@ -679,7 +713,7 @@ html.is-animating #swup {
 </div>
 </div>
 </div>
-<main style="flex: 1;"><div class="container" style="flex: 1;">
+<div class="container" style="flex: 1;">
 <div class="left">
 <div class="intro-text">
 <div class="text-wrapper">
@@ -694,10 +728,50 @@ html.is-animating #swup {
 <video autoplay="" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture="" id="mainVideo" loop="" muted="" playsinline="">
 <source src="about_video.mp4" type="video/mp4"/>
 </video>
-<source src="about_video.mp4" type="video/mp4"/>
+<source src="about_video.mp4" type="video/mp4">
+
+<div aria-label="Toggle video playback" class="control-button pause-button" id="pauseButton" onclick="toggleVideo(event)">
+<div class="play-icon" id="playIcon"></div>
+<div class="pause-icon" id="pauseIcon"><div></div><div></div></div>
 </div>
+</source></div>
 </div>
 <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const video = document.getElementById('mainVideo');
+  const playIcon = document.getElementById('playIcon');
+  const pauseIcon = document.getElementById('pauseIcon');
+
+  video.muted = true;
+
+  // Slight delay to improve autoplay reliability on iOS
+  setTimeout(() => {
+    video.play().catch(err => {
+      console.log("Autoplay failed:", err);
+    });
+  }, 300);
+
+  function updateIcons() {
+    const showPlay = video.paused;
+    if (playIcon) playIcon.style.display = showPlay ? 'block' : 'none';
+    if (pauseIcon) pauseIcon.style.display = showPlay ? 'none' : 'flex';
+  }
+
+  window.toggleVideo = function (e) {
+    e.stopPropagation();
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+    updateIcons();
+  }
+
+  video.addEventListener('play', updateIcons);
+  video.addEventListener('pause', updateIcons);
+  updateIcons();
+});
+</script><script>
   window.addEventListener('scroll', function () {
     const nav = document.querySelector('.nav');
     if (window.scrollY > 10) {
@@ -707,6 +781,10 @@ html.is-animating #swup {
     }
   });
 </script>
+<footer style="padding: 16px; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: rgba(51, 51, 51, 0.4); background: transparent;">
+<a href="/privacy.html" style="text-decoration: none; color: rgba(51, 51, 51, 0.4); font-size: 12px;">privacy policy</a>
+<div>© 2025, frgrnt</div>
+</footer>
 <style>
 
 .spray-menu {
@@ -765,7 +843,4 @@ function toggleMenu() {
     menuOpen = true;
   }
 }
-</script></main><footer style="padding: 16px; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: rgba(51, 51, 51, 0.4); background: transparent; text-align: left;">
-<a href="/privacy.html" style="text-decoration: none; color: rgba(51, 51, 51, 0.4); font-size: 12px;">privacy policy</a>
-<div>© 2025, frgrnt</div>
-</footer></body></html>
+</script></body></html>
