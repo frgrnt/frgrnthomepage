@@ -33,6 +33,17 @@ video::-webkit-media-controls-start-playback-button {
   }
 }
 
+
+@media (max-width: 768px) {
+  .text-wrapper h2 {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+  }
+  .text-wrapper p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+}
 </style>
 <style>
     * {
@@ -645,16 +656,13 @@ body {
   font-size: clamp(12px, 2vw, 16px);
 }
 </style>
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#fffef3">
-<meta name="msapplication-TileColor" content="#fffef3">
-
-
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<meta content="#fffef3" name="theme-color"/>
+<meta content="#fffef3" name="msapplication-TileColor"/>
 <style>
 html.is-animating #swup {
   opacity: 0;
@@ -665,7 +673,6 @@ html.is-animating #swup {
   transition: opacity 300ms ease;
 }
 </style>
-
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 <div class="nav">
@@ -706,12 +713,11 @@ html.is-animating #swup {
 <video autoplay="" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture="" id="mainVideo" loop="" muted="" playsinline="">
 <source src="about_video.mp4" type="video/mp4"/>
 </video>
-<source src="about_video.mp4" type="video/mp4">
-
+<source src="about_video.mp4" type="video/mp4"/>
 <div aria-label="Toggle video playback" class="control-button pause-button" id="pauseButton" onclick="toggleVideo(event)"><div></div></div>
 </div>
-</source></div>
 </div>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const video = document.getElementById('mainVideo');
