@@ -909,6 +909,14 @@ video::-webkit-media-controls-start-playback-button {
     text-align: center;
   }
 }
+</style><style>
+.header {
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+.header.scrolled {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+}
 </style></head>
 <body>
 <main>
@@ -1222,5 +1230,16 @@ showSlide(currentSlide);
 </script>
 <!-- Modal -->
 <script src="https://www.paypal.com/sdk/js?client-id=AR1zwcZCWpl0KIWn2UXsDkF2DX34g1Ih2aqhMZT0yxhEkxEi6S-DVJtGyuTwjH7tmKMvlUGfj05ftRWJ¤cy=GBP"></script>
+
+<script>
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('.header');
+  if (window.scrollY > 10) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+</script>
 </body>
 </html>
