@@ -308,6 +308,32 @@ html.is-animating #swup {
 #closeDrawer:hover {
   opacity: 1;
 }
+</style><style>
+@media (max-height: 480px), (max-width: 480px) {
+  .side-drawer {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 48px;
+    overflow-y: auto;
+  }
+
+  .side-drawer.nav-horizontal {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+  }
+
+  .side-drawer.nav-horizontal a {
+    margin: 0 12px;
+    white-space: nowrap;
+    opacity: 1 !important;
+    font-size: 16px;
+  }
+}
 </style></head>
 <body><div id="swup">
 <div class="nav">
@@ -341,7 +367,6 @@ html.is-animating #swup {
 <a href="/store.html">store</a>
 <a href="mailto:info@frgrnt.com?subject=Enquiry">email</a>
 </div>
-
 <div class="content">
 <h1>privacy policy</h1>
 <p>last updated: april 2025</p>
@@ -440,5 +465,19 @@ function toggleMenu(event) {
     dots.forEach(dot => dot.style.backgroundColor = '#333');
   }
 }
-</script></body>
+</script>
+<script>
+function adjustDrawerLayout() {
+  const drawer = document.getElementById('sideDrawer');
+  if (!drawer) return;
+  if (window.innerHeight < 500 || window.innerWidth < 500) {
+    drawer.classList.add('nav-horizontal');
+  } else {
+    drawer.classList.remove('nav-horizontal');
+  }
+}
+window.addEventListener('resize', adjustDrawerLayout);
+window.addEventListener('load', adjustDrawerLayout);
+</script>
+</body>
 </html>
