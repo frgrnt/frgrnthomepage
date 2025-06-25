@@ -910,11 +910,11 @@ video::-webkit-media-controls-start-playback-button {
   }
 }
 </style><style>
-.header {
+.nav {
   transition: background 0.3s ease, backdrop-filter 0.3s ease;
 }
-.header.scrolled {
-  background-color: rgba(255, 255, 255, 0.8);
+.nav.transparent {
+  background-color: rgba(255, 255, 255, 0.8) !important;
   backdrop-filter: blur(6px);
 }
 </style></head>
@@ -1232,12 +1232,12 @@ showSlide(currentSlide);
 <script src="https://www.paypal.com/sdk/js?client-id=AR1zwcZCWpl0KIWn2UXsDkF2DX34g1Ih2aqhMZT0yxhEkxEi6S-DVJtGyuTwjH7tmKMvlUGfj05ftRWJ¤cy=GBP"></script>
 
 <script>
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('.header');
+window.addEventListener('scroll', function () {
+  const nav = document.querySelector('.nav');
   if (window.scrollY > 10) {
-    header.classList.add('scrolled');
+    nav.classList.add('transparent');
   } else {
-    header.classList.remove('scrolled');
+    nav.classList.remove('transparent');
   }
 });
 </script>
