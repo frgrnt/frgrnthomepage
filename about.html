@@ -707,70 +707,7 @@ html.is-animating #swup {
   transition: opacity 300ms ease;
 }
 </style>
-<style>
-.side-drawer {
-  position: absolute;
-  top: 0;
-  right: -100%;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 254, 243, 0.6);
-  backdrop-filter: blur(12px);
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: right 0.4s ease;
-  pointer-events: none;
-}
-.side-drawer a {
-  margin: 16px 0;
-  font-size: 20px;
-  font-family: 'JetBrains Mono', monospace;
-  color: #333;
-  text-decoration: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.side-drawer.open {
-  right: 0;
-  pointer-events: all;
-}
-.side-drawer.open a {
-  opacity: 1;
-}
-#closeDrawer {
-  position: absolute;
-  top: 8px;
-  left: 16px;
-  font-size: 28px;
-  font-family: 'JetBrains Mono', monospace;
-  color: #333;
-  cursor: pointer;
-  opacity: 0.6;
-  z-index: 101;
-  transition: opacity 0.2s ease;
-}
-#closeDrawer:hover {
-  opacity: 1;
-}
-</style><style>
-@media (max-height: 480px), (max-width: 480px) {
-  .side-drawer {
-    padding-top: 48px;
-    overflow-y: auto;
-    justify-content: flex-start;
-  }
-
-  .side-drawer a {
-    font-size: 18px;
-    margin: 12px 0;
-    white-space: normal;
-    text-align: center;
-  }
-}
-</style></head>
+</head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 <div class="nav">
 <div class="nav-left">
@@ -812,16 +749,9 @@ html.is-animating #swup {
 </video>
 <source src="about_video.mp4" type="video/mp4"/>
 <div aria-label="Toggle video playback" class="control-button pause-button" id="pauseButton" onclick="toggleVideo(event)"><div></div></div>
-<div class="side-drawer" id="sideDrawer">
-<div id="closeDrawer" onclick="toggleMenu(event)">×</div>
-<a href="/about.html">about</a>
-<a href="/works.html">works</a>
-<a href="/diary.html">diary</a>
-<a href="/store.html">store</a>
-<a href="mailto:info@frgrnt.com?subject=Enquiry">email</a>
 </div>
 </div>
-</div>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const video = document.getElementById('mainVideo');
@@ -908,23 +838,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
 </style><script>
 let menuOpen = false;
-function toggleMenu(event) {
+function toggleMenu() {
+  const navLinks = document.getElementById('navLinks');
   const sprayMenu = document.querySelector('.spray-menu');
-  const dots = sprayMenu ? sprayMenu.querySelectorAll('span') : [];
-  const drawer = document.getElementById('sideDrawer');
-
-  menuOpen = !menuOpen;
-
+  const dots = document.querySelectorAll('.spray-menu span');
+  
   if (menuOpen) {
-    drawer.classList.add('open');
-    if (sprayMenu) sprayMenu.classList.add('rotate');
-    dots.forEach(dot => dot.style.backgroundColor = '#888');
+    navLinks.style.display = 'none';
+    sprayMenu.classList.remove('rotate');
+    dots.forEach(dot => {
+      dot.style.backgroundColor = '#333333';
+    });
+    menuOpen = false;
   } else {
-    drawer.classList.remove('open');
-    if (sprayMenu) sprayMenu.classList.remove('rotate');
-    dots.forEach(dot => dot.style.backgroundColor = '#333');
+    navLinks.style.display = 'flex';
+    sprayMenu.classList.add('rotate');
+    dots.forEach(dot => {
+      dot.style.backgroundColor = '#888888';
+    });
+    menuOpen = true;
   }
 }
-</script>
-
-</body></html>
+</script></body></html>
