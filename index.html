@@ -874,6 +874,22 @@ video::-webkit-media-controls-start-playback-button {
 .side-drawer.open a {
   opacity: 1;
 }
+
+#closeDrawer {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  font-size: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  color: #333;
+  cursor: pointer;
+  opacity: 0.6;
+  z-index: 101;
+  transition: opacity 0.2s ease;
+}
+#closeDrawer:hover {
+  opacity: 1;
+}
 </style></head>
 <body>
 <main>
@@ -916,7 +932,6 @@ video::-webkit-media-controls-start-playback-button {
 </div>
 </div>
 </div>
-
 <div class="container" style="flex: 1;">
 <div class="left">
 <div class="intro-text fade-in">
@@ -940,7 +955,7 @@ video::-webkit-media-controls-start-playback-button {
 <source src="works_landing.mp4" type="video/mp4"/>
 </video>
 <source src="works_landing.mp4" type="video/mp4"/>
-<div class="side-drawer" id="sideDrawer">
+<div class="side-drawer" id="sideDrawer"><div id="closeDrawer" onclick="toggleMenu(event)">×</div>
 <a href="/about.html">about</a>
 <a href="/works.html">works</a>
 <a href="/diary.html">diary</a>
