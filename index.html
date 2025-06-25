@@ -7,12 +7,19 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>frgrnt — scent strategy</title>
 <style>
+@font-face {
+  font-family: 'JetBrainsMonoNL';
+  src: url('JetBrainsMonoNL-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
     html, body {
       margin: 0;
       padding: 0;
       background: #0a0a0a;
       color: #f0f0f0;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'JetBrainsMonoNL', monospace;
       height: 100%;
       overflow-x: hidden;
     }
@@ -106,7 +113,7 @@
 </head>
 <body>
 <div class="container">
-<h1>scent as identity<span class="cursor"></span></h1>
+<h1><span class="headline-text">scent as identity</span><span class="cursor"></span></h1>
 </div>
 <button class="nav-toggle" onclick="toggleNav()">menu</button>
 <div class="nav" id="nav"><a href="#">about</a><a href="#">works</a><a href="#">diary</a><a href="#">store</a><a href="mailto:info@frgrnt.com">email</a></div>
