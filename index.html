@@ -1013,7 +1013,7 @@ video::-webkit-media-controls-start-playback-button {
 let menuOpen = false;
 
 function toggleMenu(event) {
-  const clickedMenu = event.currentTarget;
+  const clickedMenu = document.querySelector('.spray-menu');
   const dots = clickedMenu.querySelectorAll('span');
   const drawer = document.getElementById('sideDrawer');
 
