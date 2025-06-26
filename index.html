@@ -202,6 +202,14 @@
       outline: none;
       opacity: 1;
     }
+    
+    .nav a.active {
+      opacity: 0.6;
+    }
+
+    .nav-toggle.menu-open {
+      opacity: 0.6;
+    }
     </style>
 </head>
 <body>
@@ -225,11 +233,23 @@
   </nav>
 
   <script>
+    // Add active class to nav links when tapped
+    document.addEventListener("DOMContentLoaded", () => {
+      const links = document.querySelectorAll(".nav a");
+      links.forEach(link => {
+        link.addEventListener("touchstart", () => {
+          links.forEach(l => l.classList.remove("active"));
+          link.classList.add("active");
+          setTimeout(() => link.classList.remove("active"), 300);
+        });
+      });
+    });
     function toggleNav() {
       const nav = document.getElementById("nav");
       const btn = document.querySelector(".nav-toggle");
       nav.classList.toggle("open");
       btn.textContent = nav.classList.contains("open") ? "close" : "menu";
+      btn.classList.toggle("menu-open", nav.classList.contains("open"));
       btn.blur();
       setTimeout(() => { btn.classList.remove("active"); }, 150);
     }
