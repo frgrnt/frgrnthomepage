@@ -192,6 +192,7 @@
       const btn = document.querySelector(".nav-toggle");
       nav.classList.toggle("open");
       btn.textContent = nav.classList.contains("open") ? "close" : "menu";
+      btn.blur();
     }
   </script>
 
