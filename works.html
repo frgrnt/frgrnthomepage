@@ -1,586 +1,316 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>works — frgrnt</title>
-<style>
-@font-face {
-  font-family: 'JetBrains Mono';
-  src: url('/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'JetBrains Mono';
-  src: url('/fonts/JetBrainsMono/JetBrainsMono-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@media (max-width: 768px) {
-  .left {
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    padding: 24px 16px !important;
-    text-align: left !important;
-  }
-
-  .intro-text, .text-wrapper {
-    margin: 0 !important;
-    padding: 0 !important;
-    text-align: left !important;
-  }
-
-  .text-wrapper h2,
-  .text-wrapper p {
-    margin: 0 !important;
-    padding: 0 !important;
-    text-align: left !important;
-  }
-
-  .text-wrapper p {
-    margin-top: 12px !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .text-wrapper p {
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .text-wrapper p {
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-  }
-
-  .text-wrapper h2 {
-    font-size: 16px !important;
-    font-weight: 600 !important;
-  }
-}
-</style>
-<style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-  overflow-x: hidden;
-      font-family: 'JetBrains Mono', monospace;
-      background-color: #fffef3;
-      color: #333333;
-    }
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 64px;
-      width: 100%;
-      padding: 0;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: #fffef3;
-    }
-    .nav-left { padding-left: 16px; }
-    .logo {
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 500;
-      letter-spacing: -1px;
-      text-transform: lowercase;
-      font-size: 20px;
-      text-decoration: none;
-      color: #333333;
-      display: inline-block;
-      line-height: 64px;
-    }
-    .nav-right {
-      display: flex;
-      align-items: center;
-      padding-right: 16px;
-    }
-    .nav-right a {
-      text-decoration: none;
-      color: #333333;
-      text-transform: lowercase;
-      font-size: 14px;
-      margin-left: 24px;
-      transition: color 0.2s ease;
-    }
-    .nav-right a:hover { color: #888; }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      height: 84vh;
-    }
-    .left, .right {
-      width: 50vw;
-      height: 84vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .left {
-      order: 1;
-      background-color: #eae6df;
-      text-align: left;
-      padding: 32px 24px;
-    }
-    .text-wrapper {
-      max-width: 600px;
-      font-size: 14px;
-      line-height: 1.6;
-      text-transform: lowercase;
-      padding: 0;
-      margin: 0;
-      text-align: left;
-      display: block;
-      transition: opacity 0.6s ease;
-    }
-    .text-wrapper h2 {
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 600;
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>frgrnt — works</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      -webkit-tap-highlight-color: transparent;
       margin: 0;
       padding: 0;
-      text-transform: lowercase;
-    }
-    .text-wrapper p {
-      font-style: normal;
-      margin: 12px 0 0;
-      padding: 0;
+      box-sizing: border-box;
     }
 
-    .right {
-      order: 2;
-      position: relative;
-      background-color: transparent;
-      overflow: hidden;
+    html, body {
+      height: 100%;
+      width: 100%;
+      color: #a0a0a0;
+      font-family: 'JetBrains Mono', monospace;
+      overflow: auto;
     }
-    .slide {
-      position: absolute;
+
+    video.bg-video {
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      opacity: 0;
-      transition: opacity 0.8s ease;
-      z-index: 0;
-    }
-    .slide.active {
-      opacity: 1;
-      z-index: 1;
-    }
-    .slide img {
-      width: 100%;
-      height: 100%;
       object-fit: cover;
-    }
-    .nav-buttons {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      padding: 0 20px;
-      z-index: 2;
-    }
-    .nav-buttons button {
-      background: rgba(0,0,0,0.3);
-      border: none;
-      color: #fff;
-      font-size: 24px;
-      padding: 10px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-    .nav-buttons button:hover {
-      background: rgba(0,0,0,0.6);
-    }
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        height: auto;
-      }
-      .left {
-        order: 2;
-        width: 100%;
-        height: 50vh;
-        padding: 16px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-      }
-      .right {
-        order: 1;
-        width: 100%;
-        height: 50vh;
-      }
+      z-index: -1;
     }
 
-    .nav.transparent {
-      background: transparent !important;
-      height: 48px !important;
-      transition: background 0.3s ease, height 0.3s ease, backdrop-filter 0.3s ease;
-      backdrop-filter: blur(0);
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 20px;
+      padding: 120px 20px 60px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
-    .nav.transparent .logo {
-      line-height: 48px !important;
-      font-size: 18px !important;
+
+    .grid-item {
+      position: relative;
+      overflow: hidden;
     }
-    .nav.transparent .nav-right a {
-      opacity: 0.6;
+
+    .grid-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .grid-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(17, 17, 17, 0.85);
+      color: #a0a0a0;
+      padding: 1rem;
+      opacity: 0;
       transition: opacity 0.3s ease;
+      font-size: 14px;
     }
-    .intro-text {
-      max-width: 600px;
-      margin-top: 0;
+
+    .grid-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .overlay-title {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .nav-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 14px;
+      background: none;
+      color: #a0a0a0;
+      border: 1px solid #a0a0a0;
+      padding: 6px 12px;
+      cursor: pointer;
+      z-index: 100;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(17, 17, 17, 0.85);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      padding: 2rem 1rem;
+      transform: translateY(-100%);
+      transition: transform 0.4s ease;
+      z-index: 90;
+    }
+
+    .nav.open {
+      transform: translateY(0);
+    }
+
+    .nav a {
+      color: #a0a0a0;
+      text-decoration: none;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      text-transform: lowercase;
+    }
+
+    .nav a:hover {
+      opacity: 0.6;
+    }
+
+    .footer {
+      font-size: 14px;
+      color: #a0a0a0;
+      padding: 60px 20px 20px;
       text-align: left;
     }
-    @media (max-width: 768px) {
-      .intro-text {
-        margin-top: 2vh;
-      }
+
+    
+
+    .brand {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 22px;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: -0.03em;
+      color: #a0a0a0;
+      z-index: 10;
+      cursor: pointer;
     }
-  </style>
-<style>
-/* --- Footer Uniform Size --- */
-footer a, footer div {
-  font-size: 12px;
-}
 
-/* --- Maintain Split Layout for Text and Video --- */
-@media (max-width: 768px) {
+    .nav-toggle.active-tap {
+      opacity: 0.6;
+    }
+
+    .page-content {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+  
+
+
+
+
+
+
+@media (max-width: 600px), (max-height: 500px) {
+  h1 {
+    font-size: 1.6rem;
+    padding: 0 1rem;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 1.5rem 0;
+  }
+
   .container {
-    flex-direction: column;
-    height: 100vh;
+    padding: 1rem;
   }
 
-  .left, .right {
-    width: 100%;
-    height: 50vh;
-  }
-
-  .left {
-    padding: 10vh 5vw 0;
+  .nav-toggle {
+    display: inline-block;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    top: 20px;
+    right: 20px;
   }
 }
 
-/* --- Optional: Font Clamping --- */
-body {
-  overflow-x: hidden;
-  font-size: clamp(12px, 2vw, 16px);
-}
-</style>
-<style>
-/* --- Proper Footer Left Alignment --- */
-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 16px;
-  font-size: 12px !important;
-  font-family: 'JetBrains Mono', monospace;
-  color: rgba(51, 51, 51, 0.4);
-  background: transparent;
-}
-footer a, footer div {
-  font-size: 12px;
-  text-align: left;
-  text-decoration: none;
-  color: rgba(51, 51, 51, 0.4);
-}
 
-/* --- Prevent Mobile Zoom --- */
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-/* --- Mobile View Text Left Align --- */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    min-height: 100vh;
+@media (max-width: 600px), (max-height: 500px) {
+  .grid {
+    padding: 100px 10px 60px;
+    grid-template-columns: 1fr;
   }
 
-  .left {
-    width: 100%;
-    min-height: 50vh;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    padding: 24px 16px;
-    text-align: left;
-  }
-
-  .right {
-    width: 100%;
-    height: 50vh;
-  }
-
-  .left p, .intro-text p {
+  .footer {
+    padding: 60px 20px 20px;
     font-size: 14px;
-    margin: 12px 0 0 0;
-    padding: 0;
+    color: #a0a0a0;
     text-align: left;
   }
 
-  .left p:first-child, .intro-text p:first-child {
-    margin-top: 0;
+  .brand {
+    top: 20px;
+    left: 20px;
   }
-
-  .intro-text {
-    margin-top: 0 !important;
-    text-align: left;
-  }
-}
-
-/* --- Optional Font Scaling for Body --- */
-body {
-  overflow-x: hidden;
-  font-size: clamp(12px, 2vw, 16px);
-}
-</style>
-<style>
-.slide-controls {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  z-index: 5;
-  display: flex;
-  gap: 12px;
-}
-
-.slide-control-button {
-  background: none;
-  border: none;
-  font-size: 20px;
-  font-family: 'JetBrains Mono', monospace;
-  color: rgba(51, 51, 51, 0.4);
-  cursor: pointer;
-  padding: 4px;
-  transition: color 0.2s ease;
-}
-
-.slide-control-button:hover {
-  color: rgba(51, 51, 51, 0.6);
-}
-</style>
-<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
-<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="/site.webmanifest" rel="manifest"/>
-<meta content="#fffef3" name="theme-color"/>
-<meta content="#fffef3" name="msapplication-TileColor"/>
-<style>
-html.is-animating #swup {
-  opacity: 0;
-  transition: opacity 300ms ease;
-}
-#swup {
-  opacity: 1;
-  transition: opacity 300ms ease;
 }
 </style>
 </head>
-<body style="display: flex; flex-direction: column; min-height: 100vh;">
-<div class="nav">
-<div class="nav-left">
-<a class="logo" href="/index.html">frgrnt</a>
-</div>
-<div class="nav-right">
-<div id="navLinks" style="display: none; align-items: center;">
-<a href="/about.html" style="margin-left: 0;">about</a>
-<a href="/works.html" style="margin-left: 24px;">works</a>
-<a href="mailto:info@frgrnt.com?subject=Enquiry" style="margin-left: 24px;">email</a>
-</div>
-<div class="spray-menu" onclick="toggleMenu()" style="margin-left: 24px;">
-<div class="spray-line" style="margin-left: 0px;">
-<span></span><span></span><span></span>
-</div>
-<div class="spray-line" style="margin-left: 8px;">
-<span></span><span></span>
-</div>
-<div class="spray-line" style="margin-left: 16px;">
-<span></span>
-</div>
-</div>
-</div>
-</div>
-<main style="flex: 1;"><div class="container" style="flex: 1;">
-<div class="left">
-<div class="intro-text">
-<div class="text-wrapper" id="slideText"></div>
-</div>
-</div>
-<div class="right">
-<div class="slide active"><img alt="Slide 1" src="IMG_8049.jpeg"/></div>
-<div class="slide"><img alt="Slide 2" src="IMG_8052.jpeg"/></div>
-<div class="slide"><img alt="Slide 3" src="IMG_8053.jpeg"/></div>
-<div class="slide"><img alt="Slide 4" src="IMG_8054.jpeg"/></div>
-<div class="slide"><img alt="Slide 5" src="IMG_8055.jpeg"/></div>
-<div class="slide-controls"><button class="slide-dot" onclick="showSlide(0)" style="width: 10px; height: 10px; border-radius: 2px; background-color: rgba(51, 51, 51, 0.2); border: none; cursor: pointer;"></button><button class="slide-dot" onclick="showSlide(1)" style="width: 10px; height: 10px; border-radius: 2px; background-color: rgba(51, 51, 51, 0.2); border: none; cursor: pointer;"></button><button class="slide-dot" onclick="showSlide(2)" style="width: 10px; height: 10px; border-radius: 2px; background-color: rgba(51, 51, 51, 0.2); border: none; cursor: pointer;"></button><button class="slide-dot" onclick="showSlide(3)" style="width: 10px; height: 10px; border-radius: 2px; background-color: rgba(51, 51, 51, 0.2); border: none; cursor: pointer;"></button><button class="slide-dot" onclick="showSlide(4)" style="width: 10px; height: 10px; border-radius: 2px; background-color: rgba(51, 51, 51, 0.2); border: none; cursor: pointer;"></button></div></div>
-</div>
-<script>
-  window.addEventListener('scroll', function () {
-    const nav = document.querySelector('.nav');
-    if (window.scrollY > 10) {
-      nav.classList.add('transparent');
-    } else {
-      nav.classList.remove('transparent');
-    }
-  });
-</script>
-<style>
+<body>
+  <div class="page-content">
+    <span class="brand" onclick="window.location.href='index.html'">frgrnt</span>
 
-.spray-menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  cursor: pointer;
-  gap: 6px;
-  transition: transform 0.3s ease;
-  /* padding: 10px; --> REMOVED */
-}
+    <div class="grid">
+      
+      <div class="grid-item">
+        <img src="IMG_8049.jpeg" alt="residential developments" />
+        <div class="overlay">
+          <div class="overlay-title">residential developments</div>
+          <div class="overlay-desc">enhancing everyday environments with subtle, familiar scent signatures.</div>
+        </div>
+      </div>
+    
+      <div class="grid-item">
+        <img src="IMG_8052.jpeg" alt="health & wellness" />
+        <div class="overlay">
+          <div class="overlay-title">health & wellness</div>
+          <div class="overlay-desc">fragrance can foster calm and connection—key to wellness experiences.</div>
+        </div>
+      </div>
+    
+      <div class="grid-item">
+        <img src="IMG_8053.jpeg" alt="hotels" />
+        <div class="overlay">
+          <div class="overlay-title">hotels</div>
+          <div class="overlay-desc">distinctive scenting creates familiarity and deepens hospitality impressions.</div>
+        </div>
+      </div>
+    
+      <div class="grid-item">
+        <img src="IMG_8054.jpeg" alt="retail stores" />
+        <div class="overlay">
+          <div class="overlay-title">retail stores</div>
+          <div class="overlay-desc">memorable scenting supports brand identity and elevates consumer engagement.</div>
+        </div>
+      </div>
+    
+      <div class="grid-item">
+        <img src="IMG_8055.jpeg" alt="commercial units" />
+        <div class="overlay">
+          <div class="overlay-title">commercial units</div>
+          <div class="overlay-desc">fragrance adds refinement and polish to professional or shared spaces.</div>
+        </div>
+      </div>
+    
+    </div>
 
-.spray-menu:hover span,
-.spray-menu.rotate span {
-  background-color: #888888;
-}
+    <span class="nav-toggle" onclick="toggleNav()" role="button">menu</span>
+    <nav class="nav" id="nav">
+      <a href="about.html">about</a>
+      <a href="works.html">works</a>
+      <a href="diary.html">diary</a>
+      <a href="store.html">store</a>
+      <a href="mailto:info@frgrnt.com">email</a>
+    </nav>
 
-.spray-menu.rotate {
-  transform: rotate(180deg);
-}
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.querySelector(".nav-toggle");
+        const nav = document.getElementById("nav");
 
-.spray-line {
-  display: flex;
-  gap: 6px;
-}
+        toggle.addEventListener("touchstart", () => {
+          toggle.classList.add("active-tap");
+          setTimeout(() => toggle.classList.remove("active-tap"), 300);
+        });
 
-.spray-line span {
-  width: 4px;
-  height: 4px;
-  background-color: #333;
-  border-radius: 50%;
-  transition: background-color 0.2s ease;
-}
+        document.addEventListener("click", (e) => {
+          if (
+            nav.classList.contains("open") &&
+            !nav.contains(e.target) &&
+            !toggle.contains(e.target)
+          ) {
+            nav.classList.remove("open");
+            toggle.textContent = "menu";
+          }
+        });
+      });
 
-
-.left {
-  padding: 32px 24px;
-}
-
-.intro-text {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-.text-wrapper {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-}
-
-.text-wrapper h2, .text-wrapper p {
-  padding-left: 0;
-  margin-left: 0;
-  text-align: left;
-}
-
-</style><script>
-let menuOpen = false;
-function toggleMenu() {
-  const navLinks = document.getElementById('navLinks');
-  const sprayMenu = document.querySelector('.spray-menu');
-  const dots = document.querySelectorAll('.spray-menu span');
-  
-  if (menuOpen) {
-    navLinks.style.display = 'none';
-    sprayMenu.classList.remove('rotate');
-    dots.forEach(dot => {
-      dot.style.backgroundColor = '#333333';
-    });
-    menuOpen = false;
-  } else {
-    navLinks.style.display = 'flex';
-    sprayMenu.classList.add('rotate');
-    dots.forEach(dot => {
-      dot.style.backgroundColor = '#888888';
-    });
-    menuOpen = true;
-  }
-}
-</script><script>
-const slides = document.querySelectorAll('.slide');
-const textBox = document.getElementById('slideText');
-const dots = document.querySelectorAll('.slide-dot');
-const textContent = [
-  { title: 'residential developments', text: 'enhancing everyday environments with subtle, familiar scent signatures.' },
-  { title: 'health & wellness', text: 'fragrance can foster calm and connection—key to wellness experiences.' },
-  { title: 'hotels', text: 'distinctive scenting creates familiarity and deepens hospitality impressions.' },
-  { title: 'retail stores', text: 'memorable scenting supports brand identity and elevates consumer engagement.' },
-  { title: 'commercial units', text: 'fragrance adds refinement and polish to professional or shared spaces.' },
-  { title: 'custom scenting', text: 'tailored olfactory concepts for niche brand experiences and environments.' }
-];
-
-let currentSlide = 0;
-let autoplay = true;
-let intervalId;
-
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove('active');
-  });
-  slides[index].classList.add('active');
-
-  if (textBox) {
-    textBox.style.opacity = 0;
-    setTimeout(() => {
-      const { title, text } = textContent[index];
-      textBox.innerHTML = `<h2>${title}</h2><p>${text}</p>`;
-      textBox.style.opacity = 1;
-    }, 300);
-  }
-
-  dots.forEach((dot, i) => {
-    dot.style.backgroundColor = i === index ? 'rgba(51, 51, 51, 0.5)' : 'rgba(51, 51, 51, 0.2)';
-  });
-
-  currentSlide = index;
-}
-
-function startAutoplay() {
-  intervalId = setInterval(() => {
-    if (autoplay) {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    }
-  }, 5000);
-}
-
-dots.forEach((dot, i) => {
-  dot.addEventListener('click', () => {
-    clearInterval(intervalId);
-    autoplay = false;
-    showSlide(i);
-  });
-});
-
-showSlide(0);
-startAutoplay();
-</script></main><footer style="padding: 16px; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: rgba(51, 51, 51, 0.4); background: transparent; text-align: left;">
-<a href="/privacy.html" style="text-decoration: none; color: rgba(51, 51, 51, 0.4); font-size: 12px;">privacy policy</a>
-<div>© 2025, frgrnt</div>
-</footer></body></html>
+      function toggleNav() {
+        const nav = document.getElementById("nav");
+        const btn = document.querySelector(".nav-toggle");
+        nav.classList.toggle("open");
+        const isOpen = nav.classList.contains("open");
+        btn.textContent = isOpen ? "close" : "menu";
+        if (isOpen) {
+          btn.classList.add("menu-open");
+        } else {
+          btn.classList.remove("menu-open");
+        }
+        btn.blur();
+        setTimeout(() => { btn.classList.remove("active"); }, 150);
+      }
+    </script>
+  </div>
+  <div class="footer">© 2025, frgrnt</div>
+</body>
+</html>
