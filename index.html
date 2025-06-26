@@ -186,9 +186,7 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    .brand:hover {
-      opacity: 0.8;
-    }
+    
   
     .nav-toggle:focus,
     .nav-toggle:active {
@@ -206,14 +204,13 @@
     
     
     
-    .brand.active-tap,
     .nav-toggle.active-tap {
       opacity: 0.6;
     }
     </style>
 </head>
 <body>
-  <span class="brand" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">frgrnt</span>
+  <span class="brand" onclick="location.reload()">frgrnt</span>
   <video class="bg-video" autoplay muted loop playsinline>
     <source src="RNFetchBlobTmp_60c7u7hdcblpbpzxnpxul copy copy.mp4" type="video/mp4">
     Your browser does not support the video tag.
@@ -239,11 +236,11 @@
       const nav = document.getElementById("nav");
 
       // Flash grey on tap
-      [brand, toggle].forEach(el => {
+      toggle.addEventListener("touchstart", () => {
         el.addEventListener("touchstart", () => {
           el.classList.add("active-tap");
           setTimeout(() => el.classList.remove("active-tap"), 300);
-        });
+          });
       });
 
       // Hide nav when clicking outside of it
