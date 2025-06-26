@@ -205,6 +205,11 @@
     }
     
     
+    
+    .brand.active-tap,
+    .nav-toggle.active-tap {
+      opacity: 0.6;
+    }
     </style>
 </head>
 <body>
@@ -228,6 +233,32 @@
   </nav>
 
   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const brand = document.querySelector(".brand");
+      const toggle = document.querySelector(".nav-toggle");
+      const nav = document.getElementById("nav");
+
+      // Flash grey on tap
+      [brand, toggle].forEach(el => {
+        el.addEventListener("touchstart", () => {
+          el.classList.add("active-tap");
+          setTimeout(() => el.classList.remove("active-tap"), 300);
+        });
+      });
+
+      // Hide nav when clicking outside of it
+      document.addEventListener("click", (e) => {
+        if (
+          nav.classList.contains("open") &&
+          !nav.contains(e.target) &&
+          !toggle.contains(e.target)
+        ) {
+          nav.classList.remove("open");
+          toggle.textContent = "menu";
+        }
+      });
+    });
+
     function toggleNav() {
       const nav = document.getElementById("nav");
       const btn = document.querySelector(".nav-toggle");
