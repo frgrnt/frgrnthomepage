@@ -164,7 +164,13 @@
     .brand:hover {
       opacity: 0.8;
     }
-  </style>
+  
+    .nav-toggle:focus,
+    .nav-toggle:active {
+      outline: none;
+      opacity: 1;
+    }
+    </style>
 </head>
 <body>
   <span class="brand" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">frgrnt</span>
@@ -193,6 +199,7 @@
       nav.classList.toggle("open");
       btn.textContent = nav.classList.contains("open") ? "close" : "menu";
       btn.blur();
+      setTimeout(() => { btn.classList.remove("active"); }, 150);
     }
   </script>
 
