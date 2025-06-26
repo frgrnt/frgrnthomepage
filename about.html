@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>frgrnt — scent branding agency</title>
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>frgrnt — scent branding agency</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
     * {
-      -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -21,6 +21,16 @@
       color: #a0a0a0;
       font-family: 'JetBrains Mono', monospace;
       overflow: hidden;
+    }
+
+    video.bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
     }
 
     .container {
@@ -56,6 +66,15 @@
     }
 
     .nav-toggle {
+      display: inline-block;
+      text-align: center;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+
+      -webkit-tap-highlight-color: transparent;
+      font-family: 'JetBrains Mono', monospace;
       position: fixed;
       top: 20px;
       right: 20px;
@@ -66,6 +85,11 @@
       padding: 6px 12px;
       cursor: pointer;
       z-index: 100;
+      transition: opacity 0.3s;
+    }
+
+    .nav-toggle:hover {
+      opacity: 0.6;
     }
 
     .nav {
@@ -93,26 +117,92 @@
       text-decoration: none;
       text-transform: lowercase;
       font-size: 16px;
+      letter-spacing: 0.5px;
     }
 
-    .brand {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      font-size: 22px;
-      font-family: 'JetBrains Mono', monospace;
-      color: #a0a0a0;
-      z-index: 10;
-      cursor: pointer;
+    .nav a:hover {
+      opacity: 0.6;
     }
 
     .footer {
       position: fixed;
       bottom: 20px;
       left: 20px;
+      bottom: 20px;
+      left: 20px;
       font-size: 14px;
       color: #a0a0a0;
       z-index: 10;
+    }
+
+    @media (max-width: 600px), (max-height: 500px) {
+      h1 {
+        font-size: 1.6rem;
+        padding: 0 1rem;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        padding: 1.5rem 0;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+
+      .nav-toggle {
+        display: inline-block;
+        text-align: center;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+
+        -webkit-tap-highlight-color: transparent;
+        top: 20px;
+        right: 20px;
+      }
+    }
+
+    .brand {
+      -webkit-tap-highlight-color: transparent;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 22px;
+      font-weight: normal;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: -0.03em;
+      color: #a0a0a0;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    .brand:focus,
+    .brand:active {
+      color: #a0a0a0;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-toggle:focus,
+    .nav-toggle:active {
+      background: none;
+      color: #a0a0a0;
+      opacity: 1;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      background: none;
+      color: #a0a0a0;
+      outline: none;
+      opacity: 1;
+    }
+
+    .nav-toggle.active-tap {
+      opacity: 0.6;
     }
 
     .page-content {
@@ -121,30 +211,60 @@
       flex-direction: column;
       justify-content: center;
     }
-  </style>
+</style>
 </head>
 <body>
 <div class="page-content">
-  <span class="brand" onclick="window.location.href='index.html'">frgrnt</span>
-  <div class="container">
-    <h1><span class="headline-text">coming soon</span><span class="cursor"></span></h1>
-  </div>
-  <span class="nav-toggle" onclick="toggleNav()" role="button">menu</span>
-  <nav class="nav" id="nav">
-    <a href="about.html">about</a>
-    <a href="#">works</a>
-    <a href="diary.html">diary</a>
-    <a href="store.html">store</a>
-    <a href="mailto:info@frgrnt.com">email</a>
-  </nav>
-  <script>
+<span class="brand" onclick="window.location.href='index.html'">frgrnt</span>
+<div class="container">
+<h1><span class="headline-text">coming soon</span><span class="cursor"></span></h1>
+</div>
+<span class="nav-toggle" onclick="toggleNav()" role="button">menu</span>
+<nav class="nav" id="nav">
+<a href="about.html">about</a>
+<a href="#">works</a>
+<a href="diary.html">diary</a>
+<a href="store.html">store</a>
+<a href="mailto:info@frgrnt.com">email</a>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const brand = document.querySelector(".brand");
+      const toggle = document.querySelector(".nav-toggle");
+      const nav = document.getElementById("nav");
+
+      toggle.addEventListener("touchstart", () => {
+        toggle.classList.add("active-tap");
+        setTimeout(() => toggle.classList.remove("active-tap"), 300);
+      });
+
+      document.addEventListener("click", (e) => {
+        if (
+          nav.classList.contains("open") &&
+          !nav.contains(e.target) &&
+          !toggle.contains(e.target)
+        ) {
+          nav.classList.remove("open");
+          toggle.textContent = "menu";
+        }
+      });
+    });
+
     function toggleNav() {
       const nav = document.getElementById("nav");
       const btn = document.querySelector(".nav-toggle");
       nav.classList.toggle("open");
-      btn.textContent = nav.classList.contains("open") ? "close" : "menu";
+      const isOpen = nav.classList.contains("open");
+      btn.textContent = isOpen ? "close" : "menu";
+      if (isOpen) {
+        btn.classList.add("menu-open");
+      } else {
+        btn.classList.remove("menu-open");
+      }
+      btn.blur();
+      setTimeout(() => { btn.classList.remove("active"); }, 150);
     }
-  </script>
+</script>
 </div>
 <div class="footer">© 2025, frgrnt</div>
 </body>
