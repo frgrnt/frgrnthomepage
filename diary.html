@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>frgrnt — scent branding agency</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>frgrnt — scent branding agency</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<style>
     * {
   -webkit-tap-highlight-color: transparent;
       margin: 0;
@@ -210,23 +211,19 @@
     </style>
 </head>
 <body>
-  <span class="brand" onclick="location.reload()">frgrnt</span>
-  
-
-  <div class="container">
-    <h1><span class="headline-text">coming soon</span><span class="cursor"></span></h1>
-  </div>
-
-  <span class="nav-toggle" role="button" onclick="toggleNav()">menu</span>
-  <nav class="nav" id="nav">
-    <a href="#">about</a>
-    <a href="#">works</a>
-    <a href="#">diary</a>
-    <a href="#">store</a>
-    <a href="mailto:info@frgrnt.com">email</a>
-  </nav>
-
-  <script>
+<span class="brand" onclick="window.location.href='index.html'">frgrnt</span>
+<div class="container">
+<h1><span class="headline-text">coming soon</span><span class="cursor"></span></h1>
+</div>
+<span class="nav-toggle" onclick="toggleNav()" role="button">menu</span>
+<nav class="nav" id="nav">
+<a href="#">about</a>
+<a href="#">works</a>
+<a href="diary.html">diary</a>
+<a href="store.html">store</a>
+<a href="mailto:info@frgrnt.com">email</a>
+</nav>
+<script>
     document.addEventListener("DOMContentLoaded", () => {
       const brand = document.querySelector(".brand");
       const toggle = document.querySelector(".nav-toggle");
@@ -268,7 +265,6 @@
       setTimeout(() => { btn.classList.remove("active"); }, 150);
     }
   </script>
-
-  <div class="footer">&copy; 2025, frgrnt</div>
+<div class="footer">© 2025, frgrnt</div>
 </body>
 </html>
