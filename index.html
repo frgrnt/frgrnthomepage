@@ -203,30 +203,11 @@
       opacity: 1;
     }
     
-    /* Mobile-specific visual states */
-    .nav-toggle.menu-open {
-      opacity: 0.6;
-    }
-
-    @media (hover: none) and (pointer: coarse) {
-      .nav a:active {
-        opacity: 0.6;
-      }
-    }
     
-    .brand.active {
-      opacity: 0.6;
-    }
-
-    @media (hover: none) and (pointer: coarse) {
-      .brand:active {
-        opacity: 0.6;
-      }
-    }
     </style>
 </head>
 <body>
-  <span class="brand" onclick="scrollToTopWithFlash()">frgrnt</span>
+  <span class="brand" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">frgrnt</span>
   <video class="bg-video" autoplay muted loop playsinline>
     <source src="RNFetchBlobTmp_60c7u7hdcblpbpzxnpxul copy copy.mp4" type="video/mp4">
     Your browser does not support the video tag.
@@ -246,12 +227,6 @@
   </nav>
 
   <script>
-    function scrollToTopWithFlash() {
-      const brand = document.querySelector('.brand');
-      brand.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setTimeout(() => brand.classList.remove('active'), 300);
-    }
     function toggleNav() {
       const nav = document.getElementById("nav");
       const btn = document.querySelector(".nav-toggle");
