@@ -65,6 +65,13 @@
     }
 
     .nav-toggle {
+      display: inline-block;
+      text-align: center;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+
       -webkit-tap-highlight-color: transparent;
       font-family: 'JetBrains Mono', monospace;
       position: fixed;
@@ -144,6 +151,13 @@
       }
 
       .nav-toggle {
+      display: inline-block;
+      text-align: center;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+
       -webkit-tap-highlight-color: transparent;
         top: 20px;
         right: 20px;
@@ -201,7 +215,7 @@
     <h1><span class="headline-text">scent as identity</span><span class="cursor"></span></h1>
   </div>
 
-  <button class="nav-toggle" onclick="toggleNav()">menu</button>
+  <span class="nav-toggle" role="button" onclick="toggleNav()">menu</span>
   <nav class="nav" id="nav">
     <a href="#">about</a>
     <a href="#">works</a>
