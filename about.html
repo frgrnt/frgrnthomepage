@@ -21,7 +21,8 @@
       width: 100%;
       color: #a0a0a0;
       font-family: 'JetBrains Mono', monospace;
-      overflow: hidden;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
 
     video.bg-video {
@@ -129,6 +130,8 @@
       position: fixed;
       bottom: 20px;
       left: 20px;
+      bottom: 20px;
+      left: 20px;
       font-size: 14px;
       color: #a0a0a0;
       z-index: 10;
@@ -216,9 +219,24 @@
   text-align: justify;
 }
 
+
+
+.container {
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+
+
+    .page-content {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 </style>
 </head>
 <body>
+<div class="page-content">
 <span class="brand" onclick="window.location.href='index.html'">frgrnt</span>
 <div class="container">
 <h1>
@@ -279,6 +297,8 @@
       setTimeout(() => { btn.classList.remove("active"); }, 150);
     }
   </script>
+</div>
 <div class="footer">© 2025, frgrnt</div>
+</div>
 </body>
 </html>
