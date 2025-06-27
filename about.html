@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>frgrnt — scent branding agency</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,8 +21,7 @@
       width: 100%;
       color: #a0a0a0;
       font-family: 'JetBrains Mono', monospace;
-      overflow-y: auto;
-  overflow-x: hidden;
+      overflow: hidden;
     }
 
     video.bg-video {
@@ -36,10 +35,7 @@
     }
 
     .container {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+      height: 100vh;
       width: 100vw;
       display: flex;
       flex-direction: column;
@@ -155,22 +151,18 @@
       }
 
       .container {
-  height: calc(var(--vh, 1vh) * 100);
-  display: flex;
-  justify-content: center;
-  align-items: center;
         padding: 1rem;
       }
 
       .nav-toggle {
-        display: inline-block;
-        text-align: center;
-        user-select: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
+      display: inline-block;
+      text-align: center;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
 
-        -webkit-tap-highlight-color: transparent;
+      -webkit-tap-highlight-color: transparent;
         top: 20px;
         right: 20px;
       }
@@ -197,6 +189,8 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    
+  
     .nav-toggle:focus,
     .nav-toggle:active {
       background: none;
@@ -206,14 +200,17 @@
       -webkit-tap-highlight-color: transparent;
       background: none;
       color: #a0a0a0;
+
       outline: none;
       opacity: 1;
     }
-
+    
+    
+    
     .nav-toggle.active-tap {
       opacity: 0.6;
     }
-
+    
     .page-content {
       min-height: 100vh;
       display: flex;
@@ -221,127 +218,29 @@
       justify-content: center;
     }
 
-.vertical-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-grow: 1;
-  width: 100%;
-}
-    </style>
-<style>
-.brand {
-  color: #a0a0a0 !important;
-  transition: color 0.3s ease;
-  z-index: 200;
-}
-
-body.nav-open .brand {
-  color: #ffffff !important;
-}
-
-.nav-toggle {
-  color: #a0a0a0 !important;
-  border: 1px solid #a0a0a0 !important;
-  transition: color 0.3s ease, border-color 0.3s ease;
-  z-index: 200;
-}
-
-body.nav-open .nav-toggle {
-  color: #ffffff !important;
-  border-color: #ffffff !important;
-}
-
-.nav {
-  background: #a0a0a0;
-}
-
-.nav a {
-  color: #ffffff !important;
-}
-
-  .container {
-    justify-content: flex-start;
-    padding-top: 3rem;
-    align-items: flex-start;
-  }
-}
-
-
-.container {
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 10px;
+  padding-top: 100px;
   padding-left: 20px;
   padding-right: 20px;
-}
-
-  font-size: 1rem;
-  line-height: 1.6;
-  max-width: 600px;
+  padding-bottom: 0;
   width: 100%;
-  text-align: left;
 }
-
-    font-size: 1rem;
-  }
-}
-
-    font-size: 0.9rem;
-  }
-}
-.subtext {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  max-width: 600px;
+.grid-item img {
   width: 100%;
-  text-align: left;
+  height: auto;
+  display: block;
 }
-
-/* Force same size on all small screens, portrait or landscape */
-@media (max-width: 800px), (max-height: 800px) {
-  .subtext {
-    font-size: 0.95rem;
-  }
-}
-
-html {
-  font-size: 16px;
-}
-
-body {
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-</style></head>
+</style>
+</head>
 <body>
 <div class="page-content">
 <span class="brand" onclick="window.location.href='index.html'">frgrnt</span>
 <div class="container">
-<div class="vertical-center"><div style="text-align: left; width: 100%;">
-<h1 onclick="toggleContent('about')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">about</h1>
-<div id="about" style="display: none; margin-bottom: 2rem;">
-<p class="subtext" style="margin-top: 1rem;">we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
-<p class="subtext" style="margin-top: 1rem;">scent branding, custom fragrance creation, and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
-<p class="subtext" style="margin-top: 1rem;">from concept to composition, we guide brands through the creation of their olfactive signature.</p>
+<h1><span class="headline-text">coming soon</span><span class="cursor"></span></h1>
 </div>
-<h1 onclick="toggleContent('services')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">services</h1>
-<div id="services" style="display: none; margin-bottom: 2rem;">
-<p class="subtext" style="margin-top: 1rem;">scent creation, HVAC or standalone installation, on-demand maintenance/cleaning and bespoke scent offerings.</p>
-</div>
-<h1 onclick="toggleContent('approach')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">approach</h1>
-<div id="approach" style="display: none; margin-bottom: 2rem;">
-<p class="subtext" style="margin-top: 1rem;">trusted by brands who see scent as part of the experience—residential developments, health &amp; wellness, hotels, retail stores and commercial units.</p>
-<p class="subtext" style="margin-top: 1rem;">from ambient scenting for wellness spaces to signature fragrances for branded environments, each project is shaped by mood, material, and identity.</p>
-<p class="subtext" style="margin-top: 1rem;">our work is subtle but immersive—built to be felt, not forced.</p>
-</div>
-<h1 onclick="toggleContent('commitment')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">commitment</h1>
-<div id="commitment" style="display: none; margin-bottom: 2rem;">
-<p class="subtext" style="margin-top: 1rem;">we work with fragrance partners who share our values—focused on clean formulations, low-impact diffusion, and recyclable materials wherever possible.</p>
-<p class="subtext" style="margin-top: 1rem;">we’re committed to practices that support:<br/>
-        — low-emission scent delivery systems<br/>
-        — cruelty-free, phthalate-free fragrance oils<br/>
-        — conscious sourcing and supply models</p>
-</div>
-</div></div>
 <span class="nav-toggle" onclick="toggleNav()" role="button">menu</span>
 <nav class="nav" id="nav">
 <a href="about.html">about</a>
@@ -356,11 +255,15 @@ body {
       const toggle = document.querySelector(".nav-toggle");
       const nav = document.getElementById("nav");
 
+      // Flash grey on tap
       toggle.addEventListener("touchstart", () => {
-        toggle.classList.add("active-tap");
-        setTimeout(() => toggle.classList.remove("active-tap"), 300);
+        el.addEventListener("touchstart", () => {
+          el.classList.add("active-tap");
+          setTimeout(() => el.classList.remove("active-tap"), 300);
+          });
       });
 
+      // Hide nav when clicking outside of it
       document.addEventListener("click", (e) => {
         if (
           nav.classList.contains("open") &&
@@ -369,7 +272,6 @@ body {
         ) {
           nav.classList.remove("open");
           toggle.textContent = "menu";
-          document.body.classList.remove("nav-open");
         }
       });
     });
@@ -380,7 +282,6 @@ body {
       nav.classList.toggle("open");
       const isOpen = nav.classList.contains("open");
       btn.textContent = isOpen ? "close" : "menu";
-      document.body.classList.toggle("nav-open", isOpen);
       if (isOpen) {
         btn.classList.add("menu-open");
       } else {
@@ -389,30 +290,9 @@ body {
       btn.blur();
       setTimeout(() => { btn.classList.remove("active"); }, 150);
     }
-</script>
+  </script>
 </div>
 <div class="footer">© 2025, frgrnt</div>
 </div>
-<script>
-function setTrueVh() {
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-}
-window.addEventListener('resize', setTrueVh);
-window.addEventListener('load', setTrueVh);
-</script>
-<script>
-  function toggleContent(id) {
-    const sections = ['about', 'services', 'approach', 'commitment'];
-    sections.forEach(section => {
-      const el = document.getElementById(section);
-      if (section === id) {
-        el.style.display = el.style.display === "block" ? "none" : "block";
-      } else {
-        el.style.display = "none";
-      }
-    });
-  }
-</script>
 </body>
 </html>
