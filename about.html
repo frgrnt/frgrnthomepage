@@ -213,26 +213,52 @@
     }
 </style>
 </head>
-<body>
+<body style="overflow-y: auto;">
 <div class="page-content">
 <span class="brand" onclick="window.location.href='index.html'">frgrnt</span>
 
-<div class="container" style="justify-content: center; align-items: flex-start; padding-left: 20px; padding-right: 20px;">
+<div class="container" style="min-height: auto; height: auto; padding-bottom: 5rem;" style="justify-content: center; align-items: flex-start; padding-left: 20px; padding-right: 20px;">
   <div style="text-align: left; width: 100%;">
-    <h1 style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;" 
-        onmouseover="this.style.color='#666666'" 
-        onmouseout="this.style.color='#a0a0a0'">about</h1>
-    <h1 style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;" 
-        onmouseover="this.style.color='#666666'" 
-        onmouseout="this.style.color='#a0a0a0'">services</h1>
-    <h1 style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;" 
-        onmouseover="this.style.color='#666666'" 
-        onmouseout="this.style.color='#a0a0a0'">approach</h1>
-    <h1 style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;" 
-        onmouseover="this.style.color='#666666'" 
-        onmouseout="this.style.color='#a0a0a0'">commitment</h1>
+    <h1 onclick="toggleContent('about')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">about</h1>
+    <div id="about" style="display: none; margin-bottom: 2rem;">
+      <p style="margin-top: 1rem;">we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
+      <p style="margin-top: 1rem;">scent branding, custom fragrance creation, and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
+      <p style="margin-top: 1rem;">from concept to composition, we guide brands through the creation of their olfactive signature.</p>
+    </div>
+
+    <h1 onclick="toggleContent('services')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">services</h1>
+    <div id="services" style="display: none; margin-bottom: 2rem;">
+      <p style="margin-top: 1rem;">scent creation, HVAC or standalone installation, on-demand maintenance/cleaning and bespoke scent offerings.</p>
+    </div>
+
+    <h1 onclick="toggleContent('approach')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">approach</h1>
+    <div id="approach" style="display: none; margin-bottom: 2rem;">
+      <p style="margin-top: 1rem;">trusted by brands who see scent as part of the experience—residential developments, health & wellness, hotels, retail stores and commercial units.</p>
+      <p style="margin-top: 1rem;">from ambient scenting for wellness spaces to signature fragrances for branded environments, each project is shaped by mood, material, and identity.</p>
+      <p style="margin-top: 1rem;">our work is subtle but immersive—built to be felt, not forced.</p>
+    </div>
+
+    <h1 onclick="toggleContent('commitment')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">commitment</h1>
+    <div id="commitment" style="display: none; margin-bottom: 2rem;">
+      <p style="margin-top: 1rem;">we work with fragrance partners who share our values—focused on clean formulations, low-impact diffusion, and recyclable materials wherever possible.</p>
+      <p style="margin-top: 1rem;">we’re committed to practices that support:<br/>
+        — low-emission scent delivery systems<br/>
+        — cruelty-free, phthalate-free fragrance oils<br/>
+        — conscious sourcing and supply models</p>
+    </div>
   </div>
 </div>
+
+<script>
+  function toggleContent(id) {
+    const content = document.getElementById(id);
+    if (content.style.display === "none") {
+      content.style.display = "block";
+    } else {
+      content.style.display = "none";
+    }
+  }
+</script>
 
 <span class="nav-toggle" onclick="toggleNav()" role="button">menu</span>
 <nav class="nav" id="nav">
