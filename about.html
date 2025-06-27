@@ -274,22 +274,22 @@ body.nav-open .nav-toggle {
   padding-right: 20px;
 }
 
-.container p {
+.subtext {
   font-size: 1rem;
   line-height: 1.6;
   max-width: 600px;
   width: 100%;
+  text-align: left;
 }
 
-/* Responsive font size on smaller screens */
 @media (max-width: 800px) {
-  .container p {
+  .subtext {
     font-size: 1rem;
   }
 }
 
 @media (max-width: 500px) {
-  .container p {
+  .subtext {
     font-size: 0.9rem;
   }
 }
@@ -301,30 +301,29 @@ body.nav-open .nav-toggle {
 <div class="vertical-center"><div style="text-align: left; width: 100%;">
 <h1 onclick="toggleContent('about')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">about</h1>
 <div id="about" style="display: none; margin-bottom: 2rem;">
-<p style="margin-top: 1rem;">we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
-<p style="margin-top: 1rem;">scent branding, custom fragrance creation, and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
-<p style="margin-top: 1rem;">from concept to composition, we guide brands through the creation of their olfactive signature.</p>
+<p class="subtext" style="margin-top: 1rem;">we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
+<p class="subtext" style="margin-top: 1rem;">scent branding, custom fragrance creation, and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
+<p class="subtext" style="margin-top: 1rem;">from concept to composition, we guide brands through the creation of their olfactive signature.</p>
 </div>
 <h1 onclick="toggleContent('services')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">services</h1>
 <div id="services" style="display: none; margin-bottom: 2rem;">
-<p style="margin-top: 1rem;">scent creation, HVAC or standalone installation, on-demand maintenance/cleaning and bespoke scent offerings.</p>
+<p class="subtext" style="margin-top: 1rem;">scent creation, HVAC or standalone installation, on-demand maintenance/cleaning and bespoke scent offerings.</p>
 </div>
 <h1 onclick="toggleContent('approach')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">approach</h1>
 <div id="approach" style="display: none; margin-bottom: 2rem;">
-<p style="margin-top: 1rem;">trusted by brands who see scent as part of the experience—residential developments, health &amp; wellness, hotels, retail stores and commercial units.</p>
-<p style="margin-top: 1rem;">from ambient scenting for wellness spaces to signature fragrances for branded environments, each project is shaped by mood, material, and identity.</p>
-<p style="margin-top: 1rem;">our work is subtle but immersive—built to be felt, not forced.</p>
+<p class="subtext" style="margin-top: 1rem;">trusted by brands who see scent as part of the experience—residential developments, health &amp; wellness, hotels, retail stores and commercial units.</p>
+<p class="subtext" style="margin-top: 1rem;">from ambient scenting for wellness spaces to signature fragrances for branded environments, each project is shaped by mood, material, and identity.</p>
+<p class="subtext" style="margin-top: 1rem;">our work is subtle but immersive—built to be felt, not forced.</p>
 </div>
 <h1 onclick="toggleContent('commitment')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">commitment</h1>
 <div id="commitment" style="display: none; margin-bottom: 2rem;">
-<p style="margin-top: 1rem;">we work with fragrance partners who share our values—focused on clean formulations, low-impact diffusion, and recyclable materials wherever possible.</p>
-<p style="margin-top: 1rem;">we’re committed to practices that support:<br/>
+<p class="subtext" style="margin-top: 1rem;">we work with fragrance partners who share our values—focused on clean formulations, low-impact diffusion, and recyclable materials wherever possible.</p>
+<p class="subtext" style="margin-top: 1rem;">we’re committed to practices that support:<br/>
         — low-emission scent delivery systems<br/>
         — cruelty-free, phthalate-free fragrance oils<br/>
         — conscious sourcing and supply models</p>
 </div>
 </div></div>
-
 <span class="nav-toggle" onclick="toggleNav()" role="button">menu</span>
 <nav class="nav" id="nav">
 <a href="about.html">about</a>
@@ -384,7 +383,6 @@ function setTrueVh() {
 window.addEventListener('resize', setTrueVh);
 window.addEventListener('load', setTrueVh);
 </script>
-
 <script>
   function toggleContent(id) {
     const sections = ['about', 'services', 'approach', 'commitment'];
