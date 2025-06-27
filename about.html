@@ -320,6 +320,7 @@ body.nav-open .nav-toggle {
         ) {
           nav.classList.remove("open");
           toggle.textContent = "menu";
+          document.body.classList.remove("nav-open");
         }
       });
     });
