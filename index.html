@@ -239,7 +239,7 @@
 <span class="nav-toggle" onclick="toggleNav()" role="button">menu</span>
 <nav class="nav" id="nav">
 <a href="about.html">about</a>
-<a href="#">works</a>
+<a href="works-2-images-scrollable-final-aligned-correct.html">works</a>
 <a href="diary.html">diary</a>
 <a href="store.html">store</a>
 <a href="mailto:info@frgrnt.com">email</a>
@@ -252,10 +252,8 @@
 
       // Flash grey on tap
       toggle.addEventListener("touchstart", () => {
-        el.addEventListener("touchstart", () => {
-          el.classList.add("active-tap");
-          setTimeout(() => el.classList.remove("active-tap"), 300);
-          });
+        toggle.classList.add("active-tap");
+        setTimeout(() => toggle.classList.remove("active-tap"), 300);
       });
 
       // Hide nav when clicking outside of it
