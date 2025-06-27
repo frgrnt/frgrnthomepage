@@ -36,6 +36,10 @@
     }
 
     .container {
+  height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
       height: 100dvh;
       width: 100vw;
       display: flex;
@@ -152,6 +156,10 @@
       }
 
       .container {
+  height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
         padding: 1rem;
       }
 
@@ -357,5 +365,14 @@ body.nav-open .nav-toggle {
 </script>
 </div>
 <div class="footer">© 2025, frgrnt</div>
-</div></body>
+</div>
+<script>
+function setTrueVh() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+window.addEventListener('resize', setTrueVh);
+window.addEventListener('load', setTrueVh);
+</script>
+</body>
 </html>
