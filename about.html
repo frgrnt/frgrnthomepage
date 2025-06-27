@@ -305,16 +305,7 @@ body.nav-open .nav-toggle {
         — conscious sourcing and supply models</p>
 </div>
 </div></div>
-<script>
-  function toggleContent(id) {
-    const content = document.getElementById(id);
-    if (content.style.display === "none") {
-      content.style.display = "block";
-    } else {
-      content.style.display = "none";
-    }
-  }
-</script>
+
 <span class="nav-toggle" onclick="toggleNav()" role="button">menu</span>
 <nav class="nav" id="nav">
 <a href="about.html">about</a>
@@ -373,6 +364,20 @@ function setTrueVh() {
 }
 window.addEventListener('resize', setTrueVh);
 window.addEventListener('load', setTrueVh);
+</script>
+
+<script>
+  function toggleContent(id) {
+    const sections = ['about', 'services', 'approach', 'commitment'];
+    sections.forEach(section => {
+      const el = document.getElementById(section);
+      if (section === id) {
+        el.style.display = el.style.display === "block" ? "none" : "block";
+      } else {
+        el.style.display = "none";
+      }
+    });
+  }
 </script>
 </body>
 </html>
