@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>frgrnt — scent branding agency</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -11,6 +11,8 @@
 <style>
     * {
   -webkit-tap-highlight-color: transparent;
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
@@ -19,8 +21,7 @@
       width: 100%;
       color: #a0a0a0;
       font-family: 'JetBrains Mono', monospace;
-      overflow-y: auto;
-  overflow-x: hidden;
+      overflow: hidden;
     }
 
     video.bg-video {
@@ -34,22 +35,20 @@
     }
 
     .container {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+      height: 100vh;
       width: 100vw;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
+      padding: 2rem;
     }
 
     h1 {
       font-size: 3rem;
       font-weight: 400;
-      line-height: 1.2;
+      line-height: 1.3;
       letter-spacing: -0.03em;
     }
 
@@ -59,6 +58,7 @@
       height: 0.8em;
       background: #a0a0a0;
       animation: blink 1s infinite;
+      margin-left: 0.2em;
     }
 
     @keyframes blink {
@@ -83,6 +83,7 @@
       background: none;
       color: #a0a0a0;
       border: 1px solid #a0a0a0;
+      padding: 6px 12px;
       cursor: pointer;
       z-index: 100;
       transition: opacity 0.3s;
@@ -102,6 +103,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 32px;
+      padding: 2rem 1rem;
       transform: translateY(-100%);
       transition: transform 0.4s ease;
       z-index: 90;
@@ -137,7 +139,7 @@
     @media (max-width: 600px), (max-height: 500px) {
       h1 {
         font-size: 1.6rem;
-        line-height: 1.2;
+        padding: 0 1rem;
       }
 
       .nav {
@@ -145,24 +147,22 @@
         align-items: center;
         text-align: center;
         gap: 20px;
+        padding: 1.5rem 0;
       }
 
       .container {
-  height: calc(var(--vh, 1vh) * 100);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+        padding: 1rem;
       }
 
       .nav-toggle {
-        display: inline-block;
-        text-align: center;
-        user-select: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
+      display: inline-block;
+      text-align: center;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
 
-        -webkit-tap-highlight-color: transparent;
+      -webkit-tap-highlight-color: transparent;
         top: 20px;
         right: 20px;
       }
@@ -189,6 +189,8 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    
+  
     .nav-toggle:focus,
     .nav-toggle:active {
       background: none;
@@ -198,14 +200,17 @@
       -webkit-tap-highlight-color: transparent;
       background: none;
       color: #a0a0a0;
+
       outline: none;
       opacity: 1;
     }
-
+    
+    
+    
     .nav-toggle.active-tap {
       opacity: 0.6;
     }
-
+    
     .page-content {
       min-height: 100vh;
       display: flex;
@@ -213,184 +218,29 @@
       justify-content: center;
     }
 
-.vertical-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-grow: 1;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 10px;
+  padding-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 0;
   width: 100%;
 }
-    
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.container {
-  padding-top: 20px;
-  padding-bottom: 20px;
+.grid-item img {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  box-sizing: border-box;
-}</style>
-<style>
-.brand {
-  color: #a0a0a0 !important;
-  transition: color 0.3s ease;
-  z-index: 200;
+  height: auto;
+  display: block;
 }
-
-body.nav-open .brand {
-  color: #ffffff !important;
-}
-
-.nav-toggle {
-  color: #a0a0a0 !important;
-  border: 1px solid #a0a0a0 !important;
-  transition: color 0.3s ease, border-color 0.3s ease;
-  z-index: 200;
-}
-
-body.nav-open .nav-toggle {
-  color: #ffffff !important;
-  border-color: #ffffff !important;
-}
-
-.nav {
-  background: #a0a0a0;
-}
-
-.nav a {
-  color: #ffffff !important;
-}
-
-  .container {
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-}
-
-
-.container {
-}
-
-  font-size: 1rem;
-  line-height: 1.6;
-  max-width: 600px;
-  width: 100%;
-  text-align: left;
-}
-
-    font-size: 1rem;
-  }
-}
-
-    font-size: 0.9rem;
-  }
-}
-.subtext {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  max-width: 600px;
-  width: 100%;
-  text-align: left;
-}
-
-/* Force same size on all small screens, portrait or landscape */
-@media (max-width: 800px), (max-height: 800px) {
-  .subtext {
-    font-size: 0.95rem;
-  }
-}
-
-html {
-  font-size: 16px;
-}
-
-body {
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.container {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  box-sizing: border-box;
-}
-.nav-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 14px;
-  background: none;
-  color: #a0a0a0;
-  border: 1px solid #a0a0a0;
-  padding: 6px 12px;
-  cursor: pointer;
-  z-index: 100;
-  transition: opacity 0.3s;
-}
-
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(17, 17, 17, 0.85);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 32px;
-  padding: 2rem 1rem;
-  transform: translateY(-100%);
-  transition: transform 0.4s ease;
-  z-index: 90;
-}
-.nav.open {
-  transform: translateY(0);
-}
-</style></head>
+</style>
+</head>
 <body>
 <div class="page-content">
 <span class="brand" onclick="window.location.href='index.html'">frgrnt</span>
 <div class="container">
-<div class="vertical-center" style="padding-left: 20px; padding-right: 20px; width: 100%; display: flex; flex-direction: column; justify-content: center;"><div style="width: 100%; text-align: left;">
-<h1 onclick="toggleContent('about')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">about</h1>
-<div id="about" style="display: none; margin-bottom: 2rem;">
-<p class="subtext" style="margin-top: 1rem;">we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
-<p class="subtext" style="margin-top: 1rem;">scent branding, custom fragrance creation, and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
-<p class="subtext" style="margin-top: 1rem;">from concept to composition, we guide brands through the creation of their olfactive signature.</p>
+<h1><span class="headline-text">coming soon</span><span class="cursor"></span></h1>
 </div>
-<h1 onclick="toggleContent('services')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">services</h1>
-<div id="services" style="display: none; margin-bottom: 2rem;">
-<p class="subtext" style="margin-top: 1rem;">scent creation, HVAC or standalone installation, on-demand maintenance/cleaning and bespoke scent offerings.</p>
-</div>
-<h1 onclick="toggleContent('approach')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">approach</h1>
-<div id="approach" style="display: none; margin-bottom: 2rem;">
-<p class="subtext" style="margin-top: 1rem;">trusted by brands who see scent as part of the experience—residential developments, health &amp; wellness, hotels, retail stores and commercial units.</p>
-<p class="subtext" style="margin-top: 1rem;">from ambient scenting for wellness spaces to signature fragrances for branded environments, each project is shaped by mood, material, and identity.</p>
-<p class="subtext" style="margin-top: 1rem;">our work is subtle but immersive—built to be felt, not forced.</p>
-</div>
-<h1 onclick="toggleContent('commitment')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">commitment</h1>
-<div id="commitment" style="display: none; margin-bottom: 2rem;">
-<p class="subtext" style="margin-top: 1rem;">we work with fragrance partners who share our values—focused on clean formulations, low-impact diffusion, and recyclable materials wherever possible.</p>
-<p class="subtext" style="margin-top: 1rem;">we’re committed to practices that support:<br/>
-        — low-emission scent delivery systems<br/>
-        — cruelty-free, phthalate-free fragrance oils<br/>
-        — conscious sourcing and supply models</p>
-</div>
-<h1 onclick="toggleContent('contact')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer; color: #808080;">get in touch</h1><div id="contact" style="display: none; margin-bottom: 2rem;"><p class="subtext" style="margin-top: 1rem;">email us at: info@frgrnt.com</p></div></div></div>
 <span class="nav-toggle" onclick="toggleNav()" role="button">menu</span>
 <nav class="nav" id="nav">
 <a href="about.html">about</a>
@@ -405,11 +255,15 @@ body {
       const toggle = document.querySelector(".nav-toggle");
       const nav = document.getElementById("nav");
 
+      // Flash grey on tap
       toggle.addEventListener("touchstart", () => {
-        toggle.classList.add("active-tap");
-        setTimeout(() => toggle.classList.remove("active-tap"), 300);
+        el.addEventListener("touchstart", () => {
+          el.classList.add("active-tap");
+          setTimeout(() => el.classList.remove("active-tap"), 300);
+          });
       });
 
+      // Hide nav when clicking outside of it
       document.addEventListener("click", (e) => {
         if (
           nav.classList.contains("open") &&
@@ -418,7 +272,6 @@ body {
         ) {
           nav.classList.remove("open");
           toggle.textContent = "menu";
-          document.body.classList.remove("nav-open");
         }
       });
     });
@@ -429,7 +282,6 @@ body {
       nav.classList.toggle("open");
       const isOpen = nav.classList.contains("open");
       btn.textContent = isOpen ? "close" : "menu";
-      document.body.classList.toggle("nav-open", isOpen);
       if (isOpen) {
         btn.classList.add("menu-open");
       } else {
@@ -438,30 +290,9 @@ body {
       btn.blur();
       setTimeout(() => { btn.classList.remove("active"); }, 150);
     }
-</script>
+  </script>
 </div>
 <div class="footer">© 2025, frgrnt</div>
 </div>
-<script>
-function setTrueVh() {
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-}
-window.addEventListener('resize', setTrueVh);
-window.addEventListener('load', setTrueVh);
-</script>
-<script>
-  function toggleContent(id) {
-    const sections = ['about', 'services', 'approach', 'commitment', 'contact'];
-    sections.forEach(section => {
-      const el = document.getElementById(section);
-      if (section === id) {
-        el.style.display = el.style.display === "block" ? "none" : "block";
-      } else {
-        el.style.display = "none";
-      }
-    });
-  }
-</script>
 </body>
 </html>
