@@ -252,11 +252,25 @@ body.nav-open .nav-toggle {
 .nav a {
   color: #ffffff !important;
 }
+
+@media (max-height: 600px) {
+  .container {
+    justify-content: flex-start;
+    padding-top: 3rem;
+    align-items: flex-start;
+  }
+}
+
+
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
 </style></head>
 <body>
 <div class="page-content">
 <span class="brand" onclick="window.location.href='index.html'">frgrnt</span>
-<div class="container" style="justify-content: center; align-items: flex-start; padding-left: 20px; padding-right: 20px;">
+<div class="container">
 <div class="vertical-center"><div style="text-align: left; width: 100%;">
 <h1 onclick="toggleContent('about')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">about</h1>
 <div id="about" style="display: none; margin-bottom: 2rem;">
