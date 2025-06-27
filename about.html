@@ -35,7 +35,7 @@
     }
 
     .container {
-      height: 100dvh;
+      min-height: 100dvh;
       width: 100vw;
       display: flex;
       flex-direction: column;
@@ -212,13 +212,22 @@
       flex-direction: column;
       justify-content: center;
     }
-</style>
+
+    .center-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 800px;
+    }
+    </style>
 </head>
 <body>
 <div class="page-content">
 <span class="brand" onclick="window.location.href='index.html'">frgrnt</span>
 
-<div class="container" style="min-height: auto; height: auto; padding-top: 6rem; padding-left: 20px; padding-right: 20px; padding-bottom: 5rem;" style="justify-content: center; align-items: flex-start; padding-left: 20px; padding-right: 20px;">
+<div class="container"><div class="center-wrapper" style="min-height: auto; height: auto;  padding-left: 20px; padding-right: 20px; padding-bottom: 5rem;" style="justify-content: center; align-items: flex-start; padding-left: 20px; padding-right: 20px;">
   <div style="text-align: left; width: 100%;">
     <h1 onclick="toggleContent('about')" style="margin: 0; padding: 0; text-transform: lowercase; transition: color 0.3s; cursor: pointer;">about</h1>
     <div id="about" style="display: none; margin-bottom: 2rem;">
@@ -247,8 +256,7 @@
         — cruelty-free, phthalate-free fragrance oils<br/>
         — conscious sourcing and supply models</p>
     </div>
-  </div>
-</div>
+  </div></div>
 
 <script>
   function toggleContent(id) {
