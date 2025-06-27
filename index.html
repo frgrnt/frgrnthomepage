@@ -98,7 +98,10 @@
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(17, 17, 17, 0.85);
+      background: rgba(17, 17, 17, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -133,7 +136,7 @@
       left: 20px;
       font-size: 14px;
       color: #f0f0f0;
-      z-index: 10;
+      z-index: 110;
     }
 
     @media (max-width: 600px), (max-height: 500px) {
@@ -147,7 +150,11 @@
         align-items: center;
         text-align: center;
         gap: 20px;
-        padding: 1.5rem 0;
+        padding: 2rem 1rem;
+        background: rgba(17, 17, 17, 0.5);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       .container {
@@ -178,7 +185,7 @@
       font-family: 'JetBrains Mono', monospace;
       letter-spacing: -0.03em;
       color: #f0f0f0;
-      z-index: 10;
+      z-index: 110;
       cursor: pointer;
     }
 
@@ -232,7 +239,7 @@
 <span class="nav-toggle" onclick="toggleNav()" role="button">menu</span>
 <nav class="nav" id="nav">
 <a href="about.html">about</a>
-<a href="works.html">works</a>
+<a href="#">works</a>
 <a href="diary.html">diary</a>
 <a href="store.html">store</a>
 <a href="mailto:info@frgrnt.com">email</a>
