@@ -16,14 +16,16 @@
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
-      width: 100%;
-      color: #a0a0a0;
-      font-family: 'JetBrains Mono', monospace;
-      overflow-y: auto;
+    
+html, body {
+  height: 100%;
+  width: 100%;
+  color: #a0a0a0;
+  font-family: 'JetBrains Mono', monospace;
   overflow-x: hidden;
-    }
+  overflow-y: hidden;
+}
+
 
     video.bg-video {
       position: fixed;
@@ -35,19 +37,17 @@
       z-index: -1;
     }
 
-    .container {
-  min-height: 100vh;
+    
+.container {
+  height: calc(var(--vh, 1vh) * 100);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
 
     h1 {
       font-size: 3rem;
