@@ -260,7 +260,6 @@ body.nav-open .nav-toggle {
   color: #ffffff !important;
 }
 
-@media (max-height: 600px) {
   .container {
     justify-content: flex-start;
     padding-top: 3rem;
@@ -274,7 +273,6 @@ body.nav-open .nav-toggle {
   padding-right: 20px;
 }
 
-.subtext {
   font-size: 1rem;
   line-height: 1.6;
   max-width: 600px;
@@ -282,15 +280,25 @@ body.nav-open .nav-toggle {
   text-align: left;
 }
 
-@media (max-width: 800px) {
-  .subtext {
     font-size: 1rem;
   }
 }
 
-@media (max-width: 500px) {
-  .subtext {
     font-size: 0.9rem;
+  }
+}
+.subtext {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 600px;
+  width: 100%;
+  text-align: left;
+}
+
+/* Force same size on all small screens, portrait or landscape */
+@media (max-width: 800px), (max-height: 800px) {
+  .subtext {
+    font-size: 0.95rem;
   }
 }
 </style></head>
