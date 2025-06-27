@@ -211,109 +211,13 @@
       flex-direction: column;
       justify-content: center;
     }
-
-  .carousel-container {
-    position: relative;
-    width: 80vw;
-    max-width: 960px;
-    height: 540px;
-    overflow: hidden;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  }
-
-  .carousel-track {
-    display: flex;
-    transition: transform 0.5s ease;
-    height: 100%;
-  }
-
-  .carousel-slide {
-    min-width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    background: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    z-index: 10;
-    user-select: none;
-    border-radius: 4px;
-  }
-
-  .arrow.left {
-    left: 10px;
-  }
-
-  .arrow.right {
-    right: 10px;
-  }
-
-  .arrow:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-
-
-  .carousel-slide {
-    position: relative;
-  }
-
-  .caption {
-    position: absolute;
-    bottom: 20px;
-    left: 30px;
-    font-size: 1.2rem;
-    color: white;
-    background: rgba(0,0,0,0.4);
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-  }
-
-  .arrow {
-    font-size: 2.5rem;
-    background: none;
-    border: none;
-    color: white;
-    padding: 0 0.6rem;
-    transition: transform 0.2s ease;
-  }
-
-  .arrow:hover {
-    transform: scale(1.1);
-    background: none;
-  }
-
 </style>
 </head>
 <body>
 <div class="page-content">
 <span class="brand" onclick="window.location.href='index.html'">frgrnt</span>
 <div class="container">
-
-<div class="carousel-container">
-  <button class="arrow left">&#10094;</button>
-  <div class="carousel-track">
-<div class="carousel-slide" style="background-image: url('https://picsum.photos/id/1015/960/540');">
-  <div class="caption">Nature Landscape</div>
-</div>
-<div class="carousel-slide" style="background-image: url('https://picsum.photos/id/1016/960/540');">
-  <div class="caption">Forest Trail</div>
-</div>
-<div class="carousel-slide" style="background-image: url('https://picsum.photos/id/1018/960/540');">
-  <div class="caption">Mountain View</div>
-</div>
-</div><button class="arrow right">&#10095;</button>
-</div>
-
+<h1><span class="headline-text">coming soon</span><span class="cursor"></span></h1>
 </div>
 <span class="nav-toggle" onclick="toggleNav()" role="button">menu</span>
 <nav class="nav" id="nav">
@@ -363,32 +267,5 @@
 </script>
 </div>
 <div class="footer">© 2025, frgrnt</div>
-
-<script>
-  const track = document.querySelector('.carousel-track');
-  const slides = Array.from(track.children);
-  const nextButton = document.querySelector('.arrow.right');
-  const prevButton = document.querySelector('.arrow.left');
-  let currentSlide = 0;
-
-  function updateCarousel() {
-    const slideWidth = slides[0].getBoundingClientRect().width;
-    track.style.transform = 'translateX(-' + (slideWidth * currentSlide) + 'px)';
-  }
-
-  nextButton.addEventListener('click', () => {
-    currentSlide = (currentSlide + 1) % slides.length;
-    updateCarousel();
-  });
-
-  prevButton.addEventListener('click', () => {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    updateCarousel();
-  });
-
-  window.addEventListener('resize', updateCarousel);
-  window.addEventListener('load', updateCarousel);
-</script>
-
 </body>
 </html>
