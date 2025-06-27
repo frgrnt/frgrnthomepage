@@ -16,16 +16,14 @@
       box-sizing: border-box;
     }
 
-    
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+    html, body {
+      height: 100%;
+      width: 100%;
+      color: #a0a0a0;
+      font-family: 'JetBrains Mono', monospace;
+      overflow-y: auto;
   overflow-x: hidden;
-  font-family: 'JetBrains Mono', monospace;
-  color: #a0a0a0;
-}
-
+    }
 
     video.bg-video {
       position: fixed;
@@ -37,17 +35,19 @@ html, body {
       z-index: -1;
     }
 
-    
-.container {
+    .container {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 2rem;
-}
-
+  justify-content: center;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
 
     h1 {
       font-size: 3rem;
@@ -356,6 +356,15 @@ body.nav-open .nav-toggle {
 </div>
 <div class="footer">© 2025, frgrnt</div>
 </div>
+<script>
+function setTrueVh() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+window.addEventListener('resize', setTrueVh);
+window.addEventListener('load', setTrueVh);
+</script>
+
 <script>
   function toggleContent(id) {
     const sections = ['about', 'services', 'approach', 'commitment'];
