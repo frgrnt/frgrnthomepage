@@ -113,9 +113,9 @@ body.nav-open .nav-toggle {
 
 
 .container {
-  width: 90%;
-  max-width: 600px;
-  margin: 100px 20px 40px;
+  width: 100%;
+  padding-right: 20px;
+  margin: 100px 0 40px 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -134,6 +134,7 @@ h1 {
   transition: color 0.3s;
 }
 
+
 .subtext {
   font-size: 0.95rem;
   line-height: 1.6;
@@ -142,6 +143,7 @@ h1 {
   text-align: justify;
   margin-top: 1rem;
 }
+
 
 .content {
   display: none;
@@ -171,9 +173,16 @@ h1 {
   h1 {
     font-size: 1.6rem;
   }
-  .subtext {
-    font-size: 0.95rem;
-  }
+  
+.subtext {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 600px;
+  width: 100%;
+  text-align: justify;
+  margin-top: 1rem;
+}
+
   .nav {
     flex-direction: column;
     align-items: center;
