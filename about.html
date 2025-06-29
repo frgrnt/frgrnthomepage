@@ -65,13 +65,53 @@ h1 { font-size: 3rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.03e
 </div>
 <span class="nav-toggle" onclick="toggleNav()" role="button">menu</span>
 <nav class="nav" id="nav">
-  <a href="about.html">about</a><a href="works.html">works</a><a href="diary.html">diary</a><a href="store.html">store</a><a href="mailto:info@frgrnt.com">email</a>
+  <a href="about.html">about</a>
+  <a href="works.html">works</a>
+  <a href="diary.html">diary</a>
+  <a href="store.html">store</a>
+  <a href="mailto:info@frgrnt.com">email</a>
 </nav>
-<div class="footer">© 2025, frgrnt</div>
-</div>
 <script>
-function toggleNav(){const n=document.getElementById("nav"),t=document.querySelector(".nav-toggle");n.classList.toggle("open");const e=n.classList.contains("open");document.body.classList.toggle("nav-open",e),t.textContent=e?"close":"menu"}
-function toggleContent(id){["about","services","approach","commitment","contact"].forEach(section=>{const el=document.getElementById(section);section===id?el.classList.toggle("open"):el.classList.remove("open")})}
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.getElementById("nav");
+
+  toggle.addEventListener("touchstart", () => {
+    toggle.classList.add("active-tap");
+    setTimeout(() => toggle.classList.remove("active-tap"), 300);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (
+      nav.classList.contains("open") &&
+      !nav.contains(e.target) &&
+      !toggle.contains(e.target)
+    ) {
+      nav.classList.remove("open");
+      toggle.textContent = "menu";
+    }
+  });
+});
+
+function toggleNav() {
+  const nav = document.getElementById("nav");
+  const btn = document.querySelector(".nav-toggle");
+  nav.classList.toggle("open");
+  const isOpen = nav.classList.contains("open");
+  btn.textContent = isOpen ? "close" : "menu";
+  btn.blur();
+}
+function toggleContent(id) {
+  ["about","services","approach","commitment","contact"].forEach(section => {
+    const el = document.getElementById(section);
+    if(section === id) {
+      el.classList.toggle("open");
+    } else {
+      el.classList.remove("open");
+    }
+  });
+}
 </script>
+<div class="footer">© 2025, frgrnt</div>
 </body>
 </html>
