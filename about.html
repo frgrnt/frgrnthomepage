@@ -1,237 +1,172 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>frgrnt — scent branding agency</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-    * {
-  -webkit-tap-highlight-color: transparent;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-      width: 100%;
-      color: #a0a0a0;
-      font-family: 'JetBrains Mono', monospace;
-      overflow: hidden;
-    }
-
-    video.bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-
-    .container {
-      height: 100vh;
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    h1 {
-      font-size: 3rem;
-      font-weight: 400;
-      line-height: 1.3;
-      letter-spacing: -0.03em;
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 0.35em;
-      height: 0.8em;
-      background: #a0a0a0;
-      animation: blink 1s infinite;
-      margin-left: 0.2em;
-    }
-
-    @keyframes blink {
-      0%, 50% { opacity: 1; }
-      51%, 100% { opacity: 0; }
-    }
-
-    .nav-toggle {
-      display: inline-block;
-      text-align: center;
-      user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-
-      -webkit-tap-highlight-color: transparent;
-      font-family: 'JetBrains Mono', monospace;
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      font-size: 14px;
-      background: none;
-      color: #a0a0a0;
-      border: 1px solid #a0a0a0;
-      padding: 6px 12px;
-      cursor: pointer;
-      z-index: 100;
-      transition: opacity 0.3s;
-    }
-
-    .nav-toggle:hover {
-      opacity: 0.6;
-    }
-
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(17, 17, 17, 0.85);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 32px;
-      padding: 2rem 1rem;
-      transform: translateY(-100%);
-      transition: transform 0.4s ease;
-      z-index: 90;
-    }
-
-    .nav.open {
-      transform: translateY(0);
-    }
-
-    .nav a {
-      color: #a0a0a0;
-      text-decoration: none;
-      text-transform: lowercase;
-      font-size: 16px;
-      letter-spacing: 0.5px;
-    }
-
-    .nav a:hover {
-      opacity: 0.6;
-    }
-
-    .footer {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      bottom: 20px;
-      left: 20px;
-      font-size: 14px;
-      color: #a0a0a0;
-      z-index: 10;
-    }
-
-    @media (max-width: 600px), (max-height: 500px) {
-      h1 {
-        font-size: 1.6rem;
-        padding: 0 1rem;
-      }
-
-      .nav {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 20px;
-        padding: 1.5rem 0;
-      }
-
-      .container {
-        padding: 1rem;
-      }
-
-      .nav-toggle {
-      display: inline-block;
-      text-align: center;
-      user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-
-      -webkit-tap-highlight-color: transparent;
-        top: 20px;
-        right: 20px;
-      }
-    }
-
-    .brand {
-      -webkit-tap-highlight-color: transparent;
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      font-size: 22px;
-      font-weight: normal;
-      font-family: 'JetBrains Mono', monospace;
-      letter-spacing: -0.03em;
-      color: #a0a0a0;
-      z-index: 10;
-      cursor: pointer;
-    }
-
-    .brand:focus,
-    .brand:active {
-      color: #a0a0a0;
-      outline: none;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    
-  
-    .nav-toggle:focus,
-    .nav-toggle:active {
-      background: none;
-      color: #a0a0a0;
-      opacity: 1;
-      outline: none;
-      -webkit-tap-highlight-color: transparent;
-      background: none;
-      color: #a0a0a0;
-
-      outline: none;
-      opacity: 1;
-    }
-    
-    
-    
-    .nav-toggle.active-tap {
-      opacity: 0.6;
-    }
-    
-    .page-content {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 10px;
-  padding-top: 100px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 0;
-  width: 100%;
+:root {
+  --color-text: #a0a0a0;
+  --color-bg: #fff;
 }
-.grid-item img {
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
   width: 100%;
-  height: auto;
-  display: block;
+  min-height: 100%;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--color-text);
+  background: var(--color-bg);
+  overflow-x: hidden;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.brand {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+  cursor: pointer;
+  z-index: 200;
+  transition: color 0.3s;
+  color: var(--color-text);
+}
+
+.nav-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 14px;
+  background: none;
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  padding: 6px 12px;
+  cursor: pointer;
+  z-index: 200;
+  transition: opacity 0.3s;
+}
+
+.nav-toggle:hover,
+.nav-toggle.active-tap {
+  opacity: 0.6;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(17,17,17,0.85);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 2rem 1rem;
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
+  z-index: 150;
+}
+
+.nav.open {
+  transform: translateY(0);
+}
+
+.nav a {
+  color: var(--color-text);
+  text-decoration: none;
+  text-transform: lowercase;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.nav a:hover {
+  opacity: 0.6;
+}
+
+body.nav-open .brand,
+body.nav-open .nav-toggle {
+  color: #fff;
+  border-color: #fff;
+}
+
+.footer {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 14px;
+  color: var(--color-text);
+  z-index: 50;
+}
+
+.container {
+  max-width: 600px;
+  width: calc(100% - 40px);
+  margin: 100px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin: 0;
+  padding: 0;
+  text-transform: lowercase;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.subtext {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 600px;
+  width: 100%;
+  text-align: justify;
+  margin-top: 1rem;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.35em;
+  height: 0.8em;
+  background: var(--color-text);
+  animation: blink 1s infinite;
+  margin-left: 0.2em;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@media (max-width: 600px), (max-height: 500px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+  .subtext {
+    font-size: 0.95rem;
+  }
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 }
 </style>
 </head>
@@ -239,60 +174,61 @@
 <div class="page-content">
 <span class="brand" onclick="window.location.href='index.html'">frgrnt</span>
 <div class="container">
-<h1><span class="headline-text">coming soon</span><span class="cursor"></span></h1>
+  <h1 onclick="toggleContent('about')">about</h1>
+  <div id="about" style="display:none;">
+    <p class="subtext">we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
+    <p class="subtext">scent branding, custom fragrance creation, and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
+    <p class="subtext">from concept to composition, we guide brands through the creation of their olfactive signature.</p>
+  </div>
+  <h1 onclick="toggleContent('services')">services</h1>
+  <div id="services" style="display:none;">
+    <p class="subtext">scent creation, HVAC or standalone installation, on-demand maintenance/cleaning and bespoke scent offerings.</p>
+  </div>
+  <h1 onclick="toggleContent('approach')">approach</h1>
+  <div id="approach" style="display:none;">
+    <p class="subtext">trusted by brands who see scent as part of the experience—residential developments, health & wellness, hotels, retail stores and commercial units.</p>
+    <p class="subtext">from ambient scenting for wellness spaces to signature fragrances for branded environments, each project is shaped by mood, material, and identity.</p>
+    <p class="subtext">our work is subtle but immersive—built to be felt, not forced.</p>
+  </div>
+  <h1 onclick="toggleContent('commitment')">commitment</h1>
+  <div id="commitment" style="display:none;">
+    <p class="subtext">we work with fragrance partners who share our values—focused on clean formulations, low-impact diffusion, and recyclable materials wherever possible.</p>
+    <p class="subtext">we’re committed to practices that support:<br/>
+      — low-emission scent delivery systems<br/>
+      — cruelty-free, phthalate-free fragrance oils<br/>
+      — conscious sourcing and supply models</p>
+  </div>
+  <h1 onclick="toggleContent('contact')" style="color:#808080;">get in touch<span class="cursor"></span></h1>
+  <div id="contact" style="display:none;">
+    <p class="subtext">email us at: info@frgrnt.com</p>
+  </div>
 </div>
-<span class="nav-toggle" onclick="toggleNav()" role="button">menu</span>
+<span class="nav-toggle" onclick="toggleNav()">menu</span>
 <nav class="nav" id="nav">
-<a href="about.html">about</a>
-<a href="works.html">works</a>
-<a href="diary.html">diary</a>
-<a href="store.html">store</a>
-<a href="mailto:info@frgrnt.com">email</a>
+  <a href="about.html">about</a>
+  <a href="works.html">works</a>
+  <a href="diary.html">diary</a>
+  <a href="store.html">store</a>
+  <a href="mailto:info@frgrnt.com">email</a>
 </nav>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const brand = document.querySelector(".brand");
-      const toggle = document.querySelector(".nav-toggle");
-      const nav = document.getElementById("nav");
-
-      // Flash grey on tap
-      toggle.addEventListener("touchstart", () => {
-        el.addEventListener("touchstart", () => {
-          el.classList.add("active-tap");
-          setTimeout(() => el.classList.remove("active-tap"), 300);
-          });
-      });
-
-      // Hide nav when clicking outside of it
-      document.addEventListener("click", (e) => {
-        if (
-          nav.classList.contains("open") &&
-          !nav.contains(e.target) &&
-          !toggle.contains(e.target)
-        ) {
-          nav.classList.remove("open");
-          toggle.textContent = "menu";
-        }
-      });
-    });
-
-    function toggleNav() {
-      const nav = document.getElementById("nav");
-      const btn = document.querySelector(".nav-toggle");
-      nav.classList.toggle("open");
-      const isOpen = nav.classList.contains("open");
-      btn.textContent = isOpen ? "close" : "menu";
-      if (isOpen) {
-        btn.classList.add("menu-open");
-      } else {
-        btn.classList.remove("menu-open");
-      }
-      btn.blur();
-      setTimeout(() => { btn.classList.remove("active"); }, 150);
-    }
-  </script>
-</div>
 <div class="footer">© 2025, frgrnt</div>
 </div>
+<script>
+function toggleNav() {
+  const nav = document.getElementById('nav');
+  nav.classList.toggle('open');
+  document.body.classList.toggle('nav-open', nav.classList.contains('open'));
+}
+function toggleContent(id) {
+  ['about','services','approach','commitment','contact'].forEach(section => {
+    const el = document.getElementById(section);
+    if (section === id) {
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    } else {
+      el.style.display = "none";
+    }
+  });
+}
+</script>
 </body>
 </html>
