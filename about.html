@@ -6,27 +6,10 @@
 <title>frgrnt — scent branding agency</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root { --color-text: #a0a0a0; }
+:root { --color-text: #a0a0a0; --color-bg: #fff; }
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-html, body { margin: 0; padding: 0; width: 100%; height: 100%; font-family: 'JetBrains Mono', monospace; color: var(--color-text); overflow-x: hidden; }
-
-.page-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
-  background: 
-    linear-gradient(to right, rgba(234,235,231,1) 0%, rgba(234,235,231,0.8) 20%, rgba(255,255,255,0) 50%),
-    url('IMG_9298.JPG') no-repeat center center;
-  background-size: cover;
-}
-
-.page-content {
-  z-index: 2;
-  padding: 20px;
-}
-
+html, body { margin: 0; padding: 0; width: 100%; min-height: 100%; font-family: 'JetBrains Mono', monospace; color: var(--color-text); background: var(--color-bg); overflow-x: hidden; }
+.page-content { display: flex; flex-direction: column; justify-content: flex-start; }
 .brand { position: fixed; top: 20px; left: 20px; font-size: 22px; letter-spacing: -0.03em; cursor: pointer; z-index: 200; transition: color 0.3s; color: var(--color-text); }
 .nav-toggle { position: fixed; top: 20px; right: 20px; font-size: 14px; background: none; color: var(--color-text); border: 1px solid var(--color-text); padding: 6px 12px; cursor: pointer; z-index: 200; transition: opacity 0.3s; }
 .nav-toggle:hover, .nav-toggle.active-tap { opacity: 0.6; }
@@ -36,63 +19,50 @@ html, body { margin: 0; padding: 0; width: 100%; height: 100%; font-family: 'Jet
 .nav a:hover { opacity: 0.6; }
 body.nav-open .brand, body.nav-open .nav-toggle { color: #fff; border-color: #fff; }
 .footer { position: fixed; bottom: 20px; left: 20px; font-size: 14px; color: var(--color-text); z-index: 50; }
-.container { width: 100%; margin: 100px 0 40px 0; display: flex; flex-direction: column; align-items: flex-start; }
+.container { width: 100%; padding: 0 20px; margin: 100px 0 40px 0; display: flex; flex-direction: column; align-items: flex-start; }
 h1 { font-size: 3rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.03em; margin: 0; padding: 0; text-transform: lowercase; cursor: pointer; transition: color 0.3s; }
 .subtext { font-size: 0.95rem; line-height: 1.6; width: 100%; text-align: justify; margin-top: 1rem; }
 .content { display: none; width: 100%; margin-bottom: 2rem; }
 .content.open { display: block; }
 .cursor { display: inline-block; width: 0.35em; height: 0.8em; background: var(--color-text); animation: blink 1s infinite; margin-left: 0.2em; }
 @keyframes blink { 0%,50%{opacity:1;}51%,100%{opacity:0;} }
-
-@media (max-width:900px) {
-  .page-wrapper {
-    background: 
-      linear-gradient(to bottom, rgba(234,235,231,1) 0%, rgba(234,235,231,0.8) 30%, rgba(255,255,255,0) 60%),
-      url('IMG_9298.JPG') no-repeat center center;
-    background-size: cover;
-  }
-}
+@media (max-width:600px), (max-height:500px) { h1{font-size:1.6rem;} .subtext{font-size:0.9rem;} .nav{flex-direction:column;align-items:center;text-align:center;gap:20px;padding:2rem 1rem;background:rgba(17,17,17,0.5);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.1);} }
 </style>
 </head>
 <body>
-<div class="page-wrapper">
-  <span class="brand" onclick="window.location.href='index.html'">frgrnt</span>
-  <div class="page-content">
-    <div class="container">
-      <h1 onclick="toggleContent('about')">about</h1>
-      <div id="about" class="content">
-        <p class="subtext">we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
-        <p class="subtext">scent branding, custom fragrance creation, and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
-        <p class="subtext">from concept to composition, we guide brands through the creation of their olfactive signature.</p>
-      </div>
-      <h1 onclick="toggleContent('services')">services</h1>
-      <div id="services" class="content">
-        <p class="subtext">we offer a variety of scent solutions to fit the needs of your business.</p>
-        <p class="subtext">scent creation, HVAC or standalone installation, on-demand maintenance/cleaning and bespoke scent offerings.</p>
-      </div>
-      <h1 onclick="toggleContent('approach')">approach</h1>
-      <div id="approach" class="content">
-        <p class="subtext">trusted by brands who see scent as part of the experience — residential developments, health & wellness, hotels, retail stores and commercial units.</p>
-        <p class="subtext">from ambient scenting for wellness spaces to signature fragrances for branded environments, each project is shaped by mood, material, and identity.</p>
-        <p class="subtext">our work is subtle but immersive — built to be felt, not forced.</p>
-      </div>
-      <h1 onclick="toggleContent('commitment')">commitment</h1>
-      <div id="commitment" class="content">
-        <p class="subtext">we work with fragrance partners who share our values — focused on clean formulations, low-impact diffusion, and recyclable materials wherever possible.</p>
-        <p class="subtext">we’re committed to practices that support:<br/>
-          — low-emission scent delivery systems<br/>
-          — cruelty-free, phthalate-free fragrance oils<br/>
-          — conscious sourcing and supply models</p>
-      </div>
-      <h1 onclick="toggleContent('contact')" style="color:#808080;">get in touch<span class="cursor"></span></h1>
-      <div id="contact" class="content">
-        <p class="subtext">email us at: info@frgrnt.com</p>
-      </div>
-    </div>
+<div class="page-content">
+<span class="brand" onclick="window.location.href='index.html'">frgrnt</span>
+<div class="container">
+  <h1 onclick="toggleContent('about')">about</h1>
+  <div id="about" class="content">
+    <p class="subtext">we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
+    <p class="subtext">scent branding, custom fragrance creation, and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
+    <p class="subtext">from concept to composition, we guide brands through the creation of their olfactive signature.</p>
   </div>
-  <div class="footer">© 2025, frgrnt</div>
+  <h1 onclick="toggleContent('services')">services</h1>
+  <div id="services" class="content">
+    <p class="subtext">we offer a variety of scent solutions to fit the needs of your business.</p>
+    <p class="subtext">scent creation, HVAC or standalone installation, on-demand maintenance/cleaning and bespoke scent offerings.</p>
+  </div>
+  <h1 onclick="toggleContent('approach')">approach</h1>
+  <div id="approach" class="content">
+    <p class="subtext">trusted by brands who see scent as part of the experience — residential developments, health & wellness, hotels, retail stores and commercial units.</p>
+    <p class="subtext">from ambient scenting for wellness spaces to signature fragrances for branded environments, each project is shaped by mood, material, and identity.</p>
+    <p class="subtext">our work is subtle but immersive — built to be felt, not forced.</p>
+  </div>
+  <h1 onclick="toggleContent('commitment')">commitment</h1>
+  <div id="commitment" class="content">
+    <p class="subtext">we work with fragrance partners who share our values — focused on clean formulations, low-impact diffusion, and recyclable materials wherever possible.</p>
+    <p class="subtext">we’re committed to practices that support:<br/>
+      — low-emission scent delivery systems<br/>
+      — cruelty-free, phthalate-free fragrance oils<br/>
+      — conscious sourcing and supply models</p>
+  </div>
+  <h1 onclick="toggleContent('contact')" style="color:#808080;">get in touch<span class="cursor"></span></h1>
+  <div id="contact" class="content">
+    <p class="subtext">email us at: info@frgrnt.com</p>
+  </div>
 </div>
-
 <span class="nav-toggle" onclick="toggleNav()" role="button">menu</span>
 <nav class="nav" id="nav">
   <a href="about.html">about</a>
@@ -101,8 +71,29 @@ h1 { font-size: 3rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.03e
   <a href="store.html">store</a>
   <a href="mailto:info@frgrnt.com">email</a>
 </nav>
-
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.getElementById("nav");
+
+  toggle.addEventListener("touchstart", () => {
+    toggle.classList.add("active-tap");
+    setTimeout(() => toggle.classList.remove("active-tap"), 300);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (
+      nav.classList.contains("open") &&
+      !nav.contains(e.target) &&
+      !toggle.contains(e.target)
+    ) {
+      nav.classList.remove("open");
+      toggle.textContent = "menu";
+      document.body.classList.remove("nav-open");
+    }
+  });
+});
+
 function toggleNav() {
   const nav = document.getElementById("nav");
   const btn = document.querySelector(".nav-toggle");
@@ -123,5 +114,6 @@ function toggleContent(id) {
   });
 }
 </script>
+<div class="footer">© 2025, frgrnt</div>
 </body>
 </html>
