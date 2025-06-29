@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --color-text: #a0a0a0;
-  --color-bg: #fff;
+  --type-scale: clamp(1.6rem, 5vw, 3rem);
+  --subtext-ratio: 0.35;
 }
 
 * {
@@ -22,8 +23,8 @@ html, body {
   width: 100%;
   min-height: 100%;
   font-family: 'JetBrains Mono', monospace;
-  color: var(--color-text);
-  background: var(--color-bg);
+  color: #a0a0a0;
+  background: #fff;
   overflow-x: hidden;
 }
 
@@ -42,7 +43,7 @@ html, body {
   cursor: pointer;
   z-index: 200;
   transition: color 0.3s;
-  color: var(--color-text);
+  color: #a0a0a0;
 }
 
 .nav-toggle {
@@ -51,8 +52,8 @@ html, body {
   right: 20px;
   font-size: 14px;
   background: none;
-  color: var(--color-text);
-  border: 1px solid var(--color-text);
+  color: #a0a0a0;
+  border: 1px solid #a0a0a0;
   padding: 6px 12px;
   cursor: pointer;
   z-index: 200;
@@ -85,7 +86,7 @@ html, body {
 }
 
 .nav a {
-  color: var(--color-text);
+  color: #a0a0a0;
   text-decoration: none;
   text-transform: lowercase;
   font-size: 16px;
@@ -107,11 +108,9 @@ body.nav-open .nav-toggle {
   bottom: 20px;
   left: 20px;
   font-size: 14px;
-  color: var(--color-text);
+  color: #a0a0a0;
   z-index: 50;
 }
-
-
 
 .container {
   width: 100%;
@@ -122,10 +121,9 @@ body.nav-open .nav-toggle {
   align-items: flex-start;
 }
 
-
-
+/* TYPOGRAPHY */
 h1 {
-  font-size: 3rem;
+  font-size: var(--type-scale);
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -136,16 +134,15 @@ h1 {
   transition: color 0.3s;
 }
 
-
 .subtext {
-  font-size: 0.95rem;
+  font-size: calc(var(--type-scale) * var(--subtext-ratio));
   line-height: 1.6;
   width: 100%;
   text-align: justify;
   margin-top: 1rem;
 }
 
-
+/* CONTENT TOGGLE */
 .content {
   display: none;
   width: 100%;
@@ -160,7 +157,7 @@ h1 {
   display: inline-block;
   width: 0.35em;
   height: 0.8em;
-  background: var(--color-text);
+  background: #a0a0a0;
   animation: blink 1s infinite;
   margin-left: 0.2em;
 }
@@ -170,25 +167,8 @@ h1 {
   51%, 100% { opacity: 0; }
 }
 
-
+/* NAV STACKING ON SMALL SCREENS */
 @media (max-width: 600px), (max-height: 500px) {
-  h1 {
-    font-size: 1.6rem;
-  }
-  .subtext {
-    font-size: 0.8rem;
-  }
-}
-
-  
-.subtext {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  width: 100%;
-  text-align: justify;
-  margin-top: 1rem;
-}
-
   .nav {
     flex-direction: column;
     align-items: center;
