@@ -89,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
       nav.classList.remove("open");
       toggle.textContent = "menu";
+      document.body.classList.remove("nav-open");
     }
   });
 });
@@ -99,6 +100,7 @@ function toggleNav() {
   nav.classList.toggle("open");
   const isOpen = nav.classList.contains("open");
   btn.textContent = isOpen ? "close" : "menu";
+  document.body.classList.toggle("nav-open", isOpen);
   btn.blur();
 }
 function toggleContent(id) {
