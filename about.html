@@ -121,9 +121,6 @@ body.nav-open .nav-toggle {
 }
 
 h1 {
-  font-size: 2.5rem;
-}
-h2 {
   font-size: 3rem;
   font-weight: 400;
   line-height: 1.2;
@@ -170,9 +167,6 @@ h2 {
 
 @media (max-width: 600px), (max-height: 500px) {
   h1 {
-  font-size: 2.5rem;
-}
-h2 {
     font-size: 1.6rem;
   }
   .subtext {
@@ -184,29 +178,36 @@ h2 {
     gap: 20px;
   }
 }
+
+@media (max-width: 800px) {
+  .container {
+    max-width: none;
+    width: calc(100% - 40px);
+  }
+}
 </style>
 </head>
 <body>
 <div class="page-content">
 <span class="brand" onclick="window.location.href='index.html'">frgrnt</span>
 <div class="container">
-  <h2 onclick="toggleContent('about')">about</h2>
+  <h1 onclick="toggleContent('about')">about</h1>
   <div id="about" class="content">
     <p class="subtext">we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
     <p class="subtext">scent branding, custom fragrance creation, and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
     <p class="subtext">from concept to composition, we guide brands through the creation of their olfactive signature.</p>
   </div>
-  <h2 onclick="toggleContent('services')">services</h2>
+  <h1 onclick="toggleContent('services')">services</h1>
   <div id="services" class="content">
     <p class="subtext">scent creation, HVAC or standalone installation, on-demand maintenance/cleaning and bespoke scent offerings.</p>
   </div>
-  <h2 onclick="toggleContent('approach')">approach</h2>
+  <h1 onclick="toggleContent('approach')">approach</h1>
   <div id="approach" class="content">
     <p class="subtext">trusted by brands who see scent as part of the experience—residential developments, health & wellness, hotels, retail stores and commercial units.</p>
     <p class="subtext">from ambient scenting for wellness spaces to signature fragrances for branded environments, each project is shaped by mood, material, and identity.</p>
     <p class="subtext">our work is subtle but immersive—built to be felt, not forced.</p>
   </div>
-  <h2 onclick="toggleContent('commitment')">commitment</h2>
+  <h1 onclick="toggleContent('commitment')">commitment</h1>
   <div id="commitment" class="content">
     <p class="subtext">we work with fragrance partners who share our values—focused on clean formulations, low-impact diffusion, and recyclable materials wherever possible.</p>
     <p class="subtext">we’re committed to practices that support:<br/>
@@ -214,7 +215,7 @@ h2 {
       — cruelty-free, phthalate-free fragrance oils<br/>
       — conscious sourcing and supply models</p>
   </div>
-  <h2 onclick="toggleContent('contact')" style="color:#808080;">get in touch<span class="cursor"></span></h2>
+  <h1 onclick="toggleContent('contact')" style="color:#808080;">get in touch<span class="cursor"></span></h1>
   <div id="contact" class="content">
     <p class="subtext">email us at: info@frgrnt.com</p>
   </div>
