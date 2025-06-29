@@ -37,14 +37,15 @@ h1 { font-size: 3rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.03e
 <h1 onclick="toggleContent('services')">services</h1><div id="services" class="content"><p class="subtext">scent creation...</p></div>
 <h1 onclick="toggleContent('approach')">approach</h1><div id="approach" class="content"><p class="subtext">trusted by brands...</p></div>
 <h1 onclick="toggleContent('commitment')">commitment</h1><div id="commitment" class="content"><p class="subtext">we work with fragrance partners...</p></div>
-<h1 onclick="toggleContent('contact')" style="color:#808080;">get in touch<span class="cursor"></span></h1><div id="contact" class="content"><p class="subtext">email us at: info@frgrnt.com</p></div>
+<h1 onclick="toggleContent('contact')" style="color:#808080;">get in touch<span class="cursor"></span></h1>
+<div id="contact" class="content"><p class="subtext">email us at:<br>info@frgrnt.com</p></div>
 </div>
 <span class="nav-toggle" onclick="toggleNav()" role="button">menu</span>
 <nav class="nav" id="nav"><a href="about.html">about</a><a href="works.html">works</a><a href="diary.html">diary</a><a href="store.html">store</a><a href="mailto:info@frgrnt.com">email</a></nav>
 <div class="footer">© 2025, frgrnt</div>
 </div>
 <script>
-document.addEventListener("DOMContentLoaded",()=>{const t=document.querySelector(".nav-toggle"),n=document.getElementById("nav");t.addEventListener("touchstart",()=>{t.classList.add("active-tap"),setTimeout(()=>t.classList.remove("active-tap"),300)}),document.addEventListener("click",e=>{n.classList.contains("open")&&!n.contains(e.target)&&!t.contains(e.target)&&(n.classList.remove("open"),document.body.classList.remove("nav-open"),t.textContent="menu")})});function toggleNav(){const t=document.getElementById("nav"),n=document.querySelector(".nav-toggle"),e=t.classList.toggle("open");document.body.classList.toggle("nav-open",e),n.textContent=e?"close":"menu",n.blur(),setTimeout(()=>{n.classList.remove("active")},150)}function toggleContent(t){["about","services","approach","commitment","contact"].forEach(n=>{const e=document.getElementById(n);n===t?e.classList.toggle("open"):e.classList.remove("open")})}
+document.addEventListener("DOMContentLoaded",()=>{const t=document.querySelector(".nav-toggle"),n=document.getElementById("nav");t.addEventListener("touchstart",()=>{t.classList.add("active-tap"),setTimeout(()=>t.classList.remove("active-tap"),300)}),document.addEventListener("click",e=>{n.classList.contains("open")&&!n.contains(e.target)&&!t.contains(e.target)&&(n.classList.remove("open"),document.body.classList.remove("nav-open"),t.textContent="menu")})});function toggleNav(){const t=document.getElemen...
 </script>
 </body>
 </html>
