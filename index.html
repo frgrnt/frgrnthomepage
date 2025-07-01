@@ -82,6 +82,7 @@
     }
 
     .nav-links {
+      justify-content: center;
       position: absolute;
       top: 0;
       left: 20px;
@@ -98,6 +99,7 @@
     }
 
     .nav-pill.open .nav-links {
+      justify-content: center;
       transform: translateY(0);
       opacity: 1;
       pointer-events: auto;
@@ -116,6 +118,7 @@
     }
 
     .container {
+
       height: 100vh;
       width: 100vw;
       display: flex;
@@ -157,14 +160,17 @@
     }
 
     @media (max-width: 600px), (max-height: 500px) {
+      .nav-links { justify-content: flex-start; padding-left: 10px; }
       h1 {
         font-size: 1.6rem;
         padding: 0 1rem;
       }
       .container {
+
         padding: 1rem;
       }
       .nav-links {
+      justify-content: center;
         gap: 20px;
       }
     }
