@@ -21,7 +21,7 @@
       width: 100%;
       color: #f0f0f0;
       font-family: 'JetBrains Mono', monospace;
-      overflow-x: hidden;
+      overflow: hidden; /* disable any scrolling */
     }
 
     video.bg-video {
@@ -74,7 +74,6 @@
       font-size: 16px;
       cursor: pointer;
       z-index: 2;
-      transition: transform 0.3s ease;
     }
 
     .nav-pill .nav-toggle:hover {
@@ -82,7 +81,6 @@
     }
 
     .nav-links {
-      justify-content: center;
       position: absolute;
       top: 0;
       left: 20px;
@@ -99,7 +97,6 @@
     }
 
     .nav-pill.open .nav-links {
-      justify-content: center;
       transform: translateY(0);
       opacity: 1;
       pointer-events: auto;
@@ -118,7 +115,6 @@
     }
 
     .container {
-
       height: 100vh;
       width: 100vw;
       display: flex;
@@ -160,18 +156,19 @@
     }
 
     @media (max-width: 600px), (max-height: 500px) {
-      .nav-links { justify-content: flex-start; padding-left: 10px; }
+      .nav-pill.open .nav-links {
+        justify-content: flex-start !important;
+        padding-left: 20px;
+      }
+      .nav-links {
+        gap: 20px;
+      }
       h1 {
         font-size: 1.6rem;
         padding: 0 1rem;
       }
       .container {
-
         padding: 1rem;
-      }
-      .nav-links {
-      justify-content: center;
-        gap: 20px;
       }
     }
 </style>
