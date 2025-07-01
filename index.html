@@ -198,7 +198,15 @@
         pill.classList.toggle('open');
         toggle.textContent = pill.classList.contains('open') ? 'close' : 'menu';
     });
-</script>
+
+    const page = document.querySelector('.page-content');
+    document.addEventListener('click', (e) => {
+      if (!pill.contains(e.target)) {
+        pill.classList.remove('open');
+        toggle.textContent = 'menu';
+      }
+    });
+    </script>
 </div>
 <div class="footer">© 2025, frgrnt</div>
 </body>
