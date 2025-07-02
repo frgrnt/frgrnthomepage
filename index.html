@@ -39,14 +39,23 @@ html, body { width: 100%; min-height: 100%; font-family: 'JetBrains Mono', monos
   left: 50%; transform: translateX(-50%);
 }
 
+
 .video-container {
-  position: relative; height: 100vh; width: 100%;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
   display: flex; justify-content: center; align-items: center; text-align: center;
   color: #f0f0f0;
 }
+
 video.bg-video {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  object-fit: cover; z-index: -1;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 .video-container h1 {
   font-size: 3rem; font-weight: 400; line-height: 1.3; letter-spacing: -0.03em;
@@ -57,7 +66,7 @@ video.bg-video {
 }
 @keyframes blink { 0%,50%{opacity:1;}51%,100%{opacity:0;} }
 
-.page-content { display: flex; flex-direction: column; justify-content: flex-start; background: var(--color-bg); color: var(--color-text);  background: var(--color-bg); }
+.page-content { display: flex; flex-direction: column; justify-content: flex-start; background: var(--color-bg); color: var(--color-text); }
 .container {
   width: 100%; padding: 0 20px; margin: 40px 0;
   display: flex; flex-direction: column; align-items: flex-start;
@@ -73,8 +82,7 @@ h2 {
 }
 .content { display: none; width: 100%; margin-bottom: 2rem; }
 .content.open { display: block; }
-@media (max-width:600px), (max-height:500px) {
-  .video-container h1, h2{font-size:1.6rem;} .subtext{font-size:0.9rem;}
+ .subtext{font-size:0.9rem;}
 }
 
 .header.open {
