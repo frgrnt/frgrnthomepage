@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,10 +36,16 @@ html, body { width: 100%; min-height: 100%; font-family: 'JetBrains Mono', monos
   display: flex; justify-content: center; align-items: center; text-align: center;
   color: #f0f0f0;
 }
+
+
 video.bg-video {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  object-fit: cover; z-index: -1;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
 }
+
+
 .video-container h1 {
   font-size: 3rem; font-weight: 400; line-height: 1.3; letter-spacing: -0.03em;
 }
@@ -50,15 +55,10 @@ video.bg-video {
 }
 @keyframes blink { 0%,50%{opacity:1;}51%,100%{opacity:0;} }
 
-.page-content {
-  display: flex; flex-direction: column; justify-content: flex-start;
-  background: var(--color-bg); color: var(--color-text);
-  position: relative; z-index: 1;
-}
+.page-content { display: flex; flex-direction: column; justify-content: flex-start; background: var(--color-bg); color: var(--color-text); }
 .container {
-  width: 100%; padding: 40px 20px; margin: 0;
+  width: 100%; padding: 0 20px; margin: 40px 0;
   display: flex; flex-direction: column; align-items: flex-start;
-  background: #fff;
 }
 h2 {
   font-size: 3rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.03em;
@@ -74,6 +74,7 @@ h2 {
 @media (max-width:600px), (max-height:500px) {
   .video-container h1, h2{font-size:1.6rem;} .subtext{font-size:0.9rem;}
 }
+
 .header.open {
   justify-content: space-between;
 }
@@ -84,6 +85,23 @@ h2 {
   position: static;
   transform: none;
 }
+
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #f0f0f0;
+  text-align: center;
+}
+
 </style>
 </head>
 <body>
@@ -95,12 +113,13 @@ h2 {
   </div>
   <span class="menu-toggle" id="menuToggle">menu</span>
 </div>
-<video autoplay class="bg-video" loop muted playsinline>
+
+<div class="hero"><video autoplay class="bg-video" loop muted playsinline>
   <source src="RNFetchBlobTmp_60c7u7hdcblpbpzxnpxul copy copy.mp4" type="video/mp4"/>
-</video>
-<div class="video-container">
+</video><div class="video-overlay">
   <h1>scent as identity<span class="cursor"></span></h1>
-</div>
+</div></div>
+
 <div class="page-content" id="main-content">
   <div class="container">
     <h2 onclick="toggleContent('about')">about</h2>
@@ -134,6 +153,7 @@ h2 {
     </div>
   </div>
 </div>
+
 <script>
 const header = document.getElementById('header');
 const menuToggle = document.getElementById('menuToggle');
