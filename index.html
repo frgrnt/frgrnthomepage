@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +25,13 @@ html, body { width: 100%; min-height: 100%; font-family: 'JetBrains Mono', monos
 .menu-links a:hover { opacity: 0.6; }
 .menu-toggle {
   font-size: 16px; cursor: pointer; user-select: none; text-transform: lowercase;
+  border: 1px solid #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 0;
+  transition: background 0.3s;
+}
+.menu-toggle:hover {
+  background: rgba(240,240,240,0.1);
 }
 .header.open .menu-links {
   display: flex;
