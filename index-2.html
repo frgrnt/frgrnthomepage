@@ -1,13 +1,14 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>about — frgrnt</title>
+<title>
+   frgrnt — scent branding agency
+  </title>
 <style>
-@font-face {
+   @font-face {
   font-family: 'JetBrains Mono';
   src: url('/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2') format('woff2');
   font-weight: 400;
@@ -19,10 +20,12 @@
   font-weight: 700;
   font-style: normal;
 }
-
-video::-webkit-media-controls-start-playback-button {
-  display: none !important;
-  -webkit-appearance: none;
+  
+@media (max-width: 768px) {
+  .left {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 
@@ -70,14 +73,9 @@ video::-webkit-media-controls-start-playback-button {
     font-weight: 600 !important;
   }
 }
-
-
-.text-wrapper p {
-  text-align: justify !important;
-}
 </style>
 <style>
-    * {
+   * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -100,7 +98,7 @@ video::-webkit-media-controls-start-playback-button {
       position: sticky;
       top: 0;
       z-index: 10;
-      background: #fffef3;
+      background: rgba(255, 254, 243, 0.6);
     }
 
     .nav-left {
@@ -168,6 +166,7 @@ video::-webkit-media-controls-start-playback-button {
       line-height: 1.6;
       margin: 0 auto;
       padding: 0 24px;
+      font-style: italic;
       text-align: center;
     }
 
@@ -326,31 +325,18 @@ video::-webkit-media-controls-start-playback-button {
   opacity: 0.6;
   transition: opacity 0.3s ease;
 }
-
-.intro-text {
-  max-width: 600px;
-  margin-top: -20vh;
-  text-align: left;
-}
-
-@media (max-width: 768px) {
-  .intro-text {
-    margin-top: 0 !important;
-  }
-}
-
-</style>
+  </style>
 <style>
-  .pause-button, .pause-button-mobile {
+   .pause-button, .pause-button-mobile {
     font-size: 24px !important;
     line-height: 1 !important;
     font-family: 'JetBrains Mono', monospace !important;
     padding: 0 !important;
     margin: 0 !important;
   }
-</style>
+  </style>
 <style>
-  .pause-button, .pause-button-mobile {
+   .pause-button, .pause-button-mobile {
     font-size: 18px !important;  /* smaller button size */
     line-height: 1 !important;
     font-family: 'JetBrains Mono', monospace !important;
@@ -363,9 +349,9 @@ video::-webkit-media-controls-start-playback-button {
   .pause-button:hover, .pause-button-mobile:hover {
     color: rgba(0, 0, 0, 0.8) !important;
   }
-</style>
+  </style>
 <style>
-  .pause-button, .pause-button-mobile {
+   .pause-button, .pause-button-mobile {
     font-size: 16px !important;  /* smaller icon size */
     line-height: 1 !important;
     font-family: 'JetBrains Mono', monospace !important;
@@ -378,9 +364,9 @@ video::-webkit-media-controls-start-playback-button {
   .pause-button:hover, .pause-button-mobile:hover {
     color: rgba(0, 0, 0, 0.6) !important;  /* hover opacity */
   }
-</style>
+  </style>
 <style>
-  .pause-button, .pause-button-mobile {
+   .pause-button, .pause-button-mobile {
     font-size: 20px !important;  /* equalize font size for both icons */
     line-height: 1 !important;
     font-family: 'JetBrains Mono', monospace !important;
@@ -393,9 +379,9 @@ video::-webkit-media-controls-start-playback-button {
   .pause-button:hover, .pause-button-mobile:hover {
     color: rgba(0, 0, 0, 0.6) !important;  /* hover opacity */
   }
-</style>
+  </style>
 <style>
-  .pause-button, .pause-button-mobile {
+   .pause-button, .pause-button-mobile {
     font-size: 18px !important;  /* slightly smaller for consistency */
     line-height: 1 !important;
     font-family: 'JetBrains Mono', monospace !important;
@@ -417,7 +403,11 @@ video::-webkit-media-controls-start-playback-button {
     font-size: 18px !important;  /* for a balanced look on mobile */
   }
 
-
+.intro-text {
+  max-width: 600px;
+  margin-top: -20vh;
+  text-align: left;
+}
 
 .intro-text h2 {
   font-size: 14px;
@@ -463,10 +453,12 @@ video::-webkit-media-controls-start-playback-button {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.6;
+  font-style: italic;
   margin-top: 12px;
   text-align: left;
 }
 .text-wrapper p {
+  font-style: italic;
   margin-top: 12px;
 }
 
@@ -552,9 +544,9 @@ video::-webkit-media-controls-start-playback-button {
   color: rgba(51, 51, 51, 0.8);
   border-color: rgba(51, 51, 51, 0.6);
 }
-</style>
+  </style>
 <style>
-      .pause-button {
+   .pause-button {
         position: absolute;
         bottom: 12px;
         left: 12px;
@@ -588,9 +580,9 @@ video::-webkit-media-controls-start-playback-button {
         height: 12px;
         background-color: rgba(51, 51, 51, 0.6);
       }
-    </style>
+  </style>
 <style>
-/* --- Footer Uniform Size --- */
+   /* --- Footer Uniform Size --- */
 footer a, footer div {
   font-size: 12px;
 }
@@ -617,9 +609,9 @@ body {
   overflow-x: hidden;
   font-size: clamp(12px, 2vw, 16px);
 }
-</style>
+  </style>
 <style>
-/* --- Proper Footer Left Alignment --- */
+   /* --- Proper Footer Left Alignment --- */
 footer {
   display: flex;
   flex-direction: column;
@@ -689,7 +681,19 @@ body {
   overflow-x: hidden;
   font-size: clamp(12px, 2vw, 16px);
 }
-</style>
+  </style>
+<style>
+   video::-webkit-media-controls {
+  display: none !important;
+}
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+  </style>
 <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
@@ -698,7 +702,7 @@ body {
 <meta content="#fffef3" name="theme-color"/>
 <meta content="#fffef3" name="msapplication-TileColor"/>
 <style>
-html.is-animating #swup {
+   html.is-animating #swup {
   opacity: 0;
   transition: opacity 300ms ease;
 }
@@ -706,104 +710,216 @@ html.is-animating #swup {
   opacity: 1;
   transition: opacity 300ms ease;
 }
+  </style>
+<style>
+   .fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+  </style>
+<style>
+   .slide-block:nth-of-type(2) .text-wrapper p {
+  font-style: normal !important;
+}
+  </style>
+<style>
+   .slide-controls {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  z-index: 5;
+  display: flex;
+  gap: 12px;
+}
+.slide-control-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  color: rgba(51, 51, 51, 0.4);
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+.slide-control-button:hover {
+  color: rgba(51, 51, 51, 0.6);
+}
+  </style>
+<style>
+   .fade-in {
+  animation: fadeIn 1s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+  </style>
+<style>
+   @media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .left, .right {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .right {
+    order: 1;
+  }
+
+  .left {
+    order: 2;
+    padding: 24px 16px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .intro-text {
+    margin-top: 0 !important;
+    text-align: left;
+  }
+
+  .intro-text h2 {
+    font-size: 18px;
+  }
+
+  .intro-text p {
+    font-size: 14px;
+  }
+
+  video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}
+  </style>
+<style>
+  body {
+  overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  main {
+    flex: 1;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: rgba(51, 51, 51, 0.4);
+    background: transparent;
+  }
+  footer a, footer div {
+    font-size: 12px;
+    text-align: left;
+    text-decoration: none;
+    color: rgba(51, 51, 51, 0.4);
+  }
+</style>
+<style>
+.chip.selected {
+  background-color: rgba(51, 51, 51, 0.1);
+  border-color: #333;
+  color: #333;
+}
 </style>
 </head>
-<body style="display: flex; flex-direction: column; min-height: 100vh;">
+<body>
+<main>
+<div class="slide-block" style="display: block;">
 <div class="nav">
 <div class="nav-left">
-<a class="logo" href="/index.html" id="logoText">frgrnt</a>
+<a class="logo" href="/index.html" id="logoText">fr<span class="flicker-a">a</span>gr<span class="flicker-a">a</span>nt</a>
 </div>
 <div class="nav-right">
 <div id="navLinks" style="display: none; align-items: center;">
-<a href="/about.html" style="margin-left: 0;">about</a>
-<a href="/works.html" style="margin-left: 24px;">works</a>
-<a href="mailto:info@frgrnt.com?subject=Enquiry" style="margin-left: 24px;">email</a>
+<a href="/about.html" style="margin-left: 0;">
+       about
+      </a>
+<a href="/works.html" style="margin-left: 24px;">
+       works
+      </a>
+<a href="mailto:info@frgrnt.com?subject=Enquiry" style="margin-left: 24px;">
+       email
+      </a>
 </div>
-<div class="spray-menu" onclick="toggleMenu()" style="margin-left: 24px;">
+<div class="spray-menu" onclick="toggleMenu(event)" style="margin-left: 24px;">
 <div class="spray-line" style="margin-left: 0px;">
-<span></span><span></span><span></span>
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
 </div>
 <div class="spray-line" style="margin-left: 8px;">
-<span></span><span></span>
+<span>
+</span>
+<span>
+</span>
 </div>
 <div class="spray-line" style="margin-left: 16px;">
-<span></span>
+<span>
+</span>
 </div>
 </div>
 </div>
 </div>
 <div class="container" style="flex: 1;">
 <div class="left">
-<div class="intro-text">
+<div class="intro-text fade-in">
 <div class="text-wrapper">
-<h2>about</h2>
-<p>we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
-<p>scent branding, custom fragrance creation, and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
-<p>from concept to composition, we guide brands through the creation of their olfactive signature.</p>
+<h2>
+        the subtle art of scent
+       </h2>
+<p>
+        “scent connects on a deeper level. it shapes mood, triggers memory, and influences decisions — silently and powerfully.”
+       </p>
+<div class="styled-ctas">
+<a class="cta-underline" href="mailto:info@frgrnt.com?subject=Enquiry">
+         start your journey →
+        </a>
+</div>
 </div>
 </div>
 </div>
 <div class="right" style=" position: relative;">
 <video autoplay="" controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture="" id="mainVideo" loop="" muted="" playsinline="">
-<source src="about_video.mp4" type="video/mp4"/>
+<source src="works_landing.mp4" type="video/mp4"/>
 </video>
-<source src="about_video.mp4" type="video/mp4"/>
-<div aria-label="Toggle video playback" class="control-button pause-button" id="pauseButton" onclick="toggleVideo(event)"><div></div></div>
-</div>
-</div>
+<source src="works_landing.mp4" type="video/mp4"/>
 
+</div>
+</div>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const video = document.getElementById('mainVideo');
-  const playIcon = document.getElementById('playIcon');
-  const pauseIcon = document.getElementById('pauseIcon');
-
-  video.muted = true;
-
-  // Slight delay to improve autoplay reliability on iOS
-  setTimeout(() => {
-    video.play().catch(err => {
-      console.log("Autoplay failed:", err);
-    });
-  }, 300);
-
-  function updateIcons() {
-    const showPlay = video.paused;
-    if (playIcon) playIcon.style.display = showPlay ? 'block' : 'none';
-    if (pauseIcon) pauseIcon.style.display = showPlay ? 'none' : 'flex';
-  }
-
-  window.toggleVideo = function (e) {
-    e.stopPropagation();
-    if (video.paused) {
-      video.play();
-    } else {
-      video.pause();
-    }
-    updateIcons();
-  }
-
-  video.addEventListener('play', updateIcons);
-  video.addEventListener('pause', updateIcons);
-  updateIcons();
-});
-</script><script>
-  window.addEventListener('scroll', function () {
-    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', function () {
+  const navs = document.querySelectorAll('.nav');
+  navs.forEach(nav => {
     if (window.scrollY > 10) {
       nav.classList.add('transparent');
     } else {
       nav.classList.remove('transparent');
     }
   });
-</script>
-<footer style="padding: 16px; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: rgba(51, 51, 51, 0.4); background: transparent;">
-<a href="/privacy.html" style="text-decoration: none; color: rgba(51, 51, 51, 0.4); font-size: 12px;">privacy policy</a>
-<div>© 2025, frgrnt</div>
-</footer>
+});
+   </script>
 <style>
-
-.spray-menu {
+    .spray-menu {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -835,28 +951,173 @@ document.addEventListener('DOMContentLoaded', function () {
   border-radius: 50%;
   transition: background-color 0.2s ease;
 }
+   </style>
+<script>
+  let menuOpen = false;
 
-</style><script>
-let menuOpen = false;
-function toggleMenu() {
-  const navLinks = document.getElementById('navLinks');
-  const sprayMenu = document.querySelector('.spray-menu');
-  const dots = document.querySelectorAll('.spray-menu span');
-  
-  if (menuOpen) {
-    navLinks.style.display = 'none';
-    sprayMenu.classList.remove('rotate');
-    dots.forEach(dot => {
-      dot.style.backgroundColor = '#333333';
-    });
-    menuOpen = false;
-  } else {
-    navLinks.style.display = 'flex';
-    sprayMenu.classList.add('rotate');
-    dots.forEach(dot => {
-      dot.style.backgroundColor = '#888888';
-    });
-    menuOpen = true;
+  function toggleMenu(event) {
+    const clickedMenu = event.currentTarget;
+    const nav = clickedMenu.closest('.nav');
+    const navLinks = nav.querySelector('#navLinks') || nav.querySelector('#navLinks2');
+    const dots = clickedMenu.querySelectorAll('span');
+
+    if (menuOpen) {
+      navLinks.style.display = 'none';
+      clickedMenu.classList.remove('rotate');
+      dots.forEach(dot => dot.style.backgroundColor = '#333333');
+      menuOpen = false;
+    } else {
+      navLinks.style.display = 'flex';
+      clickedMenu.classList.add('rotate');
+      dots.forEach(dot => dot.style.backgroundColor = '#888888');
+      menuOpen = true;
+    }
   }
+</script>
+</div>
+
+<script>
+   window.addEventListener('scroll', function () {
+    const nav = document.querySelector('.nav');
+    if (window.scrollY > 10) {
+      nav.classList.add('transparent');
+    } else {
+      nav.classList.remove('transparent');
+    }
+  });
+  </script>
+<style>
+   .spray-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  cursor: pointer;
+  gap: 6px;
+  transition: transform 0.3s ease;
+  /* padding: 10px; --> REMOVED */
 }
-</script></body></html>
+
+.spray-menu:hover span,
+.spray-menu.rotate span {
+  background-color: #888888;
+}
+
+.spray-menu.rotate {
+  transform: rotate(180deg);
+}
+
+.spray-line {
+  display: flex;
+  gap: 6px;
+}
+
+.spray-line span {
+  width: 4px;
+  height: 4px;
+  background-color: #333;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+  </style>
+<script>
+  let menuOpen = false;
+
+  function toggleMenu(event) {
+    const clickedMenu = event.currentTarget;
+    const nav = clickedMenu.closest('.nav');
+    const navLinks = nav.querySelector('#navLinks') || nav.querySelector('#navLinks2');
+    const dots = clickedMenu.querySelectorAll('span');
+
+    if (menuOpen) {
+      navLinks.style.display = 'none';
+      clickedMenu.classList.remove('rotate');
+      dots.forEach(dot => dot.style.backgroundColor = '#333333');
+      menuOpen = false;
+    } else {
+      navLinks.style.display = 'flex';
+      clickedMenu.classList.add('rotate');
+      dots.forEach(dot => dot.style.backgroundColor = '#888888');
+      menuOpen = true;
+    }
+  }
+</script>
+<script>
+   let slideshowInterval;
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.slide-block');
+    let current = 0;
+    slideshowInterval = setInterval(() => {
+      const intro = slides[current].querySelector('.intro-text');
+      const image = slides[current].querySelector('img');
+
+      if (intro) intro.classList.remove('fade-in');
+      if (image) image.classList.remove('fade-in');
+
+      slides[current].style.display = 'none';
+      current = (current + 1) % slides.length;
+      slides[current].style.display = 'block';
+
+      const newIntro = slides[current].querySelector('.intro-text');
+      const newImage = slides[current].querySelector('img');
+
+      if (newIntro) newIntro.classList.add('fade-in');
+      if (newImage) newImage.classList.add('fade-in');
+    }, 5000);
+  });
+  </script>
+<script>
+   const dots = document.querySelectorAll('.slide-dot');
+
+function showSlide(index) {
+  clearInterval(slideshowInterval);
+  clearInterval(slideshowInterval);
+  const slides = document.querySelectorAll('.slide-block');
+  
+  slides.forEach((slide, i) => {
+    slide.style.display = i === index ? 'block' : 'none';
+    if (i === index) {
+      const intro = slide.querySelector('.intro-text');
+      const img = slide.querySelector('img');
+      if (intro) {
+        intro.classList.remove('fade-in');
+        void intro.offsetWidth;
+        intro.classList.add('fade-in');
+      }
+      if (img) {
+        img.classList.remove('fade-in');
+        void img.offsetWidth;
+        img.classList.add('fade-in');
+      }
+    }
+  });
+
+  dots.forEach((dot, i) => {
+    dot.style.backgroundColor = i === index ? 'rgba(51, 51, 51, 0.5)' : 'rgba(51, 51, 51, 0.2)';
+  });
+  currentSlide = index;
+}
+let currentSlide = 0;
+showSlide(currentSlide);
+  </script>
+</main>
+<footer>
+<a href="/privacy.html">privacy policy</a>
+<div>© 2025, frgrnt</div>
+</footer>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const logo = document.getElementById('logoText');
+    setTimeout(() => {
+      logo.textContent = 'frgrnt';
+    }, 900);
+  });
+</script>
+<!-- Modal -->
+
+
+<script src="https://www.paypal.com/sdk/js?client-id=AR1zwcZCWpl0KIWn2UXsDkF2DX34g1Ih2aqhMZT0yxhEkxEi6S-DVJtGyuTwjH7tmKMvlUGfj05ftRWJ¤cy=GBP"></script>
+
+</body>
+</html>
