@@ -88,6 +88,11 @@ h2 {
   transform: none;
 }
 
+
+.spacer { height: 0; }
+@media (max-width: 600px) {
+  .spacer { height: 100vh; }
+}
 </style>
 </head>
 <body>
@@ -107,7 +112,7 @@ h2 {
 <div class="video-container">
   <h1>scent as identity<span class="cursor"></span></h1>
 </div>
-
+<div class="spacer"></div>
 <div class="page-content" id="main-content">
   <div class="container">
     <h2 onclick="toggleContent('about')">about</h2>
