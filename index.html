@@ -28,6 +28,51 @@
   }
 }
 
+
+@media (max-width: 768px) {
+  .left {
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    padding: 24px 16px !important;
+    text-align: left !important;
+  }
+
+  .intro-text, .text-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+  }
+
+  .text-wrapper h2,
+  .text-wrapper p {
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+  }
+
+  .text-wrapper p {
+    margin-top: 12px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-wrapper p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-wrapper p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  .text-wrapper h2 {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+  }
+}
 </style>
 <style>
    * {
@@ -37,6 +82,7 @@
     }
 
     body {
+  overflow-x: hidden;
       font-family: 'JetBrains Mono', monospace;
       background-color: #fffef3;
       color: #333333;
@@ -93,7 +139,7 @@
     .container {
       display: flex;
       flex-direction: row;
-      width: 100vw;
+      width: 100%;
       height: 84vh;
     }
 
@@ -165,13 +211,13 @@
 
       .right {
         order: -1;
-        width: 100vw;
+        width: 100%;
         height: 50vh;
       }
 
       .left {
         order: 1;
-        width: 100vw;
+        width: 100%;
         height: 50vh;
         padding: 16px;
       }
@@ -560,6 +606,7 @@ footer a, footer div {
 
 /* --- Optional: Font Clamping --- */
 body {
+  overflow-x: hidden;
   font-size: clamp(12px, 2vw, 16px);
 }
   </style>
@@ -631,6 +678,7 @@ html {
 
 /* --- Optional Font Scaling for Body --- */
 body {
+  overflow-x: hidden;
   font-size: clamp(12px, 2vw, 16px);
 }
   </style>
@@ -758,6 +806,7 @@ video::-webkit-media-controls-start-playback-button {
   </style>
 <style>
   body {
+  overflow-x: hidden;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
