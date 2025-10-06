@@ -2,149 +2,193 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>frgrnt — scent branding agency</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <style>
-:root { --color-text: #a0a0a0; --color-bg: #fff; }
-* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; margin: 0; padding: 0; }
-html, body { width: 100%; min-height: 100%; font-family: 'JetBrains Mono', monospace; scroll-behavior: smooth; overflow-x: hidden; }
-.header {
-  position: fixed; top: 20px; left: 20px; right: 20px;
-  display: flex; justify-content: space-between; align-items: center;
-  z-index: 200; color: #f0f0f0;
-}
-.brand { font-size: 1.6rem; cursor: pointer; }
-.menu-links {
-  display: none; gap: 36px; align-items: center; font-size: 16px;
-}
-.menu-links a {
-  color: #f0f0f0; text-decoration: none; text-transform: lowercase; font-size: 16px;
-}
-.menu-links a:hover { opacity: 0.6; }
-.menu-toggle {
-  font-size: 16px; cursor: pointer; user-select: none; text-transform: lowercase;
-}
-.header.open .menu-links {
-  display: flex;
-  position: absolute;
-  left: 50%; transform: translateX(-50%);
-}
+    * {
+      -webkit-tap-highlight-color: transparent;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.video-container {
-  position: relative; height: 100vh; width: 100%;
-  display: flex; justify-content: center; align-items: center; text-align: center;
-  color: #f0f0f0;
-}
-video.bg-video {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  object-fit: cover; z-index: -1;
-}
-.video-container h1 {
-  font-size: 3rem; font-weight: 400; line-height: 1.3; letter-spacing: -0.03em;
-}
-.cursor {
-  display: inline-block; width: 0.35em; height: 0.8em; background: #f0f0f0;
-  animation: blink 1s infinite; margin-left: 0.2em;
-}
-@keyframes blink { 0%,50%{opacity:1;}51%,100%{opacity:0;} }
+    html, body {
+      height: 100%;
+      width: 100%;
+      color: #f0f0f0;
+      font-family: 'JetBrains Mono', monospace;
+      overflow: hidden; /* disable any scrolling */
+      background: #000000; /* black background */
+    }
 
-.page-content { display: flex; flex-direction: column; justify-content: flex-start; background: var(--color-bg); color: var(--color-text); }
-.container {
-  width: 100%; padding: 0 20px; margin: 40px 0;
-  display: flex; flex-direction: column; align-items: flex-start;
-}
-h2 {
-  font-size: 3rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.03em;
-  margin: 0; padding: 0; text-transform: lowercase; cursor: pointer;
-  transition: color 0.3s;
-}
-.subtext {
-  font-size: 0.95rem; line-height: 1.6; width: 100%; text-align: justify;
-  margin-top: 1rem;
-}
-.content { display: none; width: 100%; margin-bottom: 2rem; }
-.content.open { display: block; }
-@media (max-width:600px), (max-height:500px) {
-  .video-container h1, h2{font-size:1.6rem;} .subtext{font-size:0.9rem;}
-}
+    .nav-pill {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      height: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      overflow: hidden;
+
+      background: rgba(240, 240, 240, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(240, 240, 240, 0.3);
+      border-radius: 999px;
+
+      color: #f0f0f0;
+      z-index: 110;
+    }
+
+    .nav-pill .brand {
+      font-size: 22px;
+      font-weight: normal;
+      letter-spacing: -0.03em;
+      cursor: pointer;
+      z-index: 2;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .nav-pill.open .brand {
+      transform: translateX(-150%);
+      opacity: 0;
+    }
+
+    .nav-pill .nav-toggle {
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .nav-pill .nav-toggle:hover {
+      opacity: 0.8;
+    }
+
+    .nav-links {
+      position: absolute;
+      top: 0;
+      left: 20px;
+      right: 20px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 36px;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      pointer-events: none;
+    }
+
+    .nav-pill.open .nav-links {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .nav-links a {
+      color: #f0f0f0;
+      text-decoration: none;
+      text-transform: lowercase;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.6;
+    }
+
+    .container {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.03em;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 0.35em;
+      height: 0.8em;
+      background: #f0f0f0;
+      animation: blink 1s infinite;
+      margin-left: 0.2em;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      font-size: 14px;
+      color: #f0f0f0;
+      z-index: 110;
+    }
+
+    @media (max-width: 600px), (max-height: 500px) {
+      .nav-pill.open .nav-links {
+        justify-content: flex-start !important;
+        padding-left: 20px;
+      }
+      .nav-links {
+        gap: 20px;
+      }
+      h1 {
+        font-size: 1.6rem;
+        padding: 0 1rem;
+      }
+      .container {
+        padding: 1rem;
+      }
+    }
 </style>
 </head>
 <body>
-<div class="header" id="header">
-  <span class="brand" onclick="scrollToTop()">frgrnt</span>
-  <div class="menu-links" id="menuLinks">
-    <a href="#main-content" onclick="navigate()">about</a>
-    <a href="#email" onclick="navigate()">email</a>
-  </div>
-  <span class="menu-toggle" id="menuToggle">menu</span>
+<div class="page-content">
+
+
+<!-- Removed video background -->
+
+<div class="container">
+<h1><span class="headline-text">coming soon</span><span class="cursor"></span></h1>
 </div>
-
-<video autoplay class="bg-video" loop muted playsinline>
-  <source src="RNFetchBlobTmp_60c7u7hdcblpbpzxnpxul copy copy.mp4" type="video/mp4"/>
-</video>
-
-<div class="video-container">
-  <h1>scent as identity<span class="cursor"></span></h1>
-</div>
-
-<div class="page-content" id="main-content">
-  <div class="container">
-    <h2 onclick="toggleContent('about')">about</h2>
-    <div id="about" class="content">
-      <p class="subtext">we infuse brand identity into scent, deepening the connection between people and place — and helping brands shape how they’re remembered.</p>
-      <p class="subtext">scent branding, custom fragrance creation, and curated programs — for retail, hospitality, exhibitions, and creative spaces.</p>
-      <p class="subtext">from concept to composition, we guide brands through the creation of their olfactive signature.</p>
-    </div>
-    <h2 onclick="toggleContent('services')">services</h2>
-    <div id="services" class="content">
-      <p class="subtext">we offer a variety of scent solutions to fit the needs of your business.</p>
-      <p class="subtext">scent creation, HVAC or standalone installation, on-demand maintenance/cleaning and bespoke scent offerings.</p>
-    </div>
-    <h2 onclick="toggleContent('approach')">approach</h2>
-    <div id="approach" class="content">
-      <p class="subtext">trusted by brands who see scent as part of the experience — residential developments, health & wellness, hotels, retail stores and commercial units.</p>
-      <p class="subtext">from ambient scenting for wellness spaces to signature fragrances for branded environments, each project is shaped by mood, material, and identity.</p>
-      <p class="subtext">our work is subtle but immersive — built to be felt, not forced.</p>
-    </div>
-    <h2 onclick="toggleContent('commitment')">commitment</h2>
-    <div id="commitment" class="content">
-      <p class="subtext">we work with fragrance partners who share our values — focused on clean formulations, low-impact diffusion, and recyclable materials wherever possible.</p>
-      <p class="subtext">we’re committed to practices that support:<br>
-      — low-emission scent delivery systems<br>
-      — cruelty-free, phthalate-free fragrance oils<br>
-      — conscious sourcing and supply models</p>
-    </div>
-    <h2 id="email" onclick="toggleContent('contact-info')" style="color:#808080;">get in touch</h2>
-    <div id="contact-info" class="content">
-      <p class="subtext">email us at: info@frgrnt.com</p>
-    </div>
-  </div>
-</div>
-
 <script>
-const header = document.getElementById('header');
-const menuToggle = document.getElementById('menuToggle');
-menuToggle.addEventListener('click', () => {
-  header.classList.toggle('open');
-  menuToggle.textContent = header.classList.contains('open') ? 'close' : 'menu';
-});
-function navigate() {
-  header.classList.remove('open');
-  menuToggle.textContent = 'menu';
-}
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  header.classList.remove('open');
-  menuToggle.textContent = 'menu';
-}
-function toggleContent(id) {
-  ["about","services","approach","commitment","contact-info"].forEach(section => {
-    const el = document.getElementById(section);
-    if (section === id) el.classList.toggle('open');
-    else el.classList.remove('open');
-  });
-}
+    const pill = document.querySelector('.nav-pill');
+    const toggle = pill.querySelector('.nav-toggle');
+    toggle.addEventListener('click', () => {
+        pill.classList.toggle('open');
+        toggle.textContent = pill.classList.contains('open') ? 'close' : 'menu';
+    });
+
+    const page = document.querySelector('.page-content');
+    document.addEventListener('click', (e) => {
+      if (!pill.contains(e.target)) {
+        pill.classList.remove('open');
+        toggle.textContent = 'menu';
+      }
+    });
 </script>
+</div>
+<div class="footer">© 2025, frgrnt</div>
 </body>
 </html>
