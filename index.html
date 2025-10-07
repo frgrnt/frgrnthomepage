@@ -113,7 +113,42 @@ html, body {
 }
 
 </style>
+
+<style>
+.cta-box {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: #000;
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: lowercase;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.85;
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.cta-box:hover {
+  background-color: #333;
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .cta-box {
+    font-size: 12px;
+    padding: 10px 16px;
+    bottom: 16px;
+    left: 16px;
+  }
+}
+</style>
 </head>
+
 <body>
   <div class="frame">
     <div class="gradient-box">
@@ -222,5 +257,8 @@ html, body {
     }
   }
 </style>
+
+<a href="mailto:info@frgrnt.com?subject=enquiry" class="cta-box">enquiries →</a>
 </body>
+
 </html>
