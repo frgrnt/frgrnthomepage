@@ -11,25 +11,22 @@
       src: url('JejuMyeongjo-Regular.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
-    }
-
-    * {
-      box-sizing: border-box;
+      font-display: swap;
     }
 
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
+      background: #fff;
+      color: #000;
       font-family: 'JejuMyeongjo', serif;
-      background: white;
-      color: black;
+      overflow: hidden;
     }
 
     .scroll-container {
       height: 100vh;
-      overflow-y: scroll;
+      overflow-y: auto;
       scroll-snap-type: y mandatory;
     }
 
@@ -37,26 +34,31 @@
       height: 100vh;
       scroll-snap-align: center;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
-      padding: 2rem;
       text-align: center;
+      padding: 2rem;
     }
 
+    /* Centered SVG logo - full width responsive */
     .logo svg {
-      height: 38vh;
-      width: auto;
-      max-width: 12vw;
-      
-      width: auto;
-      height: 70vh;
       display: block;
       margin: 0 auto;
+      width: auto;
+      height: 45vh;
+      max-width: 85vw;
+    }
+
+    @media (min-width: 768px) {
+      .logo svg {
+        height: 12vh;
+        max-width: 25vw;
+      }
     }
 
     h2 {
-      font-size: 1.125rem; /* ~18px similar to Wylde Hospitality */
+      font-size: 1.125rem;
       max-width: 800px;
       margin: 0 auto;
       line-height: 1.6;
@@ -64,26 +66,18 @@
       opacity: 0.4;
     }
 
-    .icon {
-      width: 30px;
-      height: 30px;
-      stroke: #888;
-      fill: none;
-      stroke-width: 1.5;
-      margin-top: 1rem;
-    }
-
-    a {
-      text-decoration: none;
+    a, a:link, a:visited, a:hover, a:active {
+      color: inherit !important;
+      text-decoration: none !important;
     }
   </style>
 </head>
 <body>
   <div class="scroll-container">
-    <!-- Section 1: Full Logo -->
+    <!-- Centered logo section -->
     <div class="section logo">
-      <svg width="212" height="363" viewBox="0 0 212 363" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="10" y="33" width="192" height="288" rx="96" fill="#D9D9D9"/>
+      <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 212 363" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="10" y="33" rx="96" fill="#D9D9D9"/>
 <path opacity="0.3" d="M84.4691 57.9416C82.7358 57.636 81.1786 56.7928 79.7974 55.4119C78.8333 54.4296 78.0825 53.8504 77.5449 53.6744C77.0212 53.4196 76.4442 53.2366 75.8139 53.1255C74.317 52.8615 72.7531 54.1292 71.1222 56.9286C70.5477 57.8833 70.1238 58.9052 69.8505 59.9943C69.5773 61.0834 69.3295 62.2582 69.1072 63.5188L67.0026 75.4547L79.8839 77.726L79.0921 82.2167L66.2108 79.9454L59.2926 119.18C58.7509 122.253 59.6386 124.359 61.9559 125.499C63.4621 126.17 66.0667 126.833 69.7696 127.486L69.1028 131.267L40.5039 126.225L41.1708 122.443C43.2192 122.804 44.8945 122.978 46.1967 122.964C47.4989 122.949 48.5393 122.808 49.3178 122.539C50.0963 122.27 50.6732 121.763 51.0485 121.016C51.4377 120.191 51.7434 119.149 51.9657 117.888L58.8838 78.6534L49.3115 76.9656L50.1033 72.4748L59.6756 74.1627L60.9676 66.8357C62.0512 60.6905 64.597 55.6968 68.6051 51.8544C73.1044 47.53 78.1509 45.8609 83.7446 46.8473C85.793 47.2084 87.4035 47.9798 88.5761 49.1614C89.8925 50.4495 90.377 52.0784 90.0297 54.048C89.7935 55.3874 89.08 56.4395 87.8891 57.2043C86.7121 57.8903 85.5721 58.1361 84.4691 57.9416Z" fill="black"/>
 <path opacity="0.3" d="M87.5177 294.827C87.8212 295.239 88.0965 295.603 88.3435 295.918C88.6677 296.253 88.992 296.588 89.3162 296.924C87.0557 299.796 84.4378 301.994 81.4625 303.515C78.0746 305.341 74.7966 305.829 71.6283 304.98C67.4555 303.862 64.6911 301.506 63.3349 297.913C63.0066 296.665 62.8356 295.294 62.8219 293.8C62.8083 292.305 63.0292 290.708 63.4847 289.008L73.765 250.642L64.7239 248.219L65.7178 244.51C69.8906 245.628 73.406 244.872 76.2641 242.242C79.4782 239.211 81.9859 234.334 83.7873 227.611L87.2646 228.543L82.0469 248.016L97.2312 252.084L96.0199 256.605L80.8356 252.536L70.3379 291.714C69.2405 295.81 70.8555 298.437 75.1828 299.597C78.6601 300.528 82.7718 298.938 87.5177 294.827Z" fill="black"/>
 <path opacity="0.3" d="M170.337 249.16H146.937V245.32C149.737 245.32 151.697 244.96 152.817 244.24C154.177 243.36 154.857 241.64 154.857 239.08V208.96C154.857 202.24 151.697 198.88 145.377 198.88C141.617 198.88 138.457 199.52 135.897 200.8C134.777 201.36 133.457 202.12 131.937 203.08C130.417 203.96 128.737 205.04 126.897 206.32V239.08C126.897 241.48 127.417 243.08 128.457 243.88C129.097 244.28 129.977 244.6 131.097 244.84C132.217 245.16 133.577 245.32 135.177 245.32V249.16H111.777V245.32C114.817 245.32 117.017 244.84 118.377 243.88C119.177 243.08 119.577 241.48 119.577 239.08V205.96C119.577 203.8 119.177 202.44 118.377 201.88C117.257 201 115.217 200.56 112.257 200.56C112.097 200.16 111.977 199.72 111.897 199.24C111.897 198.76 111.817 198.32 111.657 197.92C114.217 197.04 116.737 196.16 119.217 195.28C121.777 194.4 124.337 193.52 126.897 192.64V201.16C133.697 195.56 140.617 192.76 147.657 192.76C152.537 192.76 156.177 194.16 158.577 196.96C160.977 199.84 162.177 203.92 162.177 209.2V238.96C162.177 241.44 162.657 243.08 163.617 243.88C164.257 244.28 165.137 244.6 166.257 244.84C167.377 245.16 168.737 245.32 170.337 245.32V249.16Z" fill="black"/>
@@ -92,11 +86,9 @@
 <path opacity="0.3" d="M129.953 58.6202C131.376 62.5293 130.359 65.1132 126.9 66.3719C125.472 66.8917 123.661 66.8273 121.467 66.1787C119.806 65.5914 118.223 65.5713 116.72 66.1186C114.765 66.83 112.733 68.8468 110.622 72.1692C108.948 74.8216 107.445 77.7098 106.113 80.8337L116.045 108.122C116.811 110.227 117.694 111.481 118.692 111.884C119.792 112.335 121.996 111.958 125.304 110.755L126.617 114.363L105.192 122.161L103.879 118.553C105.834 117.841 107.282 117.144 108.225 116.46C109.168 115.776 109.718 115.065 109.875 114.327C110.032 113.589 109.878 112.581 109.413 111.303L97.4287 78.3757C96.8814 76.8722 96.2489 75.9531 95.5312 75.6184C95.121 75.4272 94.3589 75.3215 93.2448 75.3013C92.1103 75.4588 90.7913 75.8112 89.2878 76.3584C89.0006 76.0373 88.751 75.7024 88.539 75.3539C88.3271 75.0054 88.0775 74.6706 87.7903 74.3494C89.8402 72.4966 91.8662 70.695 93.8683 68.9447C95.8431 67.1192 97.8178 65.2937 99.7926 63.4682L104.02 75.0828C105.195 72.6971 106.424 70.4617 107.709 68.3767C108.993 66.2917 110.322 64.4459 111.695 62.8393C114.661 59.2911 117.91 56.8741 121.443 55.5881C125.803 54.0011 128.64 55.0118 129.953 58.6202Z" fill="black"/>
 </svg>
 
-      
     </div>
 
-    <!-- Scrolling Text Sections -->
-    <div class="section"><h2>frgrnt infuses brand identity into scent, deepening the connection between people and place - and helping brands shape how they’re remembered.</h2></div>
+    <!-- Text sections -->
     <div class="section"><h2>scent branding, custom fragrance creation, and curated programs - for retail, hospitality, exhibitions, and creative spaces.</h2></div>
     <div class="section"><h2>from concept to composition, we guide brands through the creation of their olfactive signature.</h2></div>
     <div class="section"><h2>01 scent creation  02 HVAC or standalone installation  03 on-demand maintenance & cleaning  04 bespoke scent offerings</h2></div>
