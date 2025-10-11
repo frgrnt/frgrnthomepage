@@ -142,13 +142,13 @@
 
   
   .mini-clock {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 90px;
-  height: 90px;
-  z-index: 10;
-}
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 120px;
+    height: 120px;
+    z-index: 10;
+  }
 
   .mini-clock .clock-face {
     position: absolute;
@@ -166,27 +166,39 @@
     pointer-events: none;
   }
 
+
+  .footer {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 0.875rem;
+    opacity: 0.4;
+  }
+
+  .section.last {
+    position: relative;
+  }
 </style>
 <style>
 /* Default size for desktop */
 .mini-clock svg.clock-face {
-  width: 90px;
-  height: 90px;
+  width: 120px;
+  height: 120px;
 }
 
-/* Tablet view */
+/* Medium screen: slightly smaller */
 @media (max-width: 1024px) {
   .mini-clock svg.clock-face {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
   }
 }
 
-/* Mobile view */
+/* Small screens (phones, portrait and landscape) */
 @media (max-width: 768px) {
   .mini-clock svg.clock-face {
-    width: 55px;
-    height: 55px;
+    width: 70px;
+    height: 70px;
   }
 }
 </style></head>
@@ -260,8 +272,10 @@
 <div class="section fade-in-section">
 <h2>we work with fragrance partners who share our values - focused on clean formulations, low-impact diffusion, and conscious sourcing and supply models.</h2>
 </div>
-<div class="section fade-in-section">
+<div class="section fade-in-section last"><div class="section fade-in-section">
 <h2>connect with us: <a href="mailto:info@frgrnt.com?subject=enquiry">info@frgrnt.com</a></h2>
+</div>
+  <div class="footer">© 2025, frgrnt</div>
 </div>
 </div>
 <script>
