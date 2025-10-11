@@ -167,7 +167,29 @@
   }
 
 </style>
-</head>
+<style>
+/* Default size for desktop */
+.mini-clock svg.clock-face {
+  width: 120px;
+  height: 120px;
+}
+
+/* Medium screen: slightly smaller */
+@media (max-width: 1024px) {
+  .mini-clock svg.clock-face {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Small screens (phones, portrait and landscape) */
+@media (max-width: 768px) {
+  .mini-clock svg.clock-face {
+    width: 70px;
+    height: 70px;
+  }
+}
+</style></head>
 <body>
 <div class="scroll-container">
 <!-- Centered hero logo section -->
