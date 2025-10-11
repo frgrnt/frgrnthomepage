@@ -142,13 +142,13 @@
 
   
   .mini-clock {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 120px;
-    height: 120px;
-    z-index: 10;
-  }
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 90px;
+  height: 90px;
+  z-index: 10;
+}
 
   .mini-clock .clock-face {
     position: absolute;
@@ -170,23 +170,23 @@
 <style>
 /* Default size for desktop */
 .mini-clock svg.clock-face {
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
 }
 
-/* Medium screen: slightly smaller */
+/* Tablet view */
 @media (max-width: 1024px) {
-  .mini-clock svg.clock-face {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-/* Small screens (phones, portrait and landscape) */
-@media (max-width: 768px) {
   .mini-clock svg.clock-face {
     width: 70px;
     height: 70px;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .mini-clock svg.clock-face {
+    width: 55px;
+    height: 55px;
   }
 }
 </style></head>
