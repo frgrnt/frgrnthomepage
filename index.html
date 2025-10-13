@@ -261,13 +261,13 @@
 </svg>
 <svg class="overlay" viewbox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
 <g fill="#6b7164" id="hands" transform="translate(180,180)">
-<path d="M 0 8 C -10 6, -10 -10, -6 -28 C -2 -48,  -1 -70,  0 -88 C  1 -70,   2 -48,  6 -28 C 10 -10,  10 6,   0 8 Z" id="hourHand"></path>
-<path d="M 0 10 C -8 8,  -8 -18, -5 -40 C -2 -72, -1 -110, 0 -132 C  1 -110, 2 -72,  5 -40 C  8 -18,  8 8,    0 10 Z" id="minuteHand"></path>
+<path d="M 0 8 C -10 6, -10 -10, -6 -28 C -2 -48,  -1 -70,  0 -88 C  1 -70,   2 -48,  6 -28 C 10 -10,  10 6,   0 8 Z" fill="#8c9281" id="hourHand"></path>
+<path d="M 0 10 C -8 8,  -8 -18, -5 -40 C -2 -72, -1 -110, 0 -132 C  1 -110, 2 -72,  5 -40 C  8 -18,  8 8,    0 10 Z" fill="#8c9281" id="minuteHand"></path>
 <g fill="#8c9281" id="secondGroup">
-<path d="M 0 14 C -2 12, -2 -40, -1 -110 C  0 -150, 0  -150, 0 -160 C  0 -150, 1 -110,  2 -40 C  2 12,   2 12,    0 14 Z" id="secondHand"></path>
-<circle cx="0" cy="22" r="6"></circle>
+<path d="M 0 14 C -2 12, -2 -40, -1 -110 C  0 -150, 0  -150, 0 -160 C  0 -150, 1 -110,  2 -40 C  2 12,   2 12,    0 14 Z" fill="#6b7164" id="secondHand"></path>
+<circle cx="0" cy="22" fill="#6b7164" r="6"></circle>
 </g>
-<circle cx="0" cy="0" fill="#6b7164" r="6"></circle>
+<circle cx="0" cy="0" fill="#8c9281" r="6"></circle>
 <circle cx="0" cy="0" fill="#a1a79a" r="3"></circle>
 </g>
 </svg>
@@ -352,7 +352,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <div class="footer-credit">© 2025, frgrnt</div>
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const footer = document.querySelector('.footer-credit');
@@ -369,28 +368,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-
-
-
-
-
 <div class="bottom-nav">
-  <a href="#top" aria-label="home">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
-    </svg>
-  </a>
-  <a href="mailto:info@frgrnt.com?subject=enquiry" aria-label="email">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="2" y="4" width="20" height="16" rx="2" ry="2"/>
-      <path d="M21 5 12 13 3 5"/>
-    </svg>
-  </a>
+<a aria-label="home" href="#top">
+<svg fill="none" height="20" stroke="rgba(255,255,255,0.85)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"></path>
+</svg>
+</a>
+<a aria-label="email" href="mailto:info@frgrnt.com?subject=enquiry">
+<svg fill="none" height="20" stroke="rgba(255,255,255,0.85)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<rect height="16" rx="2" ry="2" width="20" x="2" y="4"></rect>
+<path d="M21 5 12 13 3 5"></path>
+</svg>
+</a>
 </div>
-
-
-
-
-
 </body>
 </html>
